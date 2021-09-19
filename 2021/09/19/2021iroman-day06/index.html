@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="所有coding生活紀錄"><title>2新手全端工程師的職場成長歷程-Day06：絕對要有的Git觀念與習慣 | Annie Code Life</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/dark.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">2新手全端工程師的職場成長歷程-Day06：絕對要有的Git觀念與習慣</h1><a id="logo" href="/.">Annie Code Life</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主頁</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/about/"><i class="fa fa-user"> 個人介紹</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">2新手全端工程師的職場成長歷程-Day06：絕對要有的Git觀念與習慣</h1><div class="post-meta">2021-09-19</div><div class="post-content"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&emsp;&emsp;先前有提到，我在轉職後、進到現職公司前，其實還有錄取過另外一份 PHP 後端工程師之職缺，因為轉職時在培訓營學習過 Ruby 這個後端語言，所以在技術考時，算是回答方向還可以，有幸被錄取。</p>
+<p>&emsp;&emsp;不幸的是，我入職後發現全公司都沒有人會使用 Git!!!太驚人了啊～這麼好用的東西到底為何不使用呢？我記得我才到職一週時間，每天在辦公室裡，大家都是埋頭寫扣，最常聽到的對話就是「有人剛剛刪掉我的某某某段程式碼嗎？」</p>
+<p>&emsp;&emsp;後來詢問之後才了解，原來我面試時詢問公司是否有使用 Git 做版控時，主管說有，其實是沒有的…全公司前後端分離，程式碼的交換是使用共用資料夾做傳輸…所以就會有掉程式碼的問題常發生，而大家也都沒有備份的習慣，導致專案開發常常有耗時之問題！</p>
+<p>&emsp;&emsp;當然除了沒有版控，其實還有其他問題，我只做一週就離職了。從中得到最寶貴的經驗，我覺得是建議剛要踏入這行的新鮮人，可以多注意版本控制這件事，不要說是協作，你一個人在家開發 side project 時也可以用啊！隨時隨地都可以練習的～</p>
+<h2 id="二、Git-是什麼？"><a href="#二、Git-是什麼？" class="headerlink" title="二、Git 是什麼？"></a>二、Git 是什麼？</h2><p>&emsp;&emsp;Git 像一個檔案系統，直接在本機上取得資料，不必連線到主機端取得資料。 每個開發者都可有全部開發歷史的本地副本，changes 從這種本地 repository 複製給其他開發者。這些 changes 作為新增的開發分支被匯入，可以與本地開發分支合併。(本段落取用自<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Git">維基百科</a>之定義)</p>
+<p>&emsp;&emsp;上面那段我覺得可能是因為翻譯關係較為饒舌難懂，我覺得較簡單的理解是可以把 Git 當作是一個版本開發工具，你可以隨時儲存進度、保留歷史開發內容、為每一階段開發做有效命名、以及傳送至有效之 server 作為團隊合作之工具。</p>
+<p>&emsp;&emsp;以下介紹我覺得入職後最常用的幾個，如果想要從頭學習或瞭解一些冷知識的話，推薦可以看龍哥的這本書&lt;&lt;<a target="_blank" rel="noopener" href="https://gitbook.tw/">為你自己學 Git</a>&gt;&gt;，可以依自己習慣選擇電子版或實體書籍(我個人還是喜歡實體書籍)。但入職前將下列指令熟用(稍微列幾個，但實際上也要看公司的習慣)，真的是很基本的事情！</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>Git 指令</th>
+<th>用處</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>git add .</code></td>
+<td>我通常都是一個小進度告一段落就會使用，然後搭配項次 2 的指令作為此進度之命名</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>git commit -m &quot;commit message&quot;</code></td>
+<td>commit message 放的就是你對目前這個儲存的時機點所完成的進度，個人推薦全英文寫上簡單易懂之小句子，可順手培養英文單字熟練度。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>git merge branch-name</code></td>
+<td>合併某個分支。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>git push origin branch-name</code></td>
+<td>就是推到某個遠端的分支做同步的意思，有可能是 feature…、develop 等等。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>git cherry-pick commit-SHA-1</code></td>
+<td>- commit-SHA-1 是指你想要的那個節點。</br>- 主要是用來處理你忘記開分支出去，就開始撰寫程式碼的狀況。可以參考<a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/faq/cherry-pick.html">這個章節</a>，有更詳細之理解。</td>
+</tr>
+</tbody></table>
+<h2 id="三、Git-觀念與習慣"><a href="#三、Git-觀念與習慣" class="headerlink" title="三、Git 觀念與習慣"></a>三、Git 觀念與習慣</h2><p>&emsp;&emsp;Git 好用之處這邊不加以贅述，遠端共同協作更是現在身為工程師必備之技能。那擁有好的 Git 觀念，我想是要靠自己不斷練習使用、常與團隊溝通合作，自然就能累積而成。這邊介紹一下我個人堅持的小習慣，但我現職的全公司都不愛用 XDD 我不懂為何…</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>主題</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>使用全指令介面</td>
+<td>- 好處是可以不用切換輸入法、增加英文字彙量、有很多指令可以活用、假裝很忙？</br> - 壞處目前想不到，因為我覺得學習曲線真的不高。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>分支命名</td>
+<td>- 第一當然是尊重團隊習慣。</br> - 第二則是留意分支主題是否易懂。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>commit 訊息</td>
+<td>- 盡量還是全英文書寫。</br> - 有需要的話可以進到習慣介面輸入 markdown 語法詳列。</br> - 保持習慣一個段落就 commit 一次，要補救或確認每日進度時很好用。</td>
+</tr>
+</tbody></table>
+<h2 id="四、Git-Server-又是什麼？"><a href="#四、Git-Server-又是什麼？" class="headerlink" title="四、Git Server 又是什麼？"></a>四、Git Server 又是什麼？</h2><p>&emsp;&emsp;網路上有點難查到名詞定義，大概意思就是你在本地有的那些分支可以更新(push)到==遠端共同協作的網站==，而你一直在打的那些 Git 指令是工具。</p>
+<p>&emsp;&emsp;最知名的 Git Server 當然就是 GitHub 啦～聽說工程師宅宅們甚至會在上面交友，以程式碼會友～我個人等級不到還沒體驗過…但是值得一提的是它真的提供了很多服務，像是你的個人首頁看放介紹，你可以創建與你 GitHub 帳號名稱相同的 GitHub Page，大家如果有興趣可以多研究一下～(後面篇幅我也會介紹如何使用 GitHub Page)</p>
+<p>&emsp;&emsp;當然，有的公司也會自架一個 Git Server，我現職的公司就是這樣的。入職後，公司會幫我們創建帳號，個人覺得和 GitHub 幾乎相同，只是那些綠點點不會長在自己的 GitHub 紀錄裡而已，但我有發現一個奇妙的點，公司自架的 Git Server 綠點點是記錄你的當日 push 次數，而 GitHub 則是記錄你當日 commit 次數，這點倒是不明白為何？</p>
+<h2 id="五、結論與自我鼓勵"><a href="#五、結論與自我鼓勵" class="headerlink" title="五、結論與自我鼓勵"></a>五、結論與自我鼓勵</h2><p>&emsp;&emsp;總結當然首要提到的是，一定要進到一間有版控的公司啊！雖然也有很多公司長年沒有使用仍然可以存活，但我想背後應該有很多沒必要的苦工…次要則是想分享近期我公司同事轉傳給我們的「<a target="_blank" rel="noopener" href="https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html">Git Commit Message 寫法</a>」，這是看公司協作和個人習慣，大家可以當作參考即可。</p>
+<p>&emsp;&emsp;自我鼓勵的部分，當然是覺得佩服自己中秋連假竟然可以成功不斷賽，雖然每天行程很滿，仍然在固定時間點靜下來打文章，因為聽說人類連續 21 天就能養成一個習慣，我是一個非常容易半途而廢的人(因為有點懶惰)，所以需要常給自己鼓勵才有動力！各位鐵人們一起加油吧～</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>Title: </span>2新手全端工程師的職場成長歷程-Day06：絕對要有的Git觀念與習慣</p><p><span>Author: </span>Annie</p><p><span>Date: </span>2021-09-19</p><p><span>Last Update: </span>2021-09-19</p><p><span>Blog Link: </span><a href="/2021/09/19/2021iroman-day06/">http://example.com/2021/09/19/2021iroman-day06/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2021/09/19/2021iroman-day06/"></i></span></p><p><span>Copyright Declaration: </span>copyright</p></div><br><div class="tags"><a href="/tags/2021ironman/"><i class="fa fa-tag"></i>2021ironman</a></div><div class="post-nav"><a class="next" href="/2021/09/18/2021iroman-day05/">新手全端工程師的職場成長歷程-Day05：工程師必學的 Markdown 筆記語法</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/2021ironman/" style="font-size: 15px;">2021ironman</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/annielin28815" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://www.cakeresume.com/s--pA0VMZzZxjC2nMc7bRI9bA--/annie-lin-93bccf" title="Cakeresume" target="_blank">Cakeresume</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">Annie Code Life.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><link rel="stylesheet" type="text/css" href="/css/external.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
