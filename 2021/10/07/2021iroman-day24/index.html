@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="所有coding生活紀錄"><title>新手全端工程師的職場成長歷程-Day24：【技術篇】設定自己的GitHub Pages | Annie Code Life</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/dark.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">新手全端工程師的職場成長歷程-Day24：【技術篇】設定自己的GitHub Pages</h1><a id="logo" href="/.">Annie Code Life</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主頁</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/about/"><i class="fa fa-user"> 個人介紹</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">新手全端工程師的職場成長歷程-Day24：【技術篇】設定自己的GitHub Pages</h1><div class="post-meta">2021-10-07</div><div class="post-content"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&emsp;&emsp;網路上有很多創建個人 <a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/github/using-github-pages.html">GitHub Pages 的教學文章</a>，這邊就先跳過此環節與相關原理說明，如果你已經擁有自己的 GitHub Pages ，想要美化的話，可以參考我這篇文章，試著用一些現成的套件，輕鬆地讓頁面看起來更加完整、美觀及方便使用！而比較有名的像是 Jekyll 或是 Octopress 之類的好用套件等可以參考。</p>
+<h2 id="二、設定自己的-GitHub-Pages-使用-Hexo"><a href="#二、設定自己的-GitHub-Pages-使用-Hexo" class="headerlink" title="二、設定自己的 GitHub Pages - 使用 Hexo"></a>二、設定自己的 GitHub Pages - 使用 Hexo</h2><h3 id="1-安裝-Hexo，並確認版本"><a href="#1-安裝-Hexo，並確認版本" class="headerlink" title="1. 安裝 Hexo，並確認版本"></a>1. 安裝 Hexo，並確認版本</h3><ul>
+<li><font color="#9F353A">請先確認你的電腦已經有安裝過 node.js 了喲！</font></li>
+<li><font color="#9F353A">以 ‘$’ 開頭，皆為 bash 指令</font></li>
+</ul>
+<p>網路查到的安裝指令是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>但我使用時看到這個提示，照著走就好囉，因為有新版</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g npm</span><br></pre></td></tr></table></figure>
+
+<p>安裝 Hexo Git</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後，可以用這個指令來確認版本號</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.imgur.com/CThypwr.png"></p>
+<h3 id="2-初始化-blog"><a href="#2-初始化-blog" class="headerlink" title="2. 初始化 blog"></a>2. 初始化 blog</h3><p>初始化並建立一個 blog 資料夾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+
+<p>進到創建好的 blog 資料夾裡</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
+
+<p>安裝相關套件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-連結-GitHub-Page"><a href="#3-連結-GitHub-Page" class="headerlink" title="3. 連結 GitHub Page"></a>3. 連結 GitHub Page</h3><p>進到 blog 資料夾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open . // 在mac系統打開當前資料夾的指令</span><br></pre></td></tr></table></figure>
+
+<p>打開名叫_config.yml 檔案，在最下面的 Deployment 部分，填上以下資訊。<br><font color="#9F353A">GitHub-ID 就是你的 GitHub 帳號，記得網址裡有兩處要改！！！</font></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">http://github.com/GitHub-ID/GitHub-ID.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p>接著就是部署囉！</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://i.imgur.com/o03Wuf0.png" alt="成功示意圖"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>成功示意圖</b>，訊息內容就和平常使用 git push 非常像</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://i.imgur.com/4gobtB8.png" alt="失敗示意圖"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>失敗示意圖</b>(原因是 GitHub-ID 少打一個…)</td>
+</tr>
+</tbody></table>
+<p>部署成功後可以到<code>https://&#123;yourname&#125;.github.io/</code>檢視！</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://i.imgur.com/GoQSUoQ.png" alt="Hexo部署成功圖"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>Hexo 部署成功圖</b>(這是預設主題)</td>
+</tr>
+</tbody></table>
+<h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><p>&emsp;&emsp;身為一個工程師，不斷增進自己的實力與用自己的方式輸出，是可以持續進步的好方法，而且創建個人的 GitHub Pages ，也是一個能證明自己能力與所知的好方式，對求職我覺得也相當有幫助，是很值得快速學習入門的免費服務。</p>
+<hr>
+<blockquote>
+<p>本文同步發佈於我的<a target="_blank" rel="noopener" href="https://annielin28815.github.io/tags/2021ironman/">個人網站 Annie Code Life</a></p>
+</blockquote>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>Title: </span>新手全端工程師的職場成長歷程-Day24：【技術篇】設定自己的GitHub Pages</p><p><span>Author: </span>Annie</p><p><span>Date: </span>2021-10-07</p><p><span>Last Update: </span>2021-10-07</p><p><span>Blog Link: </span><a href="/2021/10/07/2021iroman-day24/">http://example.com/2021/10/07/2021iroman-day24/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2021/10/07/2021iroman-day24/"></i></span></p><p><span>Copyright Declaration: </span>copyright</p></div><br><div class="tags"><a href="/tags/2021ironman/"><i class="fa fa-tag"></i>2021ironman</a></div><div class="post-nav"><a class="next" href="/2021/10/06/2021iroman-day23/">新手全端工程師的職場成長歷程-Day23：【技術篇】CSS 的變數運用技巧(2)</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/2021ironman/" style="font-size: 15px;">2021ironman</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/annielin28815" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://www.cakeresume.com/s--pA0VMZzZxjC2nMc7bRI9bA--/annie-lin-93bccf" title="Cakeresume" target="_blank">Cakeresume</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">Annie Code Life.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><link rel="stylesheet" type="text/css" href="/css/external.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
