@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="所有coding生活紀錄"><title>新手全端工程師的職場成長歷程-Day26：【技術篇】Webpack 之基本認知 | Annie Code Life</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/dark.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">新手全端工程師的職場成長歷程-Day26：【技術篇】Webpack 之基本認知</h1><a id="logo" href="/.">Annie Code Life</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主頁</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/about/"><i class="fa fa-user"> 個人介紹</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">新手全端工程師的職場成長歷程-Day26：【技術篇】Webpack 之基本認知</h1><div class="post-meta">2021-10-09</div><div class="post-content"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&emsp;&emsp;因為網頁應用程式不斷擴大、開發模式慢慢地被模組化設計取代，近期誕生了 Webpack，它可以在 JavaScript 生態系中，作為一個高度整合且完整之建置工具，優化程式的效能。</p>
+<p>&emsp;&emsp;我在培訓營時，也有接觸到 Webpack，但其中運作原理並不是非常理解，隨著步入職場，因應工作需求，自行進修後將學習到的用簡單圖文方式紀錄於此，與大家分享(應該會有續集！)。</p>
+<h2 id="二、Webpack-之運作階段與流程"><a href="#二、Webpack-之運作階段與流程" class="headerlink" title="二、Webpack 之運作階段與流程"></a>二、Webpack 之運作階段與流程</h2><h3 id="1-Webpack-之運作三階段"><a href="#1-Webpack-之運作三階段" class="headerlink" title="1. Webpack 之運作三階段"></a>1. Webpack 之運作三階段</h3><table>
+<thead>
+<tr>
+<th>階段 1</th>
+<th>階段 2</th>
+<th>階段 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>來源(Entry)</td>
+<td>處理(Mode)</td>
+<td>輸出(Output)</td>
+</tr>
+</tbody></table>
+<h3 id="2-Webpack-之運作流程"><a href="#2-Webpack-之運作流程" class="headerlink" title="2. Webpack 之運作流程"></a>2. Webpack 之運作流程</h3><table>
+<thead>
+<tr>
+<th>流程 1</th>
+<th>流程 2</th>
+<th>流程 3</th>
+<th>流程 4</th>
+<th>流程 5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>啟動 Webpack(mode)</td>
+<td>找到入口(entry)</td>
+<td>建構相依圖(dependency graph)</td>
+<td>建置(bundle)</td>
+<td>輸出(output)</td>
+</tr>
+</tbody></table>
+<h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><ul>
+<li>參考書籍：<a target="_blank" rel="noopener" href="https://www.tenlong.com.tw/products/9789864348626?list_name=c-webpack">從 0 到 Webpack</a></li>
+<li>參考影音教學：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=uP6KTupfyIw">Webpack5 快速入門</a></li>
+</ul>
+<p>&emsp;&emsp;以上參考資源如果大家有興趣，推薦先看「從 0 到 Webpack」系列文章或支持作者書籍，再看「Webpack5 快速入門」之影片教學實做一次，會更理解運作原理！</p>
+<p>&emsp;&emsp;總結此篇文章，其實大家可以將 Webpack 視為現代 JavaScript 應用程式的模組綑綁器，所有資源進到 Webpack 中都會變成模組，在建置過程中的各個階段會以特定方式進行處理，最後輸出結果。</p>
+<h6 id="因有點來不及，今日先以表格呈現，明日將會補上圖示與詳細內容"><a href="#因有點來不及，今日先以表格呈現，明日將會補上圖示與詳細內容" class="headerlink" title="(因有點來不及，今日先以表格呈現，明日將會補上圖示與詳細內容)"></a>(因有點來不及，今日先以表格呈現，明日將會補上圖示與詳細內容)</h6></div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>Title: </span>新手全端工程師的職場成長歷程-Day26：【技術篇】Webpack 之基本認知</p><p><span>Author: </span>Annie</p><p><span>Date: </span>2021-10-09</p><p><span>Last Update: </span>2021-10-09</p><p><span>Blog Link: </span><a href="/2021/10/09/2021iroman-day26/">http://example.com/2021/10/09/2021iroman-day26/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2021/10/09/2021iroman-day26/"></i></span></p><p><span>Copyright Declaration: </span>copyright</p></div><br><div class="tags"><a href="/tags/2021iroman/"><i class="fa fa-tag"></i>2021iroman</a></div><div class="post-nav"><a class="next" href="/2021/10/08/2021iroman-day25/">新手全端工程師的職場成長歷程-Day25：【技術篇】JavaScript 套件 - classnames</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/2021ironman/" style="font-size: 15px;">2021ironman</a> <a href="/tags/2021iroman/" style="font-size: 15px;">2021iroman</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/annielin28815" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://www.cakeresume.com/s--pA0VMZzZxjC2nMc7bRI9bA--/annie-lin-93bccf" title="Cakeresume" target="_blank">Cakeresume</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">Annie Code Life.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><link rel="stylesheet" type="text/css" href="/css/external.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
