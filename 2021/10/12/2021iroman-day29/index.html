@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="所有coding生活紀錄"><title>新手全端工程師的職場成長歷程-Day29：【技術篇】初探打包工具的存在？ | Annie Code Life</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/dark.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">新手全端工程師的職場成長歷程-Day29：【技術篇】初探打包工具的存在？</h1><a id="logo" href="/.">Annie Code Life</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主頁</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/about/"><i class="fa fa-user"> 個人介紹</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">新手全端工程師的職場成長歷程-Day29：【技術篇】初探打包工具的存在？</h1><div class="post-meta">2021-10-12</div><div class="post-content"><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&emsp;&emsp;先前有寫過兩篇關於 Webpack 的文章(<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10279877">文章 1</a>、<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10280269">文章 2</a>)，回顧起自己學習到 Webpack 是在培訓營課程尾聲時期，那時候還懞懞懂懂的，只知道很基本的用法，但不清楚實際深入運作原理，所以寫了前述兩篇。</p>
+<p>&emsp;&emsp;但大家有想過為何會有像是 Webpack 之類的打包工具誕生嗎？他的存在有什麼必要性呢？</p>
+<h2 id="二、打包工具的緣起"><a href="#二、打包工具的緣起" class="headerlink" title="二、打包工具的緣起"></a>二、打包工具的緣起</h2><h3 id="1-前端工程化"><a href="#1-前端工程化" class="headerlink" title="1. 前端工程化"></a>1. 前端工程化</h3><p>&emsp;&emsp;自從 Node.js 發行後，套件管理工具 npm 誕生，即是工程化的起點。npm 提供了 script 的功能，可以將 shell script 封裝起來供其他開發者使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;script&quot;</span>:&#123;</span><br><span class="line">        <span class="string">&quot;dev&quot;</span>: <span class="string">&quot;node app.js&quot;</span>,</span><br><span class="line">        <span class="string">&quot;mock&quot;</span>: <span class="string">&quot;node index.js&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;以上面這段程式碼來解說，當開發者輸入<code>npm run dev</code>，就會執行<code>node app.js</code>這行指令；相對地當開發者輸入<code>npm run mock</code>，就會執行<code>node index.js</code>這行指令。這樣簡短的 script 設定，可以解決一些基本需求。</p>
+<p>&emsp;&emsp;但後續開發過程，大部分重複繁雜的步驟，就需要工具為我們帶來工程化的方式，加速開發的流程。</p>
+<h3 id="2-打包工具的選擇"><a href="#2-打包工具的選擇" class="headerlink" title="2. 打包工具的選擇"></a>2. 打包工具的選擇</h3><p>&emsp;&emsp;除了較常聽見的 Webpack，其實還有以下幾種打包工具可供選擇：</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>名稱</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://www.gruntjs.net/">Grunt</a></td>
+<td>比 Webpack 早發行，針對每個插件需分別設定。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/jaredpalmer/backpack">Backpack</a></td>
+<td>專注在 Node.js 後端專案</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://parceljs.org/">Parcel</a></td>
+<td>好上手、無須設定便能直接使用。</td>
+</tr>
+</tbody></table>
+<h2 id="三、打包工具的用途"><a href="#三、打包工具的用途" class="headerlink" title="三、打包工具的用途"></a>三、打包工具的用途</h2><h3 id="1-轉譯"><a href="#1-轉譯" class="headerlink" title="1. 轉譯"></a>1. 轉譯</h3><p>&emsp;&emsp;在使用前端框架編寫程式時，因為一般的瀏覽器只能聽解讀基礎的 HTML、CSS、JavaScript，中間必須經過轉換的步驟，就稱為轉譯。</p>
+<p>&emsp;&emsp;開發者撰寫出的程式碼，會透過打包工具力呼叫 Bable 套件，逐步將之轉譯成瀏覽器能解讀的內容，</p>
+<h3 id="2-優化程式"><a href="#2-優化程式" class="headerlink" title="2. 優化程式"></a>2. 優化程式</h3><p>&emsp;&emsp;開發者可隨著程式碼開發需求，設定相對應的 Webpack 插件(如：minify、uglify、chunk 等)，就能套用各個插件帶來的優化功能至應用程式上。</p>
+<h3 id="3-加速開發"><a href="#3-加速開發" class="headerlink" title="3. 加速開發"></a>3. 加速開發</h3><p>&emsp;&emsp;打包工具的套件真的很多樣且實用，以下簡列幾種舉例：</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>套件名稱</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/webpack-spritesmith">Webpack Spritesmith</a></td>
+<td>可完成圖檔合併</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Webpack 內建的 Hot Reload</td>
+<td>可偵測並僅更新新修改到的內容</td>
+</tr>
+</tbody></table>
+<h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><ul>
+<li>參考書籍：<a target="_blank" rel="noopener" href="https://www.tenlong.com.tw/products/9789864348626?list_name=c-webpack">從 0 到 Webpack</a></li>
+<li>參考書籍：<a target="_blank" rel="noopener" href="https://www.tenlong.com.tw/products/9789864347452">前端三十：從 HTML 到瀏覽器渲染的前端開發者必備心法</a></li>
+</ul>
+<p>&emsp;&emsp;今日文章其實只是稍微提到打包工具之緣起與主要用途，文章內容是自己於下班時間研究書籍與網路資源整理出來，若有錯誤或不詳盡之處，再請各位前輩指導。</p>
+<p>&emsp;&emsp;如果想知道的更深入，推薦可以看「從 0 到 Webpack」的「寫在 Webpack 之前」這個章節，其他前端更深入常聽到的專有名詞也可以看「前端三十」這本，相信會獲益不少！</p>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>Title: </span>新手全端工程師的職場成長歷程-Day29：【技術篇】初探打包工具的存在？</p><p><span>Author: </span>Annie</p><p><span>Date: </span>2021-10-12</p><p><span>Last Update: </span>2021-10-12</p><p><span>Blog Link: </span><a href="/2021/10/12/2021iroman-day29/">http://example.com/2021/10/12/2021iroman-day29/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2021/10/12/2021iroman-day29/"></i></span></p><p><span>Copyright Declaration: </span>copyright</p></div><br><div class="tags"><a href="/tags/2021ironman/"><i class="fa fa-tag"></i>2021ironman</a></div><div class="post-nav"><a class="next" href="/2021/10/11/2021iroman-day28/">新手全端工程師的職場成長歷程-Day28：【技術篇】ASP DOT NET CORE 的 MVC 基礎入門</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/2021ironman/" style="font-size: 15px;">2021ironman</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/annielin28815" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://www.cakeresume.com/s--pA0VMZzZxjC2nMc7bRI9bA--/annie-lin-93bccf" title="Cakeresume" target="_blank">Cakeresume</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">Annie Code Life.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><link rel="stylesheet" type="text/css" href="/css/external.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
