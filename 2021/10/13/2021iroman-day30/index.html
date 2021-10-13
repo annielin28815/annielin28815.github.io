@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="所有coding生活紀錄"><title>新手全端工程師的職場成長歷程-Day30：【技術篇】架設網站的基本知識 | Annie Code Life</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/dark.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">新手全端工程師的職場成長歷程-Day30：【技術篇】架設網站的基本知識</h1><a id="logo" href="/.">Annie Code Life</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主頁</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/about/"><i class="fa fa-user"> 個人介紹</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">新手全端工程師的職場成長歷程-Day30：【技術篇】架設網站的基本知識</h1><div class="post-meta">2021-10-13</div><div class="post-content"><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h6 id="tags-other"><a href="#tags-other" class="headerlink" title="tags: other"></a>tags: <code>other</code></h6><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><img src="https://i.imgur.com/M7IfWhT.png"><br>&emsp;&emsp;昨天發文後，馬上收到系統罐頭通知，終於熬到這一天了(我好興奮啊啊啊！)終於要完成人生首次鐵人幫比賽的挑戰了！<br>&emsp;&emsp;最後一天的主題，決定回歸到新手全端工程師，必知的環節上去做討論。大家要架設網站，一定都會去做一些功課、學習基本知識，但大家知道網站與 HTML 的架構真實為何嗎？</p>
+<h2 id="二、網站的架構"><a href="#二、網站的架構" class="headerlink" title="二、網站的架構"></a>二、網站的架構</h2><p>&emsp;&emsp;平常瀏覽的網站，是如何建立起來的？</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>專有名詞</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>網際網路(Internet)</td>
+<td>是能讓全球的電腦連線、交換各種資料的網路系統。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>全球資訊網(World Wide Web，Web)</td>
+<td>是一套可藉由超連結將分散於全球各地的多媒體資料，加以整合應用的資訊系統。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>網站(Website)</td>
+<td>在全球資訊網(Web)中，用 HTML 等工具製作的網頁集合。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>網址(URL)</td>
+<td>格式固定，而每個部分都有各自的功用。如：</br> <code>http://test.com/sample/hello.html</code> 對應為：</br><code>通訊協定://網域名稱/目錄名稱/檔案名稱.副檔名</code></td>
+</tr>
+</tbody></table>
+<h2 id="三、HTML-檔案的架構"><a href="#三、HTML-檔案的架構" class="headerlink" title="三、HTML 檔案的架構"></a>三、HTML 檔案的架構</h2><table>
+<thead>
+<tr>
+<th>項次</th>
+<th>專有名詞</th>
+<th>定義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>&lt;!doctype html&gt;</code></td>
+<td>「Doctype 宣告」，說明使用哪種版本、類型的 HTML。</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>&lt;html&gt;</code>~`</html>`</td>
+<td>通常緊接在 Doctype 後面，說明檔案是 HTML 文件。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>&lt;head&gt;</code>~`</head>`</td>
+<td>描述網頁的標題、說明與常見的外部使用連結等。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>&lt;title&gt;</code>~`</title>`</td>
+<td>網頁的標題文字。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>&lt;body&gt;</code>~`</body>`</td>
+<td>是 HTML 文件的主體，實際顯示在網頁上。</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>&lt;meta charset=&quot;UTF-8&quot;</code></td>
+<td>是文字的編碼格式設定為 UTF-8 的意思，是必要性的存在值。</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>&lt;meta name=&quot;description&quot; content=&quot;~&quot;&gt;</code></td>
+<td>「meta」標籤用來描述內容概要和關鍵字，不會顯示在瀏覽器內容，但有助於使用者搜尋時可瞬間判斷。</td>
+</tr>
+</tbody></table>
+<h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><ul>
+<li>參考書籍：<a target="_blank" rel="noopener" href="https://www.tenlong.com.tw/products/9789863126287">零基礎也能看得懂的 HTML&amp;CSS 網頁設計</a></li>
+</ul>
+<p>&emsp;&emsp;其實當全端工程師也半年了，雖然工作上很多時間都很匆忙，且要顧及非常多層面的案件進度，能額外學習時間很短很少，但也只能盡力把握空檔補足不足之處。本篇文章參考之書籍，是公司提供給新人與 UI 看的入門書籍，我覺得寫得非常淺顯易懂，回頭看當複習也是很不錯！</p>
+<p>&emsp;&emsp;今天是鐵人賽的最後一天，在此要感謝在培訓營給我很多正確觀念與知識的龍哥與其他專業講師和助教，還有工作上一直提供我機會學習各樣事務的主管 XD，最後，要感謝我的男友，鼓勵我陪伴我度過了這 30 天，中間歷經了東部小旅行與媽媽的手術住院回診等，如果沒有他的每篇留言與支持(外行的忠實小粉絲，留言都很可愛&#9825;)，我想我會半途而廢吧？總之，恭喜自己第一次參賽，就成功完成挑戰，期待收到獎狀的一天！</p>
+<h3 id="9873-ensp-點此觀看我的全系列文章-ensp-9873"><a href="#9873-ensp-點此觀看我的全系列文章-ensp-9873" class="headerlink" title="&#9873;&ensp; 點此觀看我的全系列文章&ensp;&#9873;"></a><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20140920/ironman/4329">&#9873;&ensp; 點此觀看我的全系列文章&ensp;&#9873;</a></h3></div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>Title: </span>新手全端工程師的職場成長歷程-Day30：【技術篇】架設網站的基本知識</p><p><span>Author: </span>Annie</p><p><span>Date: </span>2021-10-13</p><p><span>Last Update: </span>2021-10-13</p><p><span>Blog Link: </span><a href="/2021/10/13/2021iroman-day30/">http://example.com/2021/10/13/2021iroman-day30/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2021/10/13/2021iroman-day30/"></i></span></p><p><span>Copyright Declaration: </span>copyright</p></div><br><div class="tags"><a href="/tags/2021ironman/"><i class="fa fa-tag"></i>2021ironman</a></div><div class="post-nav"><a class="next" href="/2021/10/12/2021iroman-day29/">新手全端工程師的職場成長歷程-Day29：【技術篇】初探打包工具的存在？</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/2021ironman/" style="font-size: 15px;">2021ironman</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/annielin28815" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://www.cakeresume.com/s--pA0VMZzZxjC2nMc7bRI9bA--/annie-lin-93bccf" title="Cakeresume" target="_blank">Cakeresume</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2021 <a href="/." rel="nofollow">Annie Code Life.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><link rel="stylesheet" type="text/css" href="/css/external.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
