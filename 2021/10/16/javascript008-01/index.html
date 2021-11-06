@@ -27,11 +27,10 @@ var n;
 <p>// i 為全域變數(所有沒有透過 var 宣告的變數，皆會自動變成全域變數)<br>i = 99;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;重複宣告變數的情形：</span><br><span class="line"></span><br><span class="line">```javascript=</span><br><span class="line">// var 的宣告：新的會覆蓋舊的，n 為 3</span><br><span class="line">var n = 1;</span><br><span class="line">var n = 2;</span><br><span class="line">var n = 3;</span><br><span class="line"></span><br><span class="line">// let 的宣告：主控台出現「Uncaught SyntaxError: &#x27;i&#x27; has already been declared.」</span><br><span class="line">let i = 1;</span><br><span class="line">let i = 2;</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、資料型別"><a href="#三、資料型別" class="headerlink" title="三、資料型別"></a>三、資料型別</h2><p>&emsp;&emsp;variables(變數)沒有型別，型別是取決於值本身。</p>
-
-<h3 id="1-基本型別-Primitives-：string-字串-、number-數字-、boolean-布林值-、null-空值-、undefined-未給值-。"><a href="#1-基本型別-Primitives-：string-字串-、number-數字-、boolean-布林值-、null-空值-、undefined-未給值-。" class="headerlink" title="1. 基本型別(Primitives)：string(字串)、number(數字)、boolean(布林值)、null(空值)、undefined(未給值)。"></a>1. 基本型別(Primitives)：string(字串)、number(數字)、boolean(布林值)、null(空值)、undefined(未給值)。</h3><h3 id="2-物件型別-Object-：其他。"><a href="#2-物件型別-Object-：其他。" class="headerlink" title="2. 物件型別(Object)：其他。"></a>2. 物件型別(Object)：其他。</h3><h2 id="四、本篇實用方法彙整"><a href="#四、本篇實用方法彙整" class="headerlink" title="四、本篇實用方法彙整"></a>四、本篇實用方法彙整</h2><ul>
-<li>主控台跳錯情形</li>
-</ul>
+<h2 id="三、資料型別"><a href="#三、資料型別" class="headerlink" title="三、資料型別"></a>三、資料型別</h2><p>variables(變數)沒有型別，型別是取決於值本身。</p>
+<p>&emsp;&emsp; 1. 基本型別(Primitives)：string(字串)、number(數字)、boolean(布林值)、null(空值)、undefined(未給值)。</p>
+<p>&emsp;&emsp; 2. 物件型別(Object)：其他。</p>
+<h2 id="四、本篇實用方法彙整"><a href="#四、本篇實用方法彙整" class="headerlink" title="四、本篇實用方法彙整"></a>四、本篇實用方法彙整</h2><p>主控台跳錯情形：</p>
 <ol>
 <li>出現「Uncaught ReferenceError: hello is not defined.」，是因為未宣告變數就去存取，才會顯示此錯誤。</li>
 <li>出現「Uncaught SyntaxError: ‘i’ has already been declared.」，是因為使用 let 重複宣告同名之變數。</li>
