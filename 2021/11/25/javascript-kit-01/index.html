@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="所有coding生活紀錄"><title>JavaScript 好用套件 - Echart.js | Annie Code Life</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="/css/dark.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JavaScript 好用套件 - Echart.js</h1><a id="logo" href="/.">Annie Code Life</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 主頁</i></a><a href="/archives/"><i class="fa fa-archive"> 文章</i></a><a href="/about/"><i class="fa fa-user"> 個人介紹</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">JavaScript 好用套件 - Echart.js</h1><div class="post-meta">2021-11-25</div><div class="post-content"><ul>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/get-started/">官方文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.itread01.com/content/1549963453.html">Echart.js 快速入門</a></li>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/basics/import/">npm 安裝與引用方式</a></li>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/examples/zh/index.html">圖表種類</a></li>
+</ul>
+<h2 id="一、建立一個-html-裡放圖表的容器"><a href="#一、建立一個-html-裡放圖表的容器" class="headerlink" title="一、建立一個 html 裡放圖表的容器"></a>一、建立一個 html 裡放圖表的容器</h2><pre><code class="htmlembedded=">&lt;div id=&quot;main&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="1-指定容器大小"><a href="#1-指定容器大小" class="headerlink" title="1. 指定容器大小"></a>1. 指定容器大小</h3><pre><code class="html">&lt;div id=&quot;main&quot; style=&quot;width: 600px;height:400px;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="2-響應容器大小"><a href="#2-響應容器大小" class="headerlink" title="2. 響應容器大小"></a>2. <a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/concepts/chart-size#%E5%93%8D%E5%BA%94%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%8F%98%E5%8C%96">響應容器大小</a></h3><h2 id="二、設定引數數據"><a href="#二、設定引數數據" class="headerlink" title="二、設定引數數據"></a>二、設定引數數據</h2><pre><code class="javascript">option = &#123;
+  name: &#123;
+    type: &quot;abc&quot;,
+    data: [&quot;123&quot;, &quot;456&quot;, &quot;789&quot;],
+  &#125;,
+&#125;;
+</code></pre>
+<h2 id="1-座標軸線"><a href="#1-座標軸線" class="headerlink" title="1. 座標軸線"></a>1. 座標軸線</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/concepts/axis">官方範例文件</a></li>
+<li>主要會用到的數據</li>
+</ul>
+<pre><code class="javascript">option = &#123;
+  xAxis: &#123;
+    // x軸
+    axisLine: &#123;
+      symbol: &quot;arrow&quot;, // 兩端的箭頭
+      lineStyle: &#123;
+        // 軸線本身的樣式
+        type: &quot;dashed&quot;,
+        // ...
+      &#125;,
+    &#125;,
+    axisTick: &#123;
+      // 刻度
+      length: 6, // 刻度線的長度
+      lineStyle: &#123;
+        type: &quot;dashed&quot;, // 刻度線的樣式
+        // ...
+      &#125;,
+    &#125;,
+    axisLabel: &#123;
+      // 刻度的標籤
+      formatter: &quot;&#123;value&#125; kg&quot;, // 自定義的刻度標籤內容
+      align: &quot;center&quot;, // 文字對齊方式
+      // ...
+    &#125;,
+  &#125;,
+  yAxis: &#123;
+    // y軸
+    axisLine: &#123;
+      symbol: &quot;arrow&quot;,
+      lineStyle: &#123;
+        type: &quot;dashed&quot;,
+        // ...
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;;
+</code></pre>
+<h2 id="2-數據呈現"><a href="#2-數據呈現" class="headerlink" title="2. 數據呈現"></a>2. 數據呈現</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/concepts/visual-map">官方範例文件</a></li>
+<li>主要會用到的數據</li>
+</ul>
+<pre><code class="javascript">option = &#123;
+    series: &#123;
+      data: [
+        &#123;
+          // 这里每一个项就是数据项（dataItem）
+          value: [3434, 129, &#39;圣马力诺&#39;], // 这是数据项的数据值（value）
+          itemStyle: &#123;&#125;
+        &#125;,
+        [1212, 5454, &#39;梵蒂冈&#39;], // 也可以直接是 dataItem 的 value，这更常见。
+        [2323, 3223, &#39;瑙鲁&#39;], // 每个 value 都是“三维“的，每列是一个维度。
+        [4343, 23, &#39;图瓦卢&#39;] // 假如是“气泡图“，常见第一维度映射到x轴，
+        // 第二维度映射到y轴，
+        // 第三维度映射到气泡半径（symbolSize）
+      ];
+    &#125;
+&#125;
+</code></pre>
+<h2 id="3-visualMap-组件"><a href="#3-visualMap-组件" class="headerlink" title="3. visualMap 组件"></a>3. visualMap 组件</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/concepts/visual-map#visualmap-%E7%BB%84%E4%BB%B6">官方範例文件</a></li>
+<li>主要會用到的數據</li>
+</ul>
+<pre><code class="javascript">option = &#123;
+  visualMap: [
+    &#123;
+      type: &quot;continuous&quot;,
+      min: 0,
+      max: 5000,
+      dimension: 3, // series.data 的第四个维度（即 value[3]）被映射
+      seriesIndex: 4, // 对第四个系列进行映射。
+      inRange: &#123;
+        // 选中范围中的视觉配置
+        color: [&quot;blue&quot;, &quot;#121122&quot;, &quot;red&quot;], // 定义了图形颜色映射的颜色列表，
+        // 数据最小值映射到&#39;blue&#39;上，
+        // 最大值映射到&#39;red&#39;上，
+        // 其余自动线性计算。
+        symbolSize: [30, 100], // 定义了图形尺寸的映射范围，
+        // 数据最小值映射到30上，
+        // 最大值映射到100上，
+        // 其余自动线性计算。
+      &#125;,
+      outOfRange: &#123;
+        // 选中范围外的视觉配置
+        symbolSize: [30, 100],
+      &#125;,
+    &#125;,
+    //    ...
+  ],
+&#125;;
+</code></pre>
+</div><div class="post-copyright"><script type="text/javascript" src="/js/copyright.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copyright.css"><p><span>Title: </span>JavaScript 好用套件 - Echart.js</p><p><span>Author: </span>Annie</p><p><span>Date: </span>2021-11-25</p><p><span>Last Update: </span>2021-11-25</p><p><span>Blog Link: </span><a href="/2021/11/25/javascript-kit-01/">http://example.com/2021/11/25/javascript-kit-01/</a><span class="copy-path"><i class="fa fa-clipboard" data-clipboard-text="http://example.com/2021/11/25/javascript-kit-01/"></i></span></p><p><span>Copyright Declaration: </span>copyright</p></div><br><div class="tags"><a href="/tags/JavaScript-kit/"><i class="fa fa-tag"></i>JavaScript-kit</a></div><div class="post-nav"><a class="next" href="/2021/11/20/react-02/">React 的 state 與 生命週期初探</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://example.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> Tags</i></div><div class="tagcloud"><a href="/tags/2021ironman/" style="font-size: 15px;">2021ironman</a> <a href="/tags/JavaScript008/" style="font-size: 15px;">JavaScript008</a> <a href="/tags/2021React/" style="font-size: 15px;">2021React</a> <a href="/tags/JavaScript-kit/" style="font-size: 15px;">JavaScript-kit</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> Links</i></div><ul></ul><a href="https://github.com/annielin28815" title="GitHub" target="_blank">GitHub</a><ul></ul><a href="https://www.cakeresume.com/s--pA0VMZzZxjC2nMc7bRI9bA--/annie-lin-93bccf" title="Resume" target="_blank">Resume</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Annie Code Life.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><script type="text/javascript" src="/js/copycode.js" successtext="Copy Successed!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><link rel="stylesheet" type="text/css" href="/css/external.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
