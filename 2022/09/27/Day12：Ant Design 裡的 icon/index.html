@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day12：Ant Design 裡的 icon | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day12：Ant Design 裡的 icon</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 27, 2022&nbsp;&nbsp;21:55:18</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E7%94%A8-Ant-Design-%E5%81%9A%E9%81%8E%E7%9A%84%E7%B6%B2%E9%A0%81%E5%85%83%E4%BB%B6/">那些年我用 Ant Design 做過的網頁元件</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>鐵人賽進行到將近一半了，發現好像都沒有介紹到 ANTD 的 icon 怎麼使用，所以今天馬上補上！<br>如果你開發的專案，有自行製做的圖標，或者大多是不太需要 icon 來做點綴，只是偶而需要幾個而已的狀況，像是上傳鈕你想要一個往上的箭頭，抑或只是 返回鍵你想要一個往左的箭頭等等，那我覺得你不需要額外去 cdn 或整包package的方式去 npm 完整的 icon 套件(像是知名的<a target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>)，因為你使用的ANTD 裡其實就包含夠用的 icon 了，款式還提供三種呢！</p>
+<h2 id="一、ANTD-Icon-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Icon-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Icon 最基本的使用方式：引用與呼叫它"></a>一、ANTD Icon 最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; CloseOutlined, &#125; from &#39;@ant-design/icons&#39;;
+
+const App = () =&gt; (
+  &lt;div&gt;
+    &lt;CloseOutlined style=&#123;&#123;color: '#00a0e9'&#125;&#125; /&gt;&lt;/div&gt;
+  &lt;div/&gt;
+);
+
+export default App;  
+</code></pre>
+<h2 id="二、ANTD-Icon-可添加的參數"><a href="#二、ANTD-Icon-可添加的參數" class="headerlink" title="二、ANTD Icon 可添加的參數"></a>二、ANTD Icon 可添加的參數</h2><p>因為在ANTD裡的icon都是採用svg的方式去渲染，所以你可以使用style或className去設定它的顏色和大小的value，對於先前就有使用過svg的使用者算是相當方便與好上手。<br>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/icon/#API">官方 api 文件</a>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">屬性名稱</th>
+<th align="left">可以使用的值</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">style</td>
+<td align="left">CSSProperties</td>
+<td align="left">設定它的顏色和大小的value</td>
+</tr>
+<tr>
+<td align="left">className</td>
+<td align="left">字串</td>
+<td align="left">額外拉出去設定的class-name，用於有兩種以上樣式需求很方便</td>
+</tr>
+<tr>
+<td align="left">rotate</td>
+<td align="left">數字</td>
+<td align="left">假設你引用的是箭頭，那你也可以稍微轉一下角度做變化(小聲說IE9是不支援的)</td>
+</tr>
+<tr>
+<td align="left">twoToneColor</td>
+<td align="left">字串(色碼值)</td>
+<td align="left">喜歡官方提供的兩色對比風格(原預設是藍色的)，卻想要換色系的話，可以給個主色，ANTD這個參數將會幫你自動對比另外一個顏色，讓icon呈現另一種樣貌(要注意只支援hex color)</td>
+</tr>
+</tbody></table>
+<h2 id="三、ANTD-Icon-的風格介紹"><a href="#三、ANTD-Icon-的風格介紹" class="headerlink" title="三、ANTD Icon 的風格介紹"></a>三、ANTD Icon 的風格介紹</h2><p>上面有提到ANTD提供三種風格的icon供我們使用，分別就是 Outlined, Filled 和 Two Tone 啦～如同字面意義解讀，依序是外框為主、底色為主和雙色風格，當然很多icon package都很多樣，但是雙色風格我覺得其實已經非常夠用了，尤其是製做後台網站，使用 Two Tone icon 再搭配twoToneColor參數，已經可以超簡易的自訂符合系統風格的icon了！</p>
+<h2 id="四、ANTD-Icon-實際使用範例"><a href="#四、ANTD-Icon-實際使用範例" class="headerlink" title="四、ANTD Icon 實際使用範例"></a>四、ANTD Icon 實際使用範例</h2><p>看完上面簡單的介紹後，下面提供我的一些簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://ithelp.ithome.com.tw/upload/images/20220927/20140920IAfq4dzAV7.png" alt="https://ithelp.ithome.com.tw/upload/images/20220927/20140920IAfq4dzAV7.png"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>先前專案元件示意圖</b></td>
+</tr>
+</tbody></table>
+<p>那今天分享就到這邊啦，大家明天見。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2022ironman/"># 2022ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/09/28/Day13%EF%BC%9AAnt%20Design%20%E8%A3%A1%E7%9A%84%20Table(part1)/">Day13：Ant Design 裡的 Table(part1)</a>
+            
+            
+            <a class="next" rel="next" href="/2022/09/26/Day11%EF%BC%9AAnt%20Design%20%E8%A3%A1%E7%9A%84%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE%20Dropdown/">Day11：Ant Design 裡的下拉選單 Dropdown</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

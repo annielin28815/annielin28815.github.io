@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day03：職場生態觀察力 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day03：職場生態觀察力</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 16, 2021&nbsp;&nbsp;23:27:24</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10264723">上一篇文章</a>分享了我的求職前中後記錄，重要的<strong>職場生態觀察力</strong>我決定獨立一篇來寫，應該更清楚明瞭。無論看到文章的大家此時此刻是否已經在轉職工程師的路上，或者其實是轉換其他類型的工作跑道，我覺得可能都能有些微幫助！我會依循自己的想法，盡量每篇文章都有起承轉合，並在第一段列出本篇重點項目：</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>內容</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>觀察公司機制、人力分配與專案類型</td>
+<td>以接案公司為例</td>
+</tr>
+<tr>
+<td>2</td>
+<td>瞭解公司協作軟體與方式</td>
+<td>以超小型公司為例XDD</td>
+</tr>
+<tr>
+<td>3</td>
+<td>觀察並確認自我不足之處</td>
+<td>以其他同性質公司與直屬senior角度來看</td>
+</tr>
+</tbody></table>
+<h2 id="二、觀察公司機制、人力分配與專案類型"><a href="#二、觀察公司機制、人力分配與專案類型" class="headerlink" title="二、觀察公司機制、人力分配與專案類型"></a>二、觀察公司機制、人力分配與專案類型</h2><h3 id="拿到offer、入職前…"><a href="#拿到offer、入職前…" class="headerlink" title="拿到offer、入職前…"></a>拿到offer、入職前…</h3><p>如果你順利的拿到offer，恭喜你已經拿到了第二張門票(第一張是指收到面試通知)！我個人覺得在這個時間點，你還有值得努力的幾件事：</p>
+<ol>
+<li>在offer信的回覆中，稍微表現你的積極態度(例如公司的語言框架你已做了哪些努力、或在到職前準備朝哪些方向前進等)</li>
+<li>到職前，可以確認好作業環境與辦公室配備(例如你本來使用mac，但公司提供windows)</li>
+</ol>
+<h3 id="入職後…"><a href="#入職後…" class="headerlink" title="入職後…"></a>入職後…</h3><p>到職的第一周，基本上就是看公司安排的去適應工程師工作生活。而在這時候，你也觀察一下同事們上班的樣貌：</p>
+<ol>
+<li>可以看他們都如何溝通(這邊指的是 說話的禮貌度等)</li>
+<li>留意一下公司的整體實際組織架構(例如你的直屬前輩或主管、專案團隊偏向扁平化嗎)</li>
+<li>觀察同事們有沒有自購配備(你可能會需要一個舒適椅墊…)</li>
+</ol>
+<h2 id="三、瞭解公司協作軟體"><a href="#三、瞭解公司協作軟體" class="headerlink" title="三、瞭解公司協作軟體"></a>三、瞭解公司協作軟體</h2><p>這邊列出我曾經使用過與轉職後曾經使用過的協作軟體做一些小比較，主要都是有提供網頁版的唷(優缺點後續補上)：</p>
+<table>
+<thead>
+<tr>
+<th>軟體或網站名稱</th>
+<th>簡單個人說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Asana</td>
+<td>有免費和付費版本，功能完整度個人覺得相差滿多。最大的特點是可以跟很多其他平台結合。</td>
+</tr>
+<tr>
+<td>Trello</td>
+<td>最喜歡卡片拖拉功能，很直覺～</td>
+</tr>
+<tr>
+<td>Jira</td>
+<td>個人用不太習慣，免費版功能很有限。</td>
+</tr>
+<tr>
+<td>Hackmd</td>
+<td>我真心很推！最大優點就是討論很方便、開會記錄也很實用。</td>
+</tr>
+<tr>
+<td>Miro</td>
+<td>公司UI常用的心智圖，但我一直用不習慣XDD</td>
+</tr>
+<tr>
+<td>Draw io</td>
+<td>常用在規劃網站流程或資料庫關聯設計等。</td>
+</tr>
+</tbody></table>
+<h2 id="四、觀察自我不足之處"><a href="#四、觀察自我不足之處" class="headerlink" title="四、觀察自我不足之處"></a>四、觀察自我不足之處</h2><p>工作一段時間後，你一定會知道自己在公司的定位大概在哪裡，然而定位、貢獻和技術能力我覺得都很重要且都是不一樣的事，但今天這個小章節先不討論這塊。<br>我覺得這就像有的人會有每日睡前反思的習慣，你可以適時在一定時間審視自己工作成果，也許一開始入職你會被分配到一些你覺得不太符合該職位的工作項目；也許你會學習原先不會的技術或知識；更也許你會直接開始維護某些專案…你可以想看看自己是否有所進步。<br>如果你培養出上述的小習慣，我敢肯定你的工作能力一定會不斷增長！那如果你發現了自己的一些問題後，我建議有幾種方法可以試試看：</p>
+<ol>
+<li>普遍問題的解決方法請先上網查詢。</li>
+<li>技術問題可以找同期到職、同樣性質同事或直屬主管討論。</li>
+<li>完全沒學過的技術，建議可以先找網路資源學習，搭配公司現有專案研究架構！(小嬰兒也是慢慢才學會自己咬食東西的啊！)</li>
+</ol>
+<h2 id="五、總結與自我鼓勵"><a href="#五、總結與自我鼓勵" class="headerlink" title="五、總結與自我鼓勵"></a>五、總結與自我鼓勵</h2><p>其實每天都有點寫不完，但文章不要太冗長，大家應該也不會覺得太沒重點吧？</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/17/Day04%EF%BC%9A%E8%87%AA%E6%88%91%E5%A2%9E%E9%80%B2%E6%8A%80%E8%A1%93%E8%83%BD%E5%8A%9B%E8%88%87%E8%A7%80%E5%BF%B5%E7%9A%84%E5%B0%8F%E6%96%B9%E6%B3%95/">Day04：自我增進技術能力與觀念的小方法</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/15/Day02%EF%BC%9A%E6%96%B0%E6%89%8B%E7%B6%B2%E9%A0%81%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%BF%85%E5%82%99%E7%9F%A5%E8%AD%98/">Day02：新手網頁全端工程師的必備知識</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

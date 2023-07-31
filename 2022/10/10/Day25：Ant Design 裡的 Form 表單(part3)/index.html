@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day25：Ant Design 裡的 Form 表單(part3) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day25：Ant Design 裡的 Form 表單(part3)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 10, 2022&nbsp;&nbsp;22:56:49</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E7%94%A8-Ant-Design-%E5%81%9A%E9%81%8E%E7%9A%84%E7%B6%B2%E9%A0%81%E5%85%83%E4%BB%B6/">那些年我用 Ant Design 做過的網頁元件</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>  學完 Form 的基本功能後，今天介紹一下表單元素的使用方式，搭配先前的文章一起學習，將會更熟悉如何運用唷！</p>
+<h2 id="狀況一：如何根據不同情形給予每個輸入框不同提示？"><a href="#狀況一：如何根據不同情形給予每個輸入框不同提示？" class="headerlink" title="狀況一：如何根據不同情形給予每個輸入框不同提示？"></a>狀況一：如何根據不同情形給予每個輸入框不同提示？</h2><h3 id="1-可在表單送出時，驗證每一個欄位是否符合驗證規則"><a href="#1-可在表單送出時，驗證每一個欄位是否符合驗證規則" class="headerlink" title="1. 可在表單送出時，驗證每一個欄位是否符合驗證規則"></a>1. 可在表單送出時，驗證每一個欄位是否符合驗證規則</h3><p>  可以為 Form.Item 添加 rules 參數，rules 裡面使用一對一對的 object 定義輸入值的驗證規則。rules 可添加的屬性我列出幾項開發最常用的或常見的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/form/#Rule">官方 api 文件</a>。使用方式如下範例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">屬性名稱</th>
+<th align="left">可以使用的值</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">required</td>
+<td align="left">true 或 false</td>
+<td align="left">是否必填</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">字串</td>
+<td align="left">定義輸入值的格式，就跟大家編輯 html 時一樣(可以參考 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types">MDN 屬性列表</a>)</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left">文字</td>
+<td align="left">當輸入值不符合驗證規則時，要跳出的提示訊息。</td>
+</tr>
+<tr>
+<td align="left">max</td>
+<td align="left">數字</td>
+<td align="left">可以針對文字、數字與陣列三種型別的輸入值，定義「最大值」。</td>
+</tr>
+<tr>
+<td align="left">min</td>
+<td align="left">數字</td>
+<td align="left">可以針對文字、數字與陣列三種型別的輸入值，定義「最小值」。</td>
+</tr>
+<tr>
+<td align="left">whitespace</td>
+<td align="left">true 或 false</td>
+<td align="left">當輸入框格視為文字時，定義是否可以僅輸入空格</td>
+</tr>
+</tbody></table>
+<h4 id="範例1：必填姓名欄位"><a href="#範例1：必填姓名欄位" class="headerlink" title="範例1：必填姓名欄位"></a>範例1：必填姓名欄位</h4><pre><code>&lt;Form.Item
+    label=&quot;name&quot;
+    name=&quot;name&quot;
+    rules=&#123;[&#123; required: true, message: &#39;請輸入您的名字&#39; &#125;]&#125;
+&gt;
+    &lt;Input /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h4 id="範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼"><a href="#範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼" class="headerlink" title="範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼"></a>範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼</h4><pre><code>&lt;Form.Item
+    label=&quot;name&quot;
+    name=&quot;name&quot;
+    rules=&#123;[
+        &#123; whitespace: false, message: &#39;不可輸入空格字元&#39; &#125;,
+        &#123; min: 6, message: &#39;請設定至少6碼英文與數字&#39; &#125;,
+        &#123; max: 12, message: &#39;請設定最多12碼英文與數字&#39; &#125;,
+    ]&#125;
+&gt;
+    &lt;Input /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h4 id="範例3：驗證信箱格式"><a href="#範例3：驗證信箱格式" class="headerlink" title="範例3：驗證信箱格式"></a>範例3：驗證信箱格式</h4><pre><code>&lt;Form.Item
+    label=&quot;name&quot;
+    name=&quot;name&quot;
+    rules=&#123;[&#123; type: &#39;mail&#39;, message: &#39;請輸入正確的電子信箱格式&#39; &#125;]&#125;
+&gt;
+    &lt;Input /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h3 id="2-可以在-label-後方添加提示訊息"><a href="#2-可以在-label-後方添加提示訊息" class="headerlink" title="2. 可以在 label 後方添加提示訊息"></a>2. 可以在 label 後方添加提示訊息</h3><p>  有的時候可能會需要說明為何需要使用者填寫某些欄位，或是對輸入內容有其他建議等，就滿適合使用 ANTD 的 tooltip 參數來做設定，效果是會在 label 後面添加一個 ? 的 icon，當鼠標 hover 時會有提示訊息。</p>
+<h4 id="範例1：圖形驗證碼有區分大小寫的狀況"><a href="#範例1：圖形驗證碼有區分大小寫的狀況" class="headerlink" title="範例1：圖形驗證碼有區分大小寫的狀況"></a>範例1：圖形驗證碼有區分大小寫的狀況</h4><p><img src="https://ithelp.ithome.com.tw/upload/images/20221010/201409202owqd5QOiA.png" alt="https://ithelp.ithome.com.tw/upload/images/20221010/201409202owqd5QOiA.png"></p>
+<pre><code>&lt;Form.Item 
+    label=&quot;驗證碼&quot; 
+    tooltip=&quot;請留意大小寫&quot;
+&gt;
+    &lt;Input /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h3 id="3-可以在-input-下方添加重點提示訊息"><a href="#3-可以在-input-下方添加重點提示訊息" class="headerlink" title="3. 可以在 input 下方添加重點提示訊息"></a>3. 可以在 input 下方添加重點提示訊息</h3><p>  如果是針對輸入值有些建議的話，使用 help 參數則相較於 tooltip 會更為明顯被使用者看到。</p>
+<h4 id="範例1：提示使用免費信箱的訊息"><a href="#範例1：提示使用免費信箱的訊息" class="headerlink" title="範例1：提示使用免費信箱的訊息"></a>範例1：提示使用免費信箱的訊息</h4><p><img src="https://ithelp.ithome.com.tw/upload/images/20221010/20140920jXxjadE5Nb.png" alt="https://ithelp.ithome.com.tw/upload/images/20221010/20140920jXxjadE5Nb.png"></p>
+<pre><code>&lt;Form.Item
+    name=&quot;email&quot;
+    label=&quot;Email&quot;
+    help=&quot;若為免費信箱，請留意驗證信件是否被自動歸類為垃圾郵件&quot;
+&gt;
+    &lt;Input /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h2 id="狀況二：可以在-input-裡面放-icon-嗎？"><a href="#狀況二：可以在-input-裡面放-icon-嗎？" class="headerlink" title="狀況二：可以在 input 裡面放 icon 嗎？"></a>狀況二：可以在 input 裡面放 icon 嗎？</h2><p>  如果表單欄位不多時且有需求，添加這樣的功能其實可以為畫面帶來一點層次感的，在 ANTD 裡對 Form.Item 有一個名為 prefix 的屬性可達成此效果。它也支援 ReactNode 語法，可以直接引用ANTD的icon、靜態svg或純文字，非常容易上手。相關官方文件內容與範例則可以<a target="_blank" rel="noopener" href="https://ant.design/components/input/#Input">點此連結</a>查看。<br><img src="https://ithelp.ithome.com.tw/upload/images/20221010/20140920CbrBOqDQiy.png" alt="https://ithelp.ithome.com.tw/upload/images/20221010/20140920CbrBOqDQiy.png"></p>
+<h4 id="範例1：在密碼輸入框放入鎖頭圖案的-icon"><a href="#範例1：在密碼輸入框放入鎖頭圖案的-icon" class="headerlink" title="範例1：在密碼輸入框放入鎖頭圖案的 icon"></a>範例1：在密碼輸入框放入鎖頭圖案的 icon</h4><pre><code>&lt;Form.Item
+    name=&quot;密碼&quot;
+    rules=&#123;[&#123; required: true, message: &#39;請輸入密碼&#39; &#125;]&#125;
+&gt;
+    &lt;Input
+      prefix=&#123;&lt;LockOutlined /&gt;&#125;
+      type=&quot;password&quot;
+      placeholder=&quot;請輸入密碼&quot;
+    /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h4 id="範例2：在搜尋框放入放大鏡圖案的-icon"><a href="#範例2：在搜尋框放入放大鏡圖案的-icon" class="headerlink" title="範例2：在搜尋框放入放大鏡圖案的 icon"></a>範例2：在搜尋框放入放大鏡圖案的 icon</h4><pre><code>&lt;Form.Item
+    name=&quot;關鍵字搜尋&quot;
+&gt;
+    &lt;Input
+      prefix=&#123;&lt;SearchOutlined /&gt;&#125;
+      placeholder=&quot;請輸入關鍵字&quot;
+    /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h4 id="範例3：在金額填寫輸入框-放入對應幣值圖案的-icon"><a href="#範例3：在金額填寫輸入框-放入對應幣值圖案的-icon" class="headerlink" title="範例3：在金額填寫輸入框 放入對應幣值圖案的 icon"></a>範例3：在金額填寫輸入框 放入對應幣值圖案的 icon</h4><pre><code>&lt;Form.Item&gt;
+   &lt;Input prefix=&quot;￥&quot; suffix=&quot;YEN&quot; type=&quot;number&quot; /&gt;
+&lt;/Form.Item&gt;
+&lt;Form.Item&gt;
+   &lt;Input prefix=&quot;$&quot; suffix=&quot;USD&quot; type=&quot;number&quot; /&gt;
+&lt;/Form.Item&gt;
+</code></pre>
+<h2 id="今天的元件練習"><a href="#今天的元件練習" class="headerlink" title="今天的元件練習"></a>今天的元件練習</h2><p>看完上面簡單的介紹、也提供我的一些簡單範例後，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
+<p>我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/BaxGQEM">codepen 連結</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2022ironman/"># 2022ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/10/11/Day26%EF%BC%9AAnt%20Design%20%E7%9A%84%20Modal/">Day26：Ant Design 的 Modal</a>
+            
+            
+            <a class="next" rel="next" href="/2022/10/09/Day24%EF%BC%9AAnt%20Design%20%E8%A3%A1%E7%9A%84%20Form%20%E8%A1%A8%E5%96%AE(part2)/">Day24：Ant Design 裡的 Form 表單(part2)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

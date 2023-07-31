@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day11：全端工程師的基本要求 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day11：全端工程師的基本要求</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 24, 2021&nbsp;&nbsp;14:53:34</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>前面10篇文章，大部分介紹一些我在轉職為工程師前的準備，我認為人的轉變都是一種不斷練習，最終得到某種成果的。當然，光是短短的10篇心路歷程是不足夠成為轉職為工程師的條件。後續的文章，將從今日開始分享進入職場後的生活，內容一樣是以個人經歷為主的角度去出發，不代表所有全端工程師的立場。</p>
+<p>這邊值得一提的是，我其實應徵現職公司時，是選擇前端工程師職缺，因為個人覺得對資料處理方面能力稍微薄弱且不太願意面對、也比較喜歡做有畫面的東西，所以如此選擇。但後續因為公司人力分配問題，漸漸地我就開始碰一點點後端、資料庫、UI設計甚至是文件與簡報類的事務，職位的變動就是來的這麼突然阿…</p>
+<h2 id="二、全端工程師的基本特質"><a href="#二、全端工程師的基本特質" class="headerlink" title="二、全端工程師的基本特質"></a>二、全端工程師的基本特質</h2><p>就如上所說，我實在沒有做好當一個全端工程師的準備，所以也只是這短短幾個月累積的經驗，統整出我覺得需要有的特質與要求。內容是個人待在一個小型接案公司的一些感想與體驗，不是技術層面，但我覺得很實際，有共鳴的話也可以在底下留言+1</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>主題</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>主動積極並觀察團隊</td>
+<td>主要是指你要願意主動學習並融入團隊，這樣才會加快你了解公司歸默與各案件的速度。千萬不要自己現在自己的思考與疑問裡！</td>
+</tr>
+<tr>
+<td>2</td>
+<td>聽懂團隊溝通的能力</td>
+<td>入職場後才發現，原來英文爛的人這麼多，而他們還偏偏寫的一手好扣…剛開始到職，我常常聽不懂同事和主管在講什麼，但經常的狀況不是我不懂那些術語，而是他們根本就念錯…</td>
+</tr>
+<tr>
+<td>3</td>
+<td>理解團隊任務的重點</td>
+<td>任務通常有重要性與複雜度區分，我基本上是先做急的、再做其他的。分不清楚時，直接開口問主管啊！</td>
+</tr>
+<tr>
+<td>4</td>
+<td>習慣公司的協作方式</td>
+<td>即使公司協作軟體較不實用，也可以主動提出改善建議，讓公司變好也可以讓自己處在合理環境下成長。</td>
+</tr>
+<tr>
+<td>5</td>
+<td>願意不斷學習新知</td>
+<td>反正東西就是學不完，我是抱著「沒關係，反正我學會了，這些都是我的」的態度在職場上學習任何事物的。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>接受多變的任務指派</td>
+<td>我上網查過，好像只有小型公司比較容易遇到。在我們公司，全端工程師是全能的，整個案子一條龍都有機會做到…</td>
+</tr>
+<tr>
+<td>7</td>
+<td>不排斥接手前輩或同事專案</td>
+<td>你一定會被分配到維護或修正不熟悉的舊有專案，基本上不要去排斥他用什麼語言寫的，coding style也拋在一旁，當作一種挑戰把任務給完成就對了。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>妥善的時間管理觀念</td>
+<td>因為對我來說每天上班都是未知的挑戰XD 所以我都養成習慣每一個半小時將現有工作暫停、檢視進度，小作休息與檢討後再繼續，我覺得對手上有很多案子的工程師應該是不錯的方法。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>良好的coding習慣</td>
+<td>我現職公司雖小，但一入職就有短短的新人訓練期，會讓新人熟悉公司的coding style、變數命名方式、專案管理存放位置、公司專案主要類型與一些自有套件等等，原則上我跟同事都是以公司舊有習慣為主、良好為輔，有時間會順手改一下舊專案架構或程式碼不易理解之處那樣。</td>
+</tr>
+</tbody></table>
+<p>是說真的列舉不完，光不是技術的特質就這麼多，之後的篇幅再探討到的技術能力，早就已經遠超過我原本對接案公司的想像，本著分享職場成長歷程的用意，所以內容都挺主觀的，希望能帶給不清楚接案公司生態的新手真實的感受。作好準備，就可以迎戰拉~</p>
+<h2 id="三、、結論與自我鼓勵"><a href="#三、、結論與自我鼓勵" class="headerlink" title="三、、結論與自我鼓勵"></a>三、、結論與自我鼓勵</h2><p>好的，其實我有點佩服自己了XD昨天發完文章後，系統發了罐頭通知給我「您的鐵人系列文『<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/users/20140920/ironman/4329">新手全端工程師的職場成長歷程</a>』已經完成10篇，每天發文真是不容易，繼續加油喔～」</p>
+<p>我原本不是一個做事很持久的人，也因為有點小懶散，所以從小就很常半途而廢或直接耍廢…直到下定決心參加了這次的鐵人賽自我挑戰，我才發現，原來在忙碌到不行的宅宅工程師日常中，每天抽出一點時間擠出一篇成長文，是多麼有成就感的事！是的，大家沒看錯，我真的是每天抱佛腳壓線或抽空寫完的，完全不像原本想像的，先在哪個周末寫幾篇起來放。</p>
+<p>所以這也驗證了，刻意練習(<a target="_blank" rel="noopener" href="https://www.books.com.tw/products/0010752714">我的愛書</a>)真的是有用的！希望自己能持續完成這系列的分享，謝謝收看到這裡的大家，也希望路過的前輩們，能夠也分享一下其他接案公司的生態讓我開開眼界唷～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/25/Day12%EF%BC%9A%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E7%94%9F%E6%B4%BB%E5%B8%B8%E6%85%8B/">Day12：全端工程師的生活常態</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/23/Day10%EF%BC%9A%E7%A8%8B%E5%BC%8F%E7%A2%BC%E7%B7%A8%E8%BC%AF%E5%99%A8%E7%9A%84%E5%AF%A6%E7%94%A8%E6%93%B4%E5%85%85%E5%A5%97%E4%BB%B6(2)/">Day10：程式碼編輯器的實用擴充套件(2)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

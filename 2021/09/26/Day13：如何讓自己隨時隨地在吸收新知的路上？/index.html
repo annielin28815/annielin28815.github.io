@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day13：如何讓自己隨時隨地在吸收新知的路上？ | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day13：如何讓自己隨時隨地在吸收新知的路上？</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 26, 2021&nbsp;&nbsp;23:47:13</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>看過我這個系列的文章，就不免能發現，我是一個非常平淡無奇的工程師，沒有厲害的學歷、邏輯清晰的程式腦，更沒有一學就會的超能力。所以我一直都是走一個累積路線，認為勤能補拙！</p>
+<p>這邊分享幾個我這一年(含準備轉職的時期)，曾經關注、使用過的方法，我覺得對於沒有相關背景的人，要轉職為工程師，是很有幫助的。</p>
+<h2 id="二、踏入程式的世界"><a href="#二、踏入程式的世界" class="headerlink" title="二、踏入程式的世界"></a>二、踏入程式的世界</h2><p>這邊就以轉職的階段稍微區分說明：</p>
+<table>
+<thead>
+<tr>
+<th>階段&#x2F;時期</th>
+<th>主題</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>轉職前</td>
+<td>1.各種實體體驗活動 </br> 2. 小型研討會 </br>3.線上一日課程</td>
+<td>因為還在做功課與探索自己喜好，所以算是什麼都參加。</td>
+</tr>
+<tr>
+<td>確定轉職行業</td>
+<td>1.線上主題性課程  </br> 2.YouTube和W3C</td>
+<td>就當不斷培養出興趣那樣，看順眼的東西就會越看越喜歡、研究的很深入的道理。</td>
+</tr>
+<tr>
+<td>找適合的實體培訓營</td>
+<td>1.比較評價 </br> 2.研究語言市佔率 </br> 3.到處聽課程說明會</td>
+<td>我覺得我一個人自學轉職實在太一步登天(我個人做不到)，所以就有這個打算，慢慢查網路上前輩們的實際分享經驗，選出適合自己的，並為全職投入轉職做一些準備(像是存錢這種實際的事)。</td>
+</tr>
+<tr>
+<td>正式上課</td>
+<td>1.認真吸收一切 </br>  2.不斷突破自己</td>
+<td>因為錢都花了，還是要全力以赴，才不會浪費當初的下定決心～</td>
+</tr>
+<tr>
+<td>就業後</td>
+<td>1.上班認真上班  </br> 2.下班休息夠就繼續進修</td>
+<td>目的不是轉職，而是轉職後還能持續進步和突破自己。</td>
+</tr>
+</tbody></table>
+<h2 id="三、全端工程師的進修方法"><a href="#三、全端工程師的進修方法" class="headerlink" title="三、全端工程師的進修方法"></a>三、全端工程師的進修方法</h2><p>轉職前的準備和培訓營的選擇，不在這篇的主題裡，主要比較想跟大家分享的是，當工程師後我還是過得好忙！我不是一個普通的上班族、不是成天用電腦的久坐工程師、更不是想像的週末小廢宅。</p>
+<p>雖然我轉職不到半年，但我覺得我算是很努力獲取新知的新人，雖然我一直都沒有很固定的學習方向，可是我覺得這樣也挺好的，算是學習範圍比較廣～</p>
+<h3 id="1-個人有追蹤的Youtube頻道"><a href="#1-個人有追蹤的Youtube頻道" class="headerlink" title="1. 個人有追蹤的Youtube頻道"></a>1. 個人有追蹤的Youtube頻道</h3><table>
+<thead>
+<tr>
+<th>頻道名稱</th>
+<th>教學主題</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CSScoke</td>
+<td>CSS和前端相關技術直播</td>
+</tr>
+<tr>
+<td>高見龍</td>
+<td>Git和Ruby大神，還有很多技術分享</td>
+</tr>
+<tr>
+<td>偷米騎巴哥</td>
+<td>前端網頁技術</td>
+</tr>
+<tr>
+<td>彭彭的課程</td>
+<td>前後端都有</td>
+</tr>
+<tr>
+<td>kudvenkat</td>
+<td>SQL和ASP DOT NET</td>
+</tr>
+<tr>
+<td>在地上滾的工程師 Nic</td>
+<td>偏後端的技術</td>
+</tr>
+<tr>
+<td>布魯斯前端</td>
+<td>前端技術和React框架</td>
+</tr>
+<tr>
+<td>Alex 宅幹嘛</td>
+<td>前端技術和Vue框架</td>
+</tr>
+<tr>
+<td>more…</td>
+<td>more…</td>
+</tr>
+</tbody></table>
+<h3 id="2-實際使用過的線上教學平台"><a href="#2-實際使用過的線上教學平台" class="headerlink" title="2. 實際使用過的線上教學平台"></a>2. 實際使用過的線上教學平台</h3><table>
+<thead>
+<tr>
+<th>平台名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>五倍紅寶石學院</td>
+<td>有復刻三個知名網站，是全方位課程。</td>
+</tr>
+<tr>
+<td>Udemy</td>
+<td>各種課程和語言都有，很常有限時免費優質課程。</td>
+</tr>
+<tr>
+<td>Udacity</td>
+<td>有點忘了…</td>
+</tr>
+<tr>
+<td>Alpha Camp</td>
+<td>分階段性的課程，有助教即時回答！</td>
+</tr>
+<tr>
+<td>Hiskio</td>
+<td>課程常有優惠，老師通常有經營社群，問答回覆也很快。</td>
+</tr>
+<tr>
+<td>緯育</td>
+<td>只上過一門課，還沒辦法給太印象的評價。</td>
+</tr>
+<tr>
+<td>more…</td>
+<td>more…</td>
+</tr>
+</tbody></table>
+<h3 id="3-很常辦活動的平台或社群"><a href="#3-很常辦活動的平台或社群" class="headerlink" title="3. 很常辦活動的平台或社群"></a>3. 很常辦活動的平台或社群</h3><table>
+<thead>
+<tr>
+<th>平台名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Accupass</td>
+<td>各種活動，搜尋關鍵字或追蹤相關活動方即可獲知新訊。</td>
+</tr>
+<tr>
+<td>鄰近的大學或政府機構</td>
+<td>大部分都免費，適合入門者。</td>
+</tr>
+<tr>
+<td>Hiskio</td>
+<td>有很多論壇、技術或職涯相關講座。</td>
+</tr>
+<tr>
+<td>Youtube</td>
+<td>常常有大神直播或職涯相關分享。</td>
+</tr>
+<tr>
+<td>六角學院</td>
+<td>較多前端、設計相關活動的推行。</td>
+</tr>
+<tr>
+<td>more…</td>
+<td>more…</td>
+</tr>
+</tbody></table>
+<h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><p>這邊當然是分享自己使用過的一些管道，其實很多都沒有寫得很詳細，但很推薦大家多方嘗試，找到適合自己隨時隨地在吸收新知的方法或平台。我自己很喜歡這種生活充實的感覺，因為不斷嘗新、會讓自己感覺無時無刻都有新事物可以接觸及進步的感覺！</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/27/Day14%EF%BC%9A%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%85%A7%E5%AE%B9%EF%BC%9F(%E4%B8%8A)/">Day14：全端工程師的工作內容？(上)</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/25/Day12%EF%BC%9A%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E7%94%9F%E6%B4%BB%E5%B8%B8%E6%85%8B/">Day12：全端工程師的生活常態</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

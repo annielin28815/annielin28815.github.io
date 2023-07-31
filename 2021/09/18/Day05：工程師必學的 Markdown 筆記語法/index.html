@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day05：工程師必學的 Markdown 筆記語法 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day05：工程師必學的 Markdown 筆記語法</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 18, 2021&nbsp;&nbsp;23:34:34</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>  大家一定都知道並且常使用 Markdown 吧？那你們常使用的工具有哪些呢？以下我就簡單介紹一些我經常使用的工具、平台與小技巧或習慣。</p>
+<h2 id="二、經常使用-Markdown-的推薦工具與平台"><a href="#二、經常使用-Markdown-的推薦工具與平台" class="headerlink" title="二、經常使用 Markdown 的推薦工具與平台"></a>二、經常使用 Markdown 的推薦工具與平台</h2><p>  </p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>工具或平台名稱</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Hackmd</td>
+<td>最推團隊討論時使用。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Joplin</td>
+<td>可以同步到雲端硬碟或 GitHud，適合用在私人與公用電腦上隨時切換。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Medium</td>
+<td>剛踏入轉職實用的，但沒有即時預覽功能，有些語法也不支援</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Discord</td>
+<td>團隊之間 溝通一小段程式碼時超實用！</td>
+</tr>
+</tbody></table>
+<h2 id="三、使用-Markdown-之個人小技巧或習慣"><a href="#三、使用-Markdown-之個人小技巧或習慣" class="headerlink" title="三、使用 Markdown 之個人小技巧或習慣"></a>三、使用 Markdown 之個人小技巧或習慣</h2><ol>
+<li>圖片插入技巧<br>我個人覺得有的時候還滿適合用的，有點像在 html 語法裡為圖片加上 figacation tag 的樣子，讓看文章的人可以清楚知道圖片的敘述。</li>
+</ol>
+<pre><code>| 放圖片的地方 |
+|:--:|
+| &lt;b&gt;圖片下面的敘述&lt;/b&gt;|
+</code></pre>
+<p>實際展示：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://ithelp.ithome.com.tw/storage/image/ironman13thsidebar.png"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>橘色小超人</b></td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>做折疊目錄時可使用</li>
+</ol>
+<pre><code>&lt;details open&gt;
+    &lt;summary&gt;
+      打開看看吧
+    &lt;/summary&gt;
+      打開後的內容
+&lt;/details&gt;
+</code></pre>
+<ol start="3">
+<li>想為某段名詞或句子做些螢光記號(使用半型兩個等於將詞彙匡起來)<br>我個人覺得做會議記錄時滿好用。</li>
+</ol>
+<pre><code>==重點詞句==
+</code></pre>
+<h2 id="三、總結與自我鼓勵"><a href="#三、總結與自我鼓勵" class="headerlink" title="三、總結與自我鼓勵"></a>三、總結與自我鼓勵</h2><p>  其實很多想分享的，但好像有些在這個平台沒辦法成功預覽，大家可以貼回去自己其他常用的編輯器或網站試試看實際效果唷～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/19/Day06%EF%BC%9A%E7%B5%95%E5%B0%8D%E8%A6%81%E6%9C%89%E7%9A%84Git%E8%A7%80%E5%BF%B5%E8%88%87%E7%BF%92%E6%85%A3/">Day06：絕對要有的Git觀念與習慣</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/17/Day04%EF%BC%9A%E8%87%AA%E6%88%91%E5%A2%9E%E9%80%B2%E6%8A%80%E8%A1%93%E8%83%BD%E5%8A%9B%E8%88%87%E8%A7%80%E5%BF%B5%E7%9A%84%E5%B0%8F%E6%96%B9%E6%B3%95/">Day04：自我增進技術能力與觀念的小方法</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

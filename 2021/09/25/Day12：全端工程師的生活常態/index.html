@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day12：全端工程師的生活常態 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day12：全端工程師的生活常態</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 25, 2021&nbsp;&nbsp;19:49:56</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10271162">上一篇的文章</a>有提到需要具備什麼樣的特質，才能在一間案子微多的小型接案公司當一名菜鳥全端。這篇想接續分享的是，我轉職後的生活常態，希望不會破滅有轉職念頭的新手們XD</p>
+<h2 id="二、全端工程師的生活常態"><a href="#二、全端工程師的生活常態" class="headerlink" title="二、全端工程師的生活常態"></a>二、全端工程師的生活常態</h2><p>一開始我確實有很多不習慣的地方，但今天已是我就職的第5個多月了，我已經差不多過著以下生活，<del>枯燥無味且樸實無華</del>平凡忙碌但想辦法調整中…</p>
+<table>
+<thead>
+<tr>
+<th>星期</th>
+<th>時段</th>
+<th>主題</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一 ~ 五</td>
+<td>白天&#x2F;晚上</td>
+<td>上班&#x2F;加班、晚餐、複習當日新知</td>
+</tr>
+<tr>
+<td>六</td>
+<td>白天&#x2F;晚上</td>
+<td>睡到飽、吃好點、找個技術影音看&#x2F;看電影</td>
+</tr>
+<tr>
+<td>日</td>
+<td>白天&#x2F;晚上</td>
+<td>做家事、約會、找個技術影音看&#x2F;煮下周上班便當</td>
+</tr>
+</tbody></table>
+<p>是的，就是幾乎天天加班、周末也很平淡，不是回家鄉的周末就是那樣過。其實跟原先轉職前想像中的工程師生活沒有相差太多，就宅宅的、懶懶的。</p>
+<h2 id="三、全端工程師的日常小習慣"><a href="#三、全端工程師的日常小習慣" class="headerlink" title="三、全端工程師的日常小習慣"></a>三、全端工程師的日常小習慣</h2><p>不知道大家有沒有特別喜歡的小事情或不經意累積而成的習慣？像我因為不想中午午休還要出門曬太陽，所以我平日上班都自備便當。我覺得不論是什麼原因，只要你找到平衡的方法，久了自然會累積出一個小習慣。這邊列出我自我觀察當工程師後，才產生的小習慣們(可以算是一些勤能補拙的爛方法們)給大家：</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>主題</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>每晚複習當日上班新學技能</td>
+<td>無論什麼都好，記錄下來更好！有的事情可能比較小，學一次你就會了，但你覺得你真的懂其中道理嗎？下次不會忘記嗎？所以有輸出是最好的～</td>
+</tr>
+<tr>
+<td>2</td>
+<td>吃飯可以配技術影音平台</td>
+<td>我都找youtube全螢幕看，因為我是吃飯一定要兩隻手並用的人，所以不能划手機會有點無聊。聽一次不懂或者英文不太好，你可以分段或重複聽很多天阿~總有累積的效果！</td>
+</tr>
+<tr>
+<td>3</td>
+<td>上班空檔千萬不要浪費</td>
+<td>可以找之前專案看架構、可以找公司過往網站點點看功能畫面、也可以問同事有沒有需要幫忙且你能做的事。有時候票沒分給你，不代表沒你的事、或者你做不了~</td>
+</tr>
+<tr>
+<td>4</td>
+<td>參加或追蹤任何有興趣的技術社群</td>
+<td>因為你總不能整天都泡在公司裡阿，你總是要成長、學習新的事物，那你可以用這種方法得知一些線上直播或實體演講等活動訊息，我自己是很常參加，雖然每次去都很弱只聽的懂一點點XDD</td>
+</tr>
+<tr>
+<td>5</td>
+<td>不斷發掘自己喜歡的工作技能</td>
+<td>雖然上班時間雜七雜八的硬著頭皮全包著做，但你一定會發現自己比較喜歡做哪類型的工作內容，我覺得算是探討自己的一環，因為你要不斷對自己充滿興趣與期待，才會成長阿！</td>
+</tr>
+</tbody></table>
+<p>下一篇應該會撥個章節，分享一些我加強自己實力的一些影音平台或書籍。</p>
+<h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><p>看完今天的文章，不知道大家有沒有覺得當工程師很不容易XD對我來說真的是挺苦的啦！因為跟轉職前的工作時數和型態差距太大，所以花了好多的時間去調適。祝福大家也和我一樣，不會後悔選擇轉職為工程師的決定，一起在這條路上用力持續成長。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/26/Day13%EF%BC%9A%E5%A6%82%E4%BD%95%E8%AE%93%E8%87%AA%E5%B7%B1%E9%9A%A8%E6%99%82%E9%9A%A8%E5%9C%B0%E5%9C%A8%E5%90%B8%E6%94%B6%E6%96%B0%E7%9F%A5%E7%9A%84%E8%B7%AF%E4%B8%8A%EF%BC%9F/">Day13：如何讓自己隨時隨地在吸收新知的路上？</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/24/Day11%EF%BC%9A%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82/">Day11：全端工程師的基本要求</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

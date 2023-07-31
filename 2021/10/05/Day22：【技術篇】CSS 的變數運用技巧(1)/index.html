@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day22：【技術篇】CSS 的變數運用技巧(1) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day22：【技術篇】CSS 的變數運用技巧(1)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 5, 2021&nbsp;&nbsp;20:48:49</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>在 JavaScript 的世界裡有變數，那初學者們也知道 CSS (階層式樣式表，Cascading Style Sheets)也有嗎？以下內容以我工作上常用的做介紹與舉例～</p>
+<h2 id="二、CSS-的變數運用技巧"><a href="#二、CSS-的變數運用技巧" class="headerlink" title="二、CSS 的變數運用技巧"></a>二、CSS 的變數運用技巧</h2><h3 id="1-宣告css變數"><a href="#1-宣告css變數" class="headerlink" title="1. 宣告css變數"></a>1. 宣告css變數</h3><p>將會運用到的變數都放在 :root 選取器內，並且使用 –自訂名稱作為屬性的方式來宣告變數。</p>
+<pre><code class="css=">:root &#123;
+  --primary: Aquamarine;
+  --background-color: Teal;
+&#125;
+</code></pre>
+<h3 id="2-使用css變數"><a href="#2-使用css變數" class="headerlink" title="2. 使用css變數"></a>2. 使用css變數</h3><p>取值的階段，取值時前方依然是撰寫我們需要套用的樣式屬性，後方再接著使用 var (–變數名稱) 來套用。</p>
+<pre><code class="css=">body &#123;
+  background: var(--background-color);
+&#125;
+</code></pre>
+<h3 id="3-在RWD使用css變數"><a href="#3-在RWD使用css變數" class="headerlink" title="3. 在RWD使用css變數"></a>3. 在RWD使用css變數</h3><p>製作響應式時，因為螢幕大小的不同通常會需要調整文字大小來符合需求，最常見的方式就是透過選取器一一覆蓋字體大小，如果透過變數的方式就可以統一切換整體文字大小，不需要一一的調整每個選取器。</p>
+<pre><code class="css=">:root &#123;
+  --font-size: 14px;
+&#125;
+/* 使用變數定義文字大小 */
+p &#123;
+  font-size: var(--font-size);
+&#125;
+/* 除此之外，還可以透過 calc 用相同變數做運算，讓特定的文字更大獲更小 */
+h1 &#123;
+  font-size: calc(var(--font-size) * 1.5);
+&#125;
+@media (min-width: 480px) &#123;
+  :root &#123;
+    --font-size: 18px;
+  &#125;
+&#125;
+</code></pre>
+<h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><p>我在初學網頁設計時，最先接觸到的是 HTML 和 CSS，但因為只是買初階的線上課程，並未學得很深入，後來才知道還有選取器、變數和 SCSS 等這麼多實用技巧，可以不用寫冗長的程式碼，也能達到想要的樣式編排效果，每學一點新的，真的就讓我對做網頁更有興趣了！</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/10/06/Day23%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91CSS%20%E7%9A%84%E8%AE%8A%E6%95%B8%E9%81%8B%E7%94%A8%E6%8A%80%E5%B7%A7(2)/">Day23：【技術篇】CSS 的變數運用技巧(2)</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/04/Day21%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91SSH%20%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%81%8B%E4%BD%9C%E5%8E%9F%E7%90%86/">Day21：【技術篇】SSH 的基本運作原理</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

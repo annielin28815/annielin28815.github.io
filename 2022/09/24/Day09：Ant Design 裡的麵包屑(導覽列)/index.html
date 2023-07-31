@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day09：Ant Design 裡的麵包屑(導覽列) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day09：Ant Design 裡的麵包屑(導覽列)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 24, 2022&nbsp;&nbsp;22:28:32</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E7%94%A8-Ant-Design-%E5%81%9A%E9%81%8E%E7%9A%84%E7%B6%B2%E9%A0%81%E5%85%83%E4%BB%B6/">那些年我用 Ant Design 做過的網頁元件</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>不論前後台網頁，麵包屑導覽列 (Breadcrumb) 都是很常用到的元件之一，尤其當你的網頁層級或內頁較多時，一定要設置以輔助使用者快速連結到上層頁面或首頁。</p>
+<p>它通常設置於網頁的左上角，會由多個箭頭或其他分隔號與文字組合而成。雖然只佔整個網頁的一小角，但可不要小看它的便利性與對搜尋引擎最佳化(Search Engine Optimization,SEO) 的重要性，因為它的功用就像在頁面繁多的網站裡指引方向，所以就有一個源自名為糖果屋的童話故事，將其統稱為「麵包屑」。以下也稍微列出了幾項麵包屑的重點給大家參考。</p>
+<h3 id="麵包屑的功用："><a href="#麵包屑的功用：" class="headerlink" title="麵包屑的功用："></a>麵包屑的功用：</h3><ul>
+<li>幫助使用者與搜尋引擎理解目前位置，降低使用者跳出率。</li>
+<li>可透過各層的超連結，回到父層頁面，提高網頁易用性。</li>
+</ul>
+<h3 id="正確使用麵包屑的建議："><a href="#正確使用麵包屑的建議：" class="headerlink" title="正確使用麵包屑的建議："></a>正確使用麵包屑的建議：</h3><ul>
+<li>每一階層的文字要簡潔簡短，不宜過長，且連結都一定要是有效連結</li>
+<li>包含首頁的階層總數量 不要超過 3 層(有些專家說是 5 層)</li>
+</ul>
+<h2 id="一、ANTD-Breadcrumb-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Breadcrumb-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Breadcrumb 最基本的使用方式：引用與呼叫它"></a>一、ANTD Breadcrumb 最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; Breadcrumb &#125; from &#39;antd&#39;;
+
+const App = () =&gt; (
+  &lt;div&gt;
+    &lt;Breadcrumb&gt;
+        &lt;Breadcrumb.Item&gt;
+          &lt;a href=&quot;&quot;&gt;首頁&lt;/a&gt;
+        &lt;/Breadcrumb.Item&gt;
+        &lt;Breadcrumb.Item&gt;
+          &lt;a href=&quot;&quot;&gt;階層一&lt;/a&gt;
+        &lt;/Breadcrumb.Item&gt;
+        &lt;Breadcrumb.Item&gt;
+          &lt;a href=&quot;&quot;&gt;階層二&lt;/a&gt;
+        &lt;/Breadcrumb.Item&gt;
+        &lt;Breadcrumb.Item&gt;當前頁&lt;/Breadcrumb.Item&gt;
+     &lt;/Breadcrumb&gt;
+  &lt;div/&gt;
+);
+
+export default App;  
+</code></pre>
+<h2 id="二、Breadcrumb-可添加的參數"><a href="#二、Breadcrumb-可添加的參數" class="headerlink" title="二、Breadcrumb 可添加的參數"></a>二、Breadcrumb 可添加的參數</h2><p>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/breadcrumb/#API">官方 api 文件</a>。</p>
+<h3 id="1-Breadcrumb"><a href="#1-Breadcrumb" class="headerlink" title="1. Breadcrumb"></a>1. Breadcrumb</h3><p>  separator 是我比較常用的參數，因為預設的「&#x2F;」我認為有點不明顯，通常會改成「&gt;」這類的符號，比較值得一提的是，這個參數不只可以輸入一般字串，它也支援特別拉出去寫成一個自定義的區塊，用來客製化很方便~</p>
+<table>
+<thead>
+<tr>
+<th align="left">屬性名稱</th>
+<th align="left">可以使用的值</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">separator</td>
+<td align="left">ReactNode</td>
+<td align="left">每個項目之間相隔的符號，默認是「&#x2F;」</td>
+</tr>
+<tr>
+<td align="left">itemRender</td>
+<td align="left">ReactNode</td>
+<td align="left">子元素特定的渲染規則或樣式</td>
+</tr>
+<tr>
+<td align="left">routes</td>
+<td align="left"></td>
+<td align="left">路徑(有點像object，有規定的key值)</td>
+</tr>
+</tbody></table>
+<h3 id="2-Breadcrumb-Item"><a href="#2-Breadcrumb-Item" class="headerlink" title="2. Breadcrumb.Item"></a>2. Breadcrumb.Item</h3><table>
+<thead>
+<tr>
+<th align="left">屬性名稱</th>
+<th align="left">可以使用的值</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">href</td>
+<td align="left">字串</td>
+<td align="left">連結網址</td>
+</tr>
+<tr>
+<td align="left">onClick</td>
+<td align="left">() &#x3D;&gt; {}</td>
+<td align="left">就是 function</td>
+</tr>
+<tr>
+<td align="left">overlay</td>
+<td align="left"></td>
+<td align="left">可以搭配ANTD的Menu元件延伸應用</td>
+</tr>
+<tr>
+<td align="left">dropdownProps</td>
+<td align="left"></td>
+<td align="left">可以搭配ANTD的Dropdown元件延伸應用</td>
+</tr>
+</tbody></table>
+<h2 id="三、Breadcrumb-實際使用範例"><a href="#三、Breadcrumb-實際使用範例" class="headerlink" title="三、Breadcrumb 實際使用範例"></a>三、Breadcrumb 實際使用範例</h2><p>看完上面簡單的介紹後，下面提供我的一些簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
+<p>我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/LYmOPdy?editors=0010">codepen連結</a></p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://ithelp.ithome.com.tw/upload/images/20220924/20140920BnyytICddQ.png" alt="https://ithelp.ithome.com.tw/upload/images/20220924/20140920BnyytICddQ.png"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>codepen 練習成果</b></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://ithelp.ithome.com.tw/upload/images/20220924/20140920t64O3pe1Rp.png" alt="https://ithelp.ithome.com.tw/upload/images/20220924/20140920t64O3pe1Rp.png"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>先前專案元件示意圖</b></td>
+</tr>
+</tbody></table>
+<p>其實有的開發者經驗上是不會給最上層的麵包屑(首頁)連結，因為通常大家都會將左上角的logo設置點擊可回首頁的功能，如果麵包屑上的首頁也設置，好像會覺得很多餘，但個人看法還是覺得還是要遵循麵包屑最初初衷，給每個項目正確有效的連結網址，不知道大家看法如何呢？</p>
+<blockquote>
+<p>註1：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E9%9D%A2%E5%8C%85%E5%B1%91%E5%AF%BC%E8%88%AA">維基百科對麵包屑的定義與介紹</a><br>註2：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E7%B3%96%E6%9E%9C%E5%B1%8B">童話故事—糖果屋的介紹</a><br>註3：<a target="_blank" rel="noopener" href="https://welly.tw/serp-rank-optimization/how-to-make-a-breadcrumb-navigation">麵包屑的SEO技巧</a></p>
+</blockquote>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2022ironman/"># 2022ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/09/25/Day10%EF%BC%9AAnt%20Design%20%E8%A3%A1%E7%9A%84%E4%B8%8A%E5%82%B3%E9%88%95/">Day10：Ant Design 裡的上傳鈕</a>
+            
+            
+            <a class="next" rel="next" href="/2022/09/23/Day08%EF%BC%9AAnt%20Design%20%E8%A1%A8%E5%96%AE%E8%A3%A1%E7%9A%84%E6%97%A5%E6%9C%9F%E9%81%B8%E6%93%87%E6%A1%86/">Day08：Ant Design 表單裡的日期選擇框</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

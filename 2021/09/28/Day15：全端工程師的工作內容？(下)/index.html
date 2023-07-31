@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day15：全端工程師的工作內容？(下) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day15：全端工程師的工作內容？(下)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 28, 2021&nbsp;&nbsp;19:21:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10273336">上一篇文章</a>有提到我現職公司中全端工程師的工作項目大綱，這篇就我個人日常上班中比較常做、稍微較有工程師技術層面或有勾到程式與網站流程概念的內容，與大家做些微細部分享，因為我知道其實不是所有公司都是這樣運作與分配。</p>
+<h2 id="二、-大部分-全端工程師最常做的幾種工作項目"><a href="#二、-大部分-全端工程師最常做的幾種工作項目" class="headerlink" title="二、(大部分)全端工程師最常做的幾種工作項目"></a>二、(大部分)全端工程師最常做的幾種工作項目</h2><h3 id="1-訪談需求"><a href="#1-訪談需求" class="headerlink" title="1. 訪談需求"></a>1. 訪談需求</h3><p>在這階段，最怕的就是客戶講不清楚自己的需求或者你根本聽不懂人家的意思XD。我覺得這個也是需要時間去累積的，基本上，客戶一定會提出幾個已知需求或他們想像的功能，較有經驗的客戶會直接告訴你更立體與實際面向的內容，那公司這邊派出去的與會人員，就是將他們需求確認後記錄下來，當下有問題或覺得流程有些許想法也可直接提出。</p>
+<p>那也有一個可能是，你不是被發派為與會的其中一人，但你要參加該專案的開發，這是很可能發生的事，因為公司不可能把整個團隊都帶出去開會。所以在這階段，也能區分出誰較有溝通技巧、統整需求與臨場反應的能力。</p>
+<h3 id="2-網站流程設計"><a href="#2-網站流程設計" class="headerlink" title="2. 網站流程設計"></a>2. 網站流程設計</h3><p>了解客戶需求後，要設計的是整個網站的流程，而有個職位叫做UX(User Experience)<br>全名為使用者經驗，強調的是根據使用者的習慣，安排整個網站頁面的內容規劃，像是哪些區塊的內容要先在網站上出現，哪些按鈕一定要在哪，重大責任就是要確保產品從這一步流動到下一步符合邏輯(<a target="_blank" rel="noopener" href="https://gremlinworks.com.tw/ui-ux/ui-ux-comparison/">引用來源</a>)。小型接案公司就…可能沒這個職位XD，只能大家一起集思廣益。</p>
+<p>UX(User Experience)的角色與經驗也至關重要，我覺得流程設計是網站的精隨，如果不清楚其中一個環節或漏掉一個細節，其實後面工程師要實做時，很常會發生打掉重練的問題，切版或者資料庫關聯都是很花時間的事。</p>
+<h3 id="3-系統規劃"><a href="#3-系統規劃" class="headerlink" title="3. 系統規劃"></a>3. 系統規劃</h3><p>這邊指的較是資料表的關聯與程式碼之架構等。一般來說，如果公司接的案子很固定、網站類型超單一、定期接一些制式官網平台，那可能這兩者都不會在各個專案間有太大差異，如果不喜歡一直做一樣事情、工作內容毫無挑戰性與變化或coding技術提升較慢的話，我個人覺得可能在工作上會做的比較沉悶一點。</p>
+<p>這邊針對前述內容就暫不詳談，因為已經比較偏前後端技術能力。後面章節如果篇幅足夠，再行補充。但系統規劃這部分，也會依客戶需求或當初契約規定，有可能需要製做一些文件交遞、報告，像是系統建置分析書、系統設計規格書等，主要是敘述系統預計以何種語言、框架、server如何配置等內容。</p>
+<h3 id="4-實做程式碼及各種功能"><a href="#4-實做程式碼及各種功能" class="headerlink" title="4. 實做程式碼及各種功能"></a>4. 實做程式碼及各種功能</h3><p>就是把所有客戶要的、PM說的全做出來。入職這麼久，我覺得最中肯的建議就是，當你遇到一個小困難時，請吳要給自己太多時間卡在那，這就像小時候做答考試，老師都會說，每個人答卷時間一樣，你要懂得分配和取捨，才能把事情做完。做網頁我覺得也是這樣，今天你被分派到某個部分做不出來，請要養成設定停損點的習慣與找尋團隊中解決問題的處理方式，工作上都是不等人的阿~</p>
+<h3 id="5-結案統整"><a href="#5-結案統整" class="headerlink" title="5. 結案統整"></a>5. 結案統整</h3><p>實做完成至結案狀態或到某個約定進度時，通常需要做一些系統結案類型或檢測的報告文件，我現職公司是都將畫面做截圖加上當初服務建議書與工作計畫書之功能敘述去呈現。</p>
+<h3 id="6-確認實際上線事宜"><a href="#6-確認實際上線事宜" class="headerlink" title="6. 確認實際上線事宜"></a>6. 確認實際上線事宜</h3><p>實際上線通常會考量客戶需求與設備問題，依照客戶習慣與期待，將系統建置在預期之位置，確認伺服器的連通、主機架設是否完整正確以利網站正式上線之相關準備等。</p>
+<h3 id="7-教育訓練"><a href="#7-教育訓練" class="headerlink" title="7. 教育訓練"></a>7. 教育訓練</h3><p>基本上就是教客戶如何使用最後完成版的功能介面，前後台的實際運作流程會整體跑一次，若有帳號權限需特別設置也可當下紀錄處理。較為複雜的專案類型，通常教育訓練次數也會稍微較多一點，一般網站都是1至2次、每次1至2小時之教育訓練；若為複雜或大型點的，則可能調整為3次、每次3小時左右的時間。</p>
+<h3 id="8-後續維護與優化"><a href="#8-後續維護與優化" class="headerlink" title="8. 後續維護與優化"></a>8. 後續維護與優化</h3><p>我個人覺得這部分就是合理範圍的網站售後服務，因為之前尚未轉職工程師前的工作也是接案性質，所以這樣認為。網站開發完成後，難免會遇到一些程式碼的微調需求、功能的優化調整，當然也要看雙方契約如何擬定去著手進行。</p>
+<p>比較需要注意的是，接案公司的工程師們會有離職然後有新人要銜接的問題，所以開發架構與程式碼優化、資料庫關聯設計等，都會是重要的交接環節。公司在每個專案或每一時期的交接若完整，對於客戶來說會是較有保障的。(某種程度上來說，也算是一種使用者體驗吧)</p>
+<h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><p>整體而言，我還是很喜歡接案公司的，因為轉職前就是做個人接案(辦理建築執照許可)，很習慣一條龍的服務流程。但進到網站接案這個領域，實際做過才發現，真的需要分工合作並且是完整的公司制度與開發流程，才能順利同時處理各項專案進度、同步提升開發團隊之默契與專業。</p>
+<p>雖然轉職後第一份工作就選擇超小型接案公司，算是一開始就對這行有些衝擊與卻步，但我覺得如果抗壓性還夠，這也不是一個不好的選擇，希望目前為止以接案公司角度，分享對全端工程師的期待、工作上會遇到的項目內容，能讓不是這個領域的人，有一點點地了解，如果大家有不同的經驗或建議，也可以分享給我唷～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/29/Day16%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91SQL%E4%B9%8B%E5%9F%BA%E6%9C%ACCRUD%E8%99%95%E7%90%86%E8%83%BD%E5%8A%9B/">Day16：【技術篇】SQL之基本CRUD處理能力</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/27/Day14%EF%BC%9A%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%85%A7%E5%AE%B9%EF%BC%9F(%E4%B8%8A)/">Day14：全端工程師的工作內容？(上)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

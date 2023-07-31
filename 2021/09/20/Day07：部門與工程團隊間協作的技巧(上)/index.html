@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day07：部門與工程團隊間協作的技巧(上) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day07：部門與工程團隊間協作的技巧(上)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 20, 2021&nbsp;&nbsp;12:28:56</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>所謂的團隊合作，我想最重要的就是如何溝通與使用有效之協作工具！溝通屬於較偏人性與軟性之性質，這篇文章將著重在協作工具之介紹，先前在<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10265633">本系列文的第3篇</a>已有稍微提到個人簡單說明，這篇會再討論深一點點。</p>
+<h2 id="二、工程師間的協作軟體或工具"><a href="#二、工程師間的協作軟體或工具" class="headerlink" title="二、工程師間的協作軟體或工具"></a>二、工程師間的協作軟體或工具</h2><h3 id="一-Discord"><a href="#一-Discord" class="headerlink" title="(一) Discord"></a>(一) <a target="_blank" rel="noopener" href="https://discord.com/">Discord</a></h3><p>首先介紹的是我到培訓營後，第一個碰到可以寫 markdown 語法的工具，我們常用在老師提供程式碼給學生與團隊合作的討論時。<br>聽說玩電玩的也一定知道這個通訊軟體，因為我是遊戲白癡XDD，所以真的是直到走上實體轉職這條路才第一次聽說(我自己自學時根本不曉得什麼協作)。最喜歡他的特點有以下幾點：</p>
+<ul>
+<li>頻道功能：可以有各自的公告、發言權與能使用之功能等。</li>
+<li>可以貼指定語言的程式碼段落。</li>
+<li>可以編輯訊息：有時候真的會遇到誤打的狀況，小修改很好用。</li>
+<li>針對訊息按貼圖的功能：就像社群媒體那樣，可以按你喜歡的icon給你喜歡的訊息(用在已讀、收到或讚美很好用)。</li>
+<li>提供各種介面，很方便使用：有網頁版、桌面版與手機版，訊息通常不會漏接，嫌太多也能關提醒。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><b>Discord的mac桌機版</b></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://i.imgur.com/JSSz6vm.jpg"></td>
+</tr>
+</tbody></table>
+<h3 id="二-Hackmd"><a href="#二-Hackmd" class="headerlink" title="(二) Hackmd"></a>(二) Hackmd</h3><p>其實Hackmd的功能也很齊全，可以備份到遠端，但我比較希望自己的筆記或公司內部會議記錄不要傳至GitHub上面，所以一直沒有使用到這個功能。但我幾乎天天使用，尤其是在進到公司後真的天天隨手記錄，因為公司專案可能是一次只做一點點，我會給每個專案一個tag，這樣方便隨時進入狀況，也不會有問同事同樣問題的狀況。這邊一樣稍微提一下使用一陣子後這項工具的幾項特點。</p>
+<ul>
+<li>可以隨時清楚看見即時編輯結果。而且預覽效果個人覺得很清楚。</li>
+<li>聽公司同事說用久後，感受到圖片資源會受影響。但我目前使用經驗尚未滿一年，較無太大感受。</li>
+<li>需要有網路的狀態才能使用，沒網路時是完全不能改變編輯中的文字的。</li>
+<li>有時候即使有在網路環境裡，預覽效果也會有所延遲，遇到此狀況通常都是儲存後重新整理，即可順利解決。</li>
+<li>最喜歡他的分享權限功能，即使你和同事在同一個組織裡創建了很多筆記或紀錄，仍然可以依每篇文章需求，在文章右上角之分享鈕，為該篇文章定義網址，儲存後選擇擁有此分享網址的人，僅可閱讀或編輯等功能。我覺得跟協作廠商討論API串接等文件的某部分時，也挺好用！</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><b>Hackmd的網頁編輯介面</b></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://i.imgur.com/zVHiRbK.jpg"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center"><b>分享權限功能示意圖</b></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://i.imgur.com/xmuX7PB.png"></td>
+</tr>
+</tbody></table>
+<h3 id="三-Slack"><a href="#三-Slack" class="headerlink" title="(三) Slack"></a>(三) <a target="_blank" rel="noopener" href="https://slack.com/intl/zh-tw/">Slack</a></h3><p>這也是一個支援 markdown 語法之通訊軟體，和 discord 一樣，擁有頻道功能、權限管理等。<br>首次使用是剛進公司工作沒多久時，有個同事分享我社群訊息，是hexschool舉辦的bootstrap的實戰營活動(目前已結束)，加入後有很多資源，我覺得就算是本來就有一點基礎的人，也能獲得很多能扎穩切版根基的技巧可以學習！但因為我公司沒有使用，所以我目前僅有下載手機版而已，個人和公司電腦都是使用網頁版。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><b>Slack的手機版</b></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://i.imgur.com/26WUavI.jpg"></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center"><b>Slack的網頁版</b></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://i.imgur.com/jFCrNc8.png"></td>
+</tr>
+</tbody></table>
+<h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><p>我覺得團隊之間溝通真的很重要，開issue當然也是需要依靠好的介面，各專案若有跨組原則是要善用協作平台分組。藉由這些軟體工具，有助於團隊開發與有效之時間管理，其實也有很多文章有介紹更多詳細的優缺點，大家可以多比較～<br>中秋假期只剩最後兩天，堅持下去是必定的，因為也該收心了XDD各位鐵人一起加油唷！</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/21/Day08%EF%BC%9A%E9%83%A8%E9%96%80%E8%88%87%E5%B7%A5%E7%A8%8B%E5%9C%98%E9%9A%8A%E9%96%93%E5%8D%94%E4%BD%9C%E7%9A%84%E6%8A%80%E5%B7%A7(%E4%B8%8B)/">Day08：部門與工程團隊間協作的技巧(下)</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/19/Day06%EF%BC%9A%E7%B5%95%E5%B0%8D%E8%A6%81%E6%9C%89%E7%9A%84Git%E8%A7%80%E5%BF%B5%E8%88%87%E7%BF%92%E6%85%A3/">Day06：絕對要有的Git觀念與習慣</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

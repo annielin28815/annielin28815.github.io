@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day18：【技術篇】HTML的冷門使用技巧 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day18：【技術篇】HTML的冷門使用技巧</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 1, 2021&nbsp;&nbsp;23:10:05</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>大家不論學習什麼程式語言、選擇走前端後端或系統分析，一定都學過HTML這個文本標記語言，當然隨著語言不同可能檔案副檔名與註解方式不一樣，這篇想跟大家分享關於它的一些冷知識，個人覺得有些滿實用的唷！</p>
+<h2 id="二、HTML裡的符號"><a href="#二、HTML裡的符號" class="headerlink" title="二、HTML裡的符號"></a>二、HTML裡的符號</h2><p>因為我很常使用 Markdown 語法做筆記或會議記錄，甚至近期已經著迷到會用它做旅遊規劃的慾望清單XD所以難免在日常累積中，會有需要用到特殊符號的需求，以下分享一些我個人搜集並常常使用的網站資源。</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>符號種類</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://www.rapidtables.com/web/html/html-codes.html">基本常見的字母或特殊字元</a></td>
+<td>就是日常會用到的，這個網站都有唷～</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://www.htmlsymbols.xyz/">非常齊全、並意想不到的符號</a></td>
+<td>左側有功能選單，非常清楚明瞭，可以組出特別的想法們</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a target="_blank" rel="noopener" href="https://www.toptal.com/designers/htmlarrows/symbols/">常見和冷門的符號</a></td>
+<td>有提供UNICODE、HEX CODE和HTML CODE，是我個人最常使用的查詢網站。我覺得很多都很可愛，像是雪人 &amp;#9731;</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a target="_blank" rel="noopener" href="https://www.w3schools.com/charsets/ref_utf_math.asp">HTML的數學特殊符號</a></td>
+<td>像是 &amp;sum;</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://www.w3schools.com/html/html_symbols.asp">基本且常見的實用符號</a></td>
+<td>像是版權的&amp;copy; 或是基本的箭頭符號 &amp;rarr;</td>
+</tr>
+</tbody></table>
+<h2 id="三、HTML裡的空格"><a href="#三、HTML裡的空格" class="headerlink" title="三、HTML裡的空格"></a>三、HTML裡的空格</h2><p>大家應該有遇過想在 markdown 語法裡，適當地呈現文字縮排、空格的方法吧？一般來說，大多數的文字編輯器介面可能不支援我們所熟悉的空白鍵，會看不出效果。還有其他需要使用的狀況，大家可以參考以下我統整HTML 裡 entity 的語法與示範，了解一下實際運用的效果唷～</p>
+<table>
+<thead>
+<tr>
+<th>entity語法</th>
+<th>作用</th>
+<th>範例程式碼</th>
+<th>範例效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;emsp;</code></td>
+<td>全形空格，1個中文字的寬度</td>
+<td><code>「」可以注意到我的每個段落開頭都有</code></td>
+<td>「」可以注意到我的每個段落開頭都有</td>
+</tr>
+<tr>
+<td><code>&amp;ensp;</code></td>
+<td>半形空格，半個中文字的寬度</td>
+<td><code>「&amp;ensp;」有時候排版需要縮排可以使用</code></td>
+<td>「&amp;ensp;」有時候排版需要縮排可以使用</td>
+</tr>
+<tr>
+<td><code>&amp;nbsp;</code></td>
+<td>按空白鍵產生的空格</td>
+<td><code>大家最熟悉的「&amp;nbsp;」距離？</code></td>
+<td>大家最熟悉的「&amp;nbsp;」距離？</td>
+</tr>
+<tr>
+<td><code>&amp;thinsp; </code></td>
+<td>窄空格，約1&#x2F;6個中文字的寬度</td>
+<td><code>大概是一種曖昧「&amp;thinsp;」距離？</code></td>
+<td>大概是一種曖昧「&amp;thinsp;」距離？</td>
+</tr>
+<tr>
+<td><code>&amp;zwnj;</code></td>
+<td>零寬度，用於切開兩個字元</td>
+<td><code>國中談戀愛都會被強制分「&amp;zwnj;」手</code></td>
+<td>國中談戀愛都會被強制分「&amp;zwnj;」手</td>
+</tr>
+<tr>
+<td><code>&amp;zwj;</code></td>
+<td>零寬度，用於產生連字效果</td>
+<td><code>但大家還是會偷牽「&amp;zwj;」小手</code></td>
+<td>但大家還是會偷牽「&amp;zwj;」小手</td>
+</tr>
+</tbody></table>
+<p>我自己在編輯HTML時，累積出一些經驗，像是遇到首行縮排兩字或或排版不整齊的狀況，善用這些空格符號就可以快速解決問題，所以我覺得這也算是冷知識吧。 <code>&amp;ensp;</code> 和 <code>&amp;emsp;</code> 是我最常使用的空格符號。</p>
+<h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><p>第一次參加鐵人賽，就迎來了意想不到的生活意外，今日是媽媽開刀住院的第一天，有些手忙腳亂，所以今日的文章稍微比較匆忙結束，晚一點或明天起床後會再找時間補齊內容，祝福大家與我自己能持續完賽並身體健康。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/10/02/Day19%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91%E7%84%A1%E9%9A%9C%E7%A4%99%E6%AA%A2%E6%B8%AC(freego)%E6%96%B9%E5%BC%8F/">Day19：【技術篇】無障礙檢測(freego)方式</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/30/Day17%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91SQL%E4%B9%8B%E5%85%B6%E5%AE%83%E5%B8%B8%E7%94%A8%E8%AA%9E%E6%B3%95/">Day17：【技術篇】SQL之其它常用語法</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

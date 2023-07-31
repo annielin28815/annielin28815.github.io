@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day24：【技術篇】設定自己的GitHub Pages | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day24：【技術篇】設定自己的GitHub Pages</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 7, 2021&nbsp;&nbsp;22:42:59</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>網路上有很多創建個人 <a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/github/using-github-pages.html">GitHub Pages 的教學文章</a>，這邊就先跳過此環節與相關原理說明，如果你已經擁有自己的 GitHub Pages ，想要美化的話，可以參考我這篇文章，試著用一些現成的套件，輕鬆地讓頁面看起來更加完整、美觀及方便使用！而比較有名的像是 Jekyll 或是 Octopress 之類的好用套件等可以參考。</p>
+<h2 id="二、設定自己的GitHub-Pages-使用Hexo"><a href="#二、設定自己的GitHub-Pages-使用Hexo" class="headerlink" title="二、設定自己的GitHub Pages - 使用Hexo"></a>二、設定自己的GitHub Pages - 使用Hexo</h2><h3 id="1-安裝Hexo，並確認版本"><a href="#1-安裝Hexo，並確認版本" class="headerlink" title="1. 安裝Hexo，並確認版本"></a>1. 安裝Hexo，並確認版本</h3><ul>
+<li><font color="#9F353A">請先確認你的電腦已經有安裝過node.js了喲！</font></li>
+<li><font color="#9F353A">以 ‘$’ 開頭，皆為 bash 指令</font></li>
+</ul>
+<p>網路查到的安裝指令是</p>
+<pre><code>$ npm install hexo-cli -g
+</code></pre>
+<p>但我使用時看到這個提示，照著走就好囉，因為有新版</p>
+<pre><code>$ npm install -g npm
+</code></pre>
+<p>安裝Hexo Git</p>
+<pre><code>$ npm install hexo-deployer-git --save
+</code></pre>
+<p>安裝完成後，可以用這個指令來確認版本號</p>
+<pre><code>$ hexo version
+</code></pre>
+<p><img src="https://i.imgur.com/CThypwr.png"></p>
+<h3 id="2-初始化blog"><a href="#2-初始化blog" class="headerlink" title="2. 初始化blog"></a>2. 初始化blog</h3><p>初始化並建立一個blog資料夾</p>
+<pre><code>$ hexo init blog
+</code></pre>
+<p>進到創建好的blog資料夾裡</p>
+<pre><code>$ cd blog
+</code></pre>
+<p>安裝相關套件</p>
+<pre><code>$ npm install
+</code></pre>
+<h3 id="3-連結GitHub-Page"><a href="#3-連結GitHub-Page" class="headerlink" title="3. 連結GitHub Page"></a>3. 連結GitHub Page</h3><p>進到blog資料夾</p>
+<pre><code>$ open . // 在mac系統打開當前資料夾的指令
+</code></pre>
+<p>打開名叫_config.yml檔案，在最下面的Deployment部分，填上以下資訊。<br><font color="#9F353A">GitHub-ID就是你的GitHub帳號，記得網址裡有兩處要改！！！</font></p>
+<pre><code class="yaml=">deploy:
+  type: git
+  repository: http://github.com/GitHub-ID/GitHub-ID.github.io.git
+  branch: master
+</code></pre>
+<p>接著就是部署囉！</p>
+<pre><code>$ hexo d -g
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://i.imgur.com/o03Wuf0.png" alt="成功示意圖"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>成功示意圖</b>，訊息內容就和平常使用git push非常像</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://i.imgur.com/4gobtB8.png" alt="失敗示意圖"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>失敗示意圖</b>(原因是GitHub-ID少打一個…)</td>
+</tr>
+</tbody></table>
+<p>部署成功後可以到<code>https://&#123;yourname&#125;.github.io/</code>檢視！</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://i.imgur.com/GoQSUoQ.png" alt="Hexo部署成功圖"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>Hexo部署成功圖</b>(這是預設主題)</td>
+</tr>
+</tbody></table>
+<h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><p>身為一個工程師，不斷增進自己的實力與用自己的方式輸出，是可以持續進步的好方法，而且創建個人的 GitHub Pages ，也是一個能證明自己能力與所知的好方式，對求職我覺得也相當有幫助，是很值得快速學習入門的免費服務。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/10/08/Day25%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91JavaScript%20%E5%A5%97%E4%BB%B6%20-%20classnames/">Day25：【技術篇】JavaScript 套件 - classnames</a>
+            
+            
+            <a class="next" rel="next" href="/2021/10/06/Day23%EF%BC%9A%E3%80%90%E6%8A%80%E8%A1%93%E7%AF%87%E3%80%91CSS%20%E7%9A%84%E8%AE%8A%E6%95%B8%E9%81%8B%E7%94%A8%E6%8A%80%E5%B7%A7(2)/">Day23：【技術篇】CSS 的變數運用技巧(2)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

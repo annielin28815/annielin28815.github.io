@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day02：新手網頁全端工程師的必備知識 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day02：新手網頁全端工程師的必備知識</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 15, 2021&nbsp;&nbsp;23:27:14</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>在大家入行當網頁工程師前，一定都會做很多功課，了解前後端工程師技能樹與後期發展性等等，那大家有想過「準備的如何才叫準備好了」這件事嗎？<br>因為我目前已經轉職幾個月，所以想用回顧的方式，告訴即將轉職的你，你可以做的其實還有很多！這系列將會有以下大項目分享(有可能順序微調、也有可能會持續擴增&amp;#9787;)：</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>內容</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>職場生態的觀察能力</td>
+<td>含求職前中後</td>
+</tr>
+<tr>
+<td>2</td>
+<td>自我增進技術能力與觀念的小方法</td>
+<td>每個人不同</td>
+</tr>
+<tr>
+<td>3</td>
+<td>工程師必學的Markdown筆記語法</td>
+<td>內含工具介紹</td>
+</tr>
+<tr>
+<td>4</td>
+<td>絕對要有的GIT觀念與習慣</td>
+<td>基本指令與相關延伸工具</td>
+</tr>
+<tr>
+<td>5</td>
+<td>部門與工程團隊間協作的技巧</td>
+<td>各司其職的溝通技巧</td>
+</tr>
+<tr>
+<td>6</td>
+<td>程式碼編輯器的實用小工具</td>
+<td>以VS vode為例</td>
+</tr>
+<tr>
+<td>7</td>
+<td>全端工程師的基本要求</td>
+<td>以接案公司為例</td>
+</tr>
+<tr>
+<td>8</td>
+<td>more…</td>
+<td>more…</td>
+</tr>
+</tbody></table>
+<h2 id="二、網頁工程師技能樹"><a href="#二、網頁工程師技能樹" class="headerlink" title="二、網頁工程師技能樹"></a>二、網頁工程師技能樹</h2><p>首先想跟大家一起思考，大家認為的網站工程師是怎麼樣的呢？會切出漂亮的版面、會做出炫砲的動態效果、能夠串接資料，或是會寫系統文件與功能測試？還是應該分工很細、讓每張票都能開的好、讓團隊間能夠完美協作呢？<br>我想各位前輩們心裡的答案各自不同，而新手們一定也和剛轉職的我一樣茫然分不清楚。這邊就不多做文字上的探討論述，分享一些我看過的文章與資源，有興趣的大家可以在底下留言唷！</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://coggle.it/diagram/XrJZ_l91m2BEzl83/t/%E7%B6%B2%E7%AB%99%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%8A%80%E8%83%BD%E6%A8%B9">網站工程師技能樹</a></li>
+<li><a target="_blank" rel="noopener" href="https://tw.alphacamp.co/blog/2018-07-20-18464">前端、後端、全端工程師 必備技能與就業門檻比較</a>(2021.6月更新)</li>
+<li><a target="_blank" rel="noopener" href="https://www.laurencegellert.com/2012/08/what-is-a-full-stack-developer/">What is a Full Stack developer?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.coding543.com/%E4%BD%A0%E7%9F%A5%E9%81%93%E4%BB%96%E5%80%91%E7%9A%84%E5%B7%AE%E5%88%A5%E5%97%8E%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%ABvs%E5%BE%8C%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%ABvs%E5%85%A8%E7%AB%AF/">你知道他們的差別嗎?前端工程師vs後端工程師vs全端工程師</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.itread01.com/content/1546508644.html">程式設計各種技能樹</a></li>
+</ol>
+<p>其實記得還有一個英文網站的技能樹，但臨時找不到連結，之後找到再補充給大家！</p>
+<h2 id="三、職場生態的觀察能力"><a href="#三、職場生態的觀察能力" class="headerlink" title="三、職場生態的觀察能力"></a>三、職場生態的觀察能力</h2><h3 id="求職前"><a href="#求職前" class="headerlink" title="求職前.."></a>求職前..</h3><p>就如上所述，我並不是一位資深的網站工程師，到職至今不過就幾個月的時間。轉職的起因在此不多加敘述，主要想以非本科生角度分享求職的回顧與反思。<br>求職前我有參加一個培訓營，因為是放棄了原先在中部有的一切來到臺北，也有上網爬文過很多大大的轉職心得與準備歷程，所以下定決心後我也在培訓營開課前一個月，北上租屋開始參加小型讀書會感染coding世界的氣息(?)當然，那時候的我完全聽不懂周遭的中文字XD<br>順利的在培訓營的指導與同學的協作間完成了一個小專案，體驗了非常初階的工程師微爆肝生活後，進到了投履歷展現自我能力的階段。這個時候我認為有幾件事情是很基本的：</p>
+<ol>
+<li>你已經說得出口且真實理解的技能(很多事情都是勤能補拙的！)</li>
+<li>你覺得每天花8小時以上的前提下，對網站開發哪部分較有興趣？(這邊是指你持續自學加上工作的時數)</li>
+<li>豐富你的履歷與增加他人對你求職信的吸引力！</li>
+<li>你轉職的目的、動機與做出的努力？</li>
+<li>有別於其他轉職者或社會新鮮人，你還有什麼特點能加分？</li>
+<li>如果你很確定自己只偏愛某個語言或某種工作類型，那你可以在轉職初期先投喜歡的，並且同時慢慢累積相關實力。</li>
+<li>如果你選擇海投，那你也要適當的局限海投範圍。(範圍指的是求職地點、求職技能類型等)</li>
+</ol>
+<h3 id="求職中"><a href="#求職中" class="headerlink" title="求職中.."></a>求職中..</h3><p>拿到面試通知後，請為自己鼓勵一下，因為你正在成功的路上前進著，你只需要再繼續努力增進自我實力即可。不論你應徵的網站工程師職位名稱為何(有可能是前端工程師、後端工程師、網站工程師、網站設計師或MIS工程師等等)，隨著公司規模大小或其他因素，面試可能是1~6次不等，其中當然也包含了技術考。<br>其實我個人在這轉職過程中最害怕技術考XD，因為我打程式碼偏慢且講話容易帶贅詞，很擔心解釋專有名詞或觀念時多說多錯…但在害怕嶄露缺點的同時，我仍要兼顧如何迎接所有面試挑戰，而在這個階段我則認為需要把握黃金時期注意這幾件事：</p>
+<ol>
+<li>對即將要去面試的公司，盡可能的了解全部。</li>
+<li>針對該職位工作敘述與技能要求，每一行字都盡可能的看懂。(就算你不知道那項技術怎麼執行，你也可以查一下它大概是在做什麼的)</li>
+<li>準備合宜的面試服裝、帶齊任何面試可能會用到的東西(像是demo作品用的筆電、紙本彩印履歷、黑筆或藍筆等)。</li>
+<li>可以的話，先去一趟該公司(順一下行車路線與時程)，或者與朋友實際測試以確認你的視訊設備與環境收音(疫情期間與很多第一階段都是遠距面試)。</li>
+<li>實際操作demo作品的流程，直至順暢度熟透為止。(面對不清楚或非你實作的部分，想辦法說明大致且正確的方向，是很加分的事！)</li>
+<li>準備簡短扼要的自我介紹、至少五個可以問該公司或職缺的問題。</li>
+</ol>
+<blockquote>
+<h5 id="這邊小小提一下，我轉職其實沒有很順利，也是半海投型，投遞履歷將近130間，面試了大約45間，範圍遍及臺中與臺北，有先錄取一間公司，後來工作內容不如想像所以毅然離職，再進行第二次的求職過程。"><a href="#這邊小小提一下，我轉職其實沒有很順利，也是半海投型，投遞履歷將近130間，面試了大約45間，範圍遍及臺中與臺北，有先錄取一間公司，後來工作內容不如想像所以毅然離職，再進行第二次的求職過程。" class="headerlink" title="這邊小小提一下，我轉職其實沒有很順利，也是半海投型，投遞履歷將近130間，面試了大約45間，範圍遍及臺中與臺北，有先錄取一間公司，後來工作內容不如想像所以毅然離職，再進行第二次的求職過程。"></a>這邊小小提一下，我轉職其實沒有很順利，也是半海投型，投遞履歷將近130間，面試了大約45間，範圍遍及臺中與臺北，有先錄取一間公司，後來工作內容不如想像所以毅然離職，再進行第二次的求職過程。</h5></blockquote>
+<h3 id="求職後"><a href="#求職後" class="headerlink" title="求職後.."></a>求職後..</h3><p>經過各項面試關卡後，你一定會在某一個職缺裡備受青睞，拿到錄取通知。在求職的這個最後一個關卡，一定也有些小地方值得你注意：</p>
+<ol>
+<li>錄取通知信的內容完整度(相關文章可以看：<a target="_blank" rel="noopener" href="https://www.cakeresume.com/resources/hr-offer-letter-interview-invitation?locale=zh-TW">給求職者的錄取通知怎麼寫？</a>、<a target="_blank" rel="noopener" href="https://yang-notes.com/offer-letter/">拿到錄取信後的注意事項有哪些？</a>) </li>
+<li>拿到多間offer時，尋求身旁可靠或網路前輩的建議做決定。</li>
+</ol>
+<h2 id="三、總結與自我鼓勵"><a href="#三、總結與自我鼓勵" class="headerlink" title="三、總結與自我鼓勵"></a>三、總結與自我鼓勵</h2><p>先感謝願意看到這裡的大家，想必有經歷過轉職漫長路程的人也有很多過程艱辛可以分享吧？推薦非本科生卻成功踏入軟體業多年的龍哥，寫過的文章——「<a target="_blank" rel="noopener" href="https://kaochenlong.com/2019/02/08/how-to-be-a-qualified-developer/">轉職軟體工程師，你必須經歷的三個階段</a>」。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/16/Day03%EF%BC%9A%E8%81%B7%E5%A0%B4%E7%94%9F%E6%85%8B%E8%A7%80%E5%AF%9F%E5%8A%9B/">Day03：職場生態觀察力</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/14/Day01%EF%BC%9A%E9%90%B5%E4%BA%BA%E8%B3%BD%E9%96%8B%E5%A0%B4/">Day01：鐵人賽開場</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

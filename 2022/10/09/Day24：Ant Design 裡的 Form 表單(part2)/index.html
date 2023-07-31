@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day24：Ant Design 裡的 Form 表單(part2) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day24：Ant Design 裡的 Form 表單(part2)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十月 9, 2022&nbsp;&nbsp;23:34:10</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E7%94%A8-Ant-Design-%E5%81%9A%E9%81%8E%E7%9A%84%E7%B6%B2%E9%A0%81%E5%85%83%E4%BB%B6/">那些年我用 Ant Design 做過的網頁元件</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>  看完上一篇的介紹，稍微理解 Form 的架構後，今天開始認識它的細節功能。因為表單的應用大至數據的收集、小至簡單的登入，都非常常見，所以希望以案例分享的方式，說明可運用的參數，讓大家更清楚理解。</p>
+<h2 id="狀況一：不知道要用什麼方式排列表單？"><a href="#狀況一：不知道要用什麼方式排列表單？" class="headerlink" title="狀況一：不知道要用什麼方式排列表單？"></a>狀況一：不知道要用什麼方式排列表單？</h2><p>  ANTD 有個名為 layout 的參數，提供三種排列表單的方式，分別是預設的 horizontal, vertical 與 inline。個人覺得這個參數超方便，三種都算實用，可以依自己專案開發的需求添加。</p>
+<ul>
+<li>預設的 horizontal 有水平佈滿的感覺，比較適合每個輸入框的輸入內容有長有短的需求上，一組label和input就是一行。</li>
+<li>第二種 vertical 則如字面上所指，會讓輸入框的label和input本身垂直排列，登入框或者表單欄位較少時很適合。</li>
+<li>最後一種 inline 會將每組label和input直接視為inline style元素，全部排在同一行。實際使用上個人認為僅適合放置在滿版網頁的 header 或 navbar 區塊，用來做簡易登入、搜尋或到貨通知填寫這些填寫。</li>
+</ul>
+<p>實際參考參數使用效果可看下圖與我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/oNdarbd">codepen 連結</a>。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://ithelp.ithome.com.tw/upload/images/20221009/20140920R6Jk5atVd7.png" alt="https://ithelp.ithome.com.tw/upload/images/20221009/20140920R6Jk5atVd7.png"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>codepen 練習成果</b></td>
+</tr>
+</tbody></table>
+<h2 id="狀況二：可以在表單裡給一些欄位預設值嗎？"><a href="#狀況二：可以在表單裡給一些欄位預設值嗎？" class="headerlink" title="狀況二：可以在表單裡給一些欄位預設值嗎？"></a>狀況二：可以在表單裡給一些欄位預設值嗎？</h2><p>  大家使用需要使用者登入的網站時，一定常會看見在你點進會員管理頁就看到每個輸入框裡已經幫你填寫好舊有資料，當你編輯時，只需要修改需要修改的部分即可，而這是怎麼辦到的呢？在 ANTD 裡可以使用 initialValues 參數，將你需要預設到輸入框的值用解構方式直接對應到輸入框裡。</p>
+<ul>
+<li>initialValues 要放 object 格式的內容。建議可放入你需要的整包資料，若有需要新增判斷是再行解構即可。</li>
+</ul>
+<p>實際參考參數使用效果可看下圖與我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/BaxqXBz">codepen 連結</a>。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img src="https://ithelp.ithome.com.tw/upload/images/20221009/20140920zpDoGHl71p.png" alt="https://ithelp.ithome.com.tw/upload/images/20221009/20140920zpDoGHl71p.png"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><b>codepen 練習成果</b></td>
+</tr>
+</tbody></table>
+<p>  做範例程式碼原來這麼費功?找時間會再多補上一些範例的～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2022ironman/"># 2022ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2022/10/10/Day25%EF%BC%9AAnt%20Design%20%E8%A3%A1%E7%9A%84%20Form%20%E8%A1%A8%E5%96%AE(part3)/">Day25：Ant Design 裡的 Form 表單(part3)</a>
+            
+            
+            <a class="next" rel="next" href="/2022/10/08/Day23%EF%BC%9AAnt%20Design%20%E8%A3%A1%E7%9A%84%20Form%20%E8%A1%A8%E5%96%AE(part1)/">Day23：Ant Design 裡的 Form 表單(part1)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

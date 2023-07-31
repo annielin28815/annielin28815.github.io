@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day06：絕對要有的Git觀念與習慣 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day06：絕對要有的Git觀念與習慣</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">九月 19, 2021&nbsp;&nbsp;22:45:11</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E6%96%B0%E6%89%8B%E5%85%A8%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%AB%E7%9A%84%E8%81%B7%E5%A0%B4%E6%88%90%E9%95%B7%E6%AD%B7%E7%A8%8B/">新手全端工程師的職場成長歷程</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>先前有提到，我在轉職後、進到現職公司前，其實還有錄取過另外一份PHP後端工程師之職缺，因為轉職時在培訓營學習過Ruby這個後端語言，所以在技術考時，算是回答方向還可以，有幸被錄取。</p>
+<p>不幸的是，我入職後發現全公司都沒有人會使用Git!!!太驚人了啊～這麼好用的東西到底為何不使用呢？我記得我才到職一週時間，每天在辦公室裡，大家都是埋頭寫扣，最常聽到的對話就是「有人剛剛刪掉我的某某某段程式碼嗎？」</p>
+<p>後來詢問之後才了解，原來我面試時詢問公司是否有使用Git做版控時，主管說有，其實是沒有的…全公司前後端分離，程式碼的交換是使用共用資料夾做傳輸…所以就會有掉程式碼的問題常發生，而大家也都沒有備份的習慣，導致專案開發常常有耗時之問題！</p>
+<p>當然除了沒有版控，其實還有其他問題，我只做一週就離職了。從中得到最寶貴的經驗，我覺得是建議剛要踏入這行的新鮮人，可以多注意版本控制這件事，不要說是協作，你一個人在家開發side project時也可以用啊！隨時隨地都可以練習的～</p>
+<h2 id="二、Git是什麼？"><a href="#二、Git是什麼？" class="headerlink" title="二、Git是什麼？"></a>二、Git是什麼？</h2><p>Git像一個檔案系統，直接在本機上取得資料，不必連線到主機端取得資料。 每個開發者都可有全部開發歷史的本地副本，changes從這種本地repository複製給其他開發者。這些changes作為新增的開發分支被匯入，可以與本地開發分支合併。(本段落取用自<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Git">維基百科</a>之定義)</p>
+<p>上面那段我覺得可能是因為翻譯關係較為饒舌難懂，我覺得較簡單的理解是可以把Git當作是一個版本開發工具，你可以隨時儲存進度、保留歷史開發內容、為每一階段開發做有效命名、以及傳送至有效之server作為團隊合作之工具。</p>
+<p>以下介紹我覺得入職後最常用的幾個，如果想要從頭學習或瞭解一些冷知識的話，推薦可以看龍哥的這本書&lt;&lt;<a target="_blank" rel="noopener" href="https://gitbook.tw/">為你自己學 Git</a>&gt;&gt;，可以依自己習慣選擇電子版或實體書籍(我個人還是喜歡實體書籍)。但入職前將下列指令熟用(稍微列幾個，但實際上也要看公司的習慣)，真的是很基本的事情！</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>Git指令</th>
+<th>用處</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><code>git add .</code></td>
+<td>我通常都是一個小進度告一段落就會使用，然後搭配項次2的指令作為此進度之命名</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>git commit -m &quot;commit message&quot;</code></td>
+<td>commit message放的就是你對目前這個儲存的時機點所完成的進度，個人推薦全英文寫上簡單易懂之小句子，可順手培養英文單字熟練度。</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>git merge branch-name</code></td>
+<td>合併某個分支。</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>git push origin branch-name</code></td>
+<td>就是推到某個遠端的分支做同步的意思，有可能是feature…、develop等等。</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>git cherry-pick commit-SHA-1</code></td>
+<td>- commit-SHA-1是指你想要的那個節點。</br>- 主要是用來處理你忘記開分支出去，就開始撰寫程式碼的狀況。可以參考<a target="_blank" rel="noopener" href="https://gitbook.tw/chapters/faq/cherry-pick.html">這個章節</a>，有更詳細之理解。</td>
+</tr>
+</tbody></table>
+<h2 id="三、Git觀念與習慣"><a href="#三、Git觀念與習慣" class="headerlink" title="三、Git觀念與習慣"></a>三、Git觀念與習慣</h2><p>Git好用之處這邊不加以贅述，遠端共同協作更是現在身為工程師必備之技能。那擁有好的Git觀念，我想是要靠自己不斷練習使用、常與團隊溝通合作，自然就能累積而成。這邊介紹一下我個人堅持的小習慣，但我現職的全公司都不愛用XDD我不懂為何…</p>
+<table>
+<thead>
+<tr>
+<th>項次</th>
+<th>主題</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>使用全指令介面</td>
+<td>- 好處是可以不用切換輸入法、增加英文字彙量、有很多指令可以活用、假裝很忙？</br> - 壞處目前想不到，因為我覺得學習曲線真的不高。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>分支命名</td>
+<td>- 第一當然是尊重團隊習慣。</br> - 第二則是留意分支主題是否易懂。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>commit訊息</td>
+<td>- 盡量還是全英文書寫。</br> - 有需要的話可以進到習慣介面輸入markdown語法詳列。</br> - 保持習慣一個段落就commit一次，要補救或確認每日進度時很好用。</td>
+</tr>
+</tbody></table>
+<h2 id="四、Git-Server又是什麼？"><a href="#四、Git-Server又是什麼？" class="headerlink" title="四、Git Server又是什麼？"></a>四、Git Server又是什麼？</h2><p>網路上有點難查到名詞定義，大概意思就是你在本地有的那些分支可以更新(push)到&#x3D;&#x3D;遠端共同協作的網站&#x3D;&#x3D;，而你一直在打的那些Git指令是工具。</p>
+<p>最知名的Git Server當然就是GitHub啦～聽說工程師宅宅們甚至會在上面交友，以程式碼會友～我個人等級不到還沒體驗過…但是值得一提的是它真的提供了很多服務，像是你的個人首頁看放介紹，你可以創建與你GitHub帳號名稱相同的GitHub Page，大家如果有興趣可以多研究一下～(後面篇幅我也會介紹如何使用GitHub Page)</p>
+<p>當然，有的公司也會自架一個Git Server，我現職的公司就是這樣的。入職後，公司會幫我們創建帳號，個人覺得和GitHub幾乎相同，只是那些綠點點不會長在自己的GitHub紀錄裡而已，但我有發現一個奇妙的點，公司自架的 Git Server 綠點點是記錄你的當日 push 次數，而 GitHub 則是記錄你當日 commit 次數，這點倒是不明白為何？</p>
+<p><img src="https://i.imgur.com/VwznZA8.png"><br><img src="https://i.imgur.com/JOZ61jV.png"></p>
+<h2 id="五、結論與自我鼓勵"><a href="#五、結論與自我鼓勵" class="headerlink" title="五、結論與自我鼓勵"></a>五、結論與自我鼓勵</h2><p>總結當然首要提到的是，一定要進到一間有版控的公司啊！雖然也有很多公司長年沒有使用仍然可以存活，但我想背後應該有很多沒必要的苦工…次要則是想分享近期我公司同事轉傳給我們的「<a target="_blank" rel="noopener" href="https://wadehuanglearning.blogspot.com/2019/05/commit-commit-commit-why-what-commit.html">Git Commit Message寫法</a>」，這是看公司協作和個人習慣，大家可以當作參考即可。</p>
+<p>自我鼓勵的部分，當然是覺得佩服自己中秋連假竟然可以成功不斷賽，雖然每天行程很滿，仍然在固定時間點靜下來打文章，因為聽說人類連續21天就能養成一個習慣，我是一個非常容易半途而廢的人(因為有點懶惰)，所以需要常給自己鼓勵才有動力！各位鐵人們一起加油吧～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2021ironman/"># 2021ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/09/20/Day07%EF%BC%9A%E9%83%A8%E9%96%80%E8%88%87%E5%B7%A5%E7%A8%8B%E5%9C%98%E9%9A%8A%E9%96%93%E5%8D%94%E4%BD%9C%E7%9A%84%E6%8A%80%E5%B7%A7(%E4%B8%8A)/">Day07：部門與工程團隊間協作的技巧(上)</a>
+            
+            
+            <a class="next" rel="next" href="/2021/09/18/Day05%EF%BC%9A%E5%B7%A5%E7%A8%8B%E5%B8%AB%E5%BF%85%E5%AD%B8%E7%9A%84%20Markdown%20%E7%AD%86%E8%A8%98%E8%AA%9E%E6%B3%95/">Day05：工程師必學的 Markdown 筆記語法</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
