@@ -15,7 +15,7 @@
 
 
 
-<title>網路是如何運作的 | Annie coding life</title>
+<title>Hooks 成員中的 useState | Annie coding life</title>
 
 
 
@@ -198,7 +198,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">網路是如何運作的</h1>
+            <h1 class="post-title">Hooks 成員中的 useState</h1>
             
                 <div class="post-meta">
                     
@@ -207,14 +207,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">二月 23, 2023&nbsp;&nbsp;22:32:20</a>
+                        Date: <a href="#">五月 23, 2023&nbsp;&nbsp;21:25:00</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/%E9%82%81%E5%90%91%E7%9C%9F%E5%85%A8%E7%AB%AF%E7%9A%84%E8%B7%AF/">邁向真全端的路</a>
+                                <a href="/categories/%E6%85%A2%E6%85%A2%E5%AD%B8-React/">慢慢學 React</a>
                             
                         </span>
                     
@@ -223,24 +223,46 @@
         </header>
 
         <div class="post-content">
-            <h2 id="從瀏覽器到伺服器"><a href="#從瀏覽器到伺服器" class="headerlink" title="從瀏覽器到伺服器"></a>從瀏覽器到伺服器</h2><p>根據我所學習的知識，自行繪製了下方的簡易流程圖。</p>
-<p>整體流程是由使用者在瀏覽器中的網址列輸入網址後開始的，也就是途中左側的 Client 端。首先當然是要有網際網路連線，也就是圖中的 wifi，瀏覽器開始解析網址中的資訊，找到代理伺服器與對應的域名後，將需求發 request 進到 Server 端。</p>
-<p>進到 Server 端後，會先經過 load balance 這樣的機制，先判斷 Client 端 request 的 IP 位置是哪一台 server，才會經由該 server 回傳後端經過運算或分析後，response 目前該網址可看到的對應資料給瀏覽器，最後被使用者看到。</p>
-<p><img src="https://i.imgur.com/RYV3teC.png" alt="clients and servers"></p>
-<p>依照流程圖中的一些名詞，稍微做簡單的解釋如下：</p>
-<ol>
-<li>Browser：使用者使用的瀏覽器，像是Chrome, Edge 等。</li>
-<li>Wifi：網路。</li>
-<li>Router：路由器。</li>
-<li>Proxy：代理伺服器。可以用來防止惡意攻擊。</li>
-<li>DNS：域名解析伺服器。將 URL 轉為 IP。</li>
-<li>Load Balance：負載平衡器。避免同時多位使用者打 request，導致負擔過重。</li>
-<li>Reverse Proxy：可以處理憑證、快取、靜態檔案等。</li>
-</ol>
+            <h2 id="一、淺談一下-props-和-state-的差異"><a href="#一、淺談一下-props-和-state-的差異" class="headerlink" title="一、淺談一下 props 和 state 的差異"></a>一、淺談一下 props 和 state 的差異</h2><table>
+<thead>
+<tr>
+<th>比較對象</th>
+<th>props</th>
+<th>state</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>使用範圍</td>
+<td>可傳遞給子元件等。</td>
+<td>用在單一元件本身，可以把它想做是元件自己所擁有的。如果 A, B 元件都有名為 count 的 state 也沒問題，因為不會互相干擾。</td>
+</tr>
+<tr>
+<td>變更後是否更新畫面</td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<h2 id="二、基本運作原理"><a href="#二、基本運作原理" class="headerlink" title="二、基本運作原理"></a>二、基本運作原理</h2><h3 id="1-基本宣告："><a href="#1-基本宣告：" class="headerlink" title="1. 基本宣告："></a>1. 基本宣告：</h3><p>第一個值是初始內容，第二個值是方法，用來直接更新對應的初始內容後並觸發局部的重新渲染。<br><a target="_blank" rel="noopener" href="https://im.ge/i/98ilwh"><img src="https://i.im.ge/2023/08/01/98ilwh.react-state-01.png" alt="react-state-01"></a></p>
+<h3 id="2-撰寫需要使用該-state-的元件："><a href="#2-撰寫需要使用該-state-的元件：" class="headerlink" title="2. 撰寫需要使用該 state 的元件："></a>2. 撰寫需要使用該 state 的元件：</h3><p>以 function 應用為例。如果是在某些動作觸發等條件下才呼叫，可以直接調用 useState 的方法。<br>如果你想轉大人，可以有兩種做法：<br><a target="_blank" rel="noopener" href="https://im.ge/i/98iOiD"><img src="https://i.im.ge/2023/08/01/98iOiD.react-state-02.png" alt="react-state-02"></a></p>
+<p>以 jsx 應用為例。如果要在畫面上即時拿到更新後的state值，就是像拿變數一樣即可取得。</p>
+<pre><code class="javascript=">&lt;div&gt;目前年齡為：&#123;age&#125;&lt;/div&gt;
+</code></pre>
+<h2 id="三、state-的更新依據"><a href="#三、state-的更新依據" class="headerlink" title="三、state 的更新依據"></a>三、state 的更新依據</h2><p>原則上 state 值可以放入 number, string, boolean 等型別的資料，但因為 useState 的設計是透過 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is">Object.is</a> 的方法比較，所以當該 state 的新舊值相同，或者參考資料的記憶體位置沒有變更，React 就會基於效能考量，跳過重新渲染的動作。</p>
+<p>所以當我們使用 state 來處理 array 和 object 型別的資料時就要特別留意。這樣說可能很模糊，可以看下方舉例：</p>
+<p><strong>範例1：</strong>原本我只有兩個朋友，想新增第三個時，第一個想法就是用<code>array.push</code>，但這樣並不會更新，因為是在原本的記憶體中改變資料，所以不會觸發 state 的變更。</p>
+<p><a target="_blank" rel="noopener" href="https://im.ge/i/98irKM"><img src="https://i.im.ge/2023/08/01/98irKM.react-state-03.png" alt="react-state-03"></a><br><strong>範例2：</strong>因為用範例1的方式，我的朋友沒有因此增加，看了文件後了解需要使用展開運算子更新該 array，這時候就會更新啦！<del>(終於不再三缺一)</del><br><a target="_blank" rel="noopener" href="https://im.ge/i/98i1b4"><img src="https://i.im.ge/2023/08/01/98i1b4.react-state-04.png" alt="react-state-04"></a></p>
+<p><strong>範例3：</strong>針對單筆資料時，可以用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> 方法，因為它是淺層複製的概念，對記憶體來說已經不同，所以會更新！</p>
+<p><a target="_blank" rel="noopener" href="https://im.ge/i/98iFXY"><img src="https://i.im.ge/2023/08/01/98iFXY.react-state-05.png" alt="react-state-05"></a></p>
+<h2 id="四、setState-有非同步的問題"><a href="#四、setState-有非同步的問題" class="headerlink" title="四、setState 有非同步的問題"></a>四、setState 有非同步的問題</h2><p><a target="_blank" rel="noopener" href="https://legacy.reactjs.org/docs/react-component.html#setstate">官網中有這一段說明</a></p>
 <blockquote>
-<p>目前雖然我僅僅是一名前端工程師，但也想記錄自己所理解的網站應用原理，所以想透過自己學習的資源，慢慢統整自己所理解的些微後端觀念。</p>
-<p>參考連結：<a target="_blank" rel="noopener" href="https://youtu.be/NaU1jRL4p6s">成為看起來很強的後端系列影片</a>、<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10228442">前端三十系列好文</a></p>
+<p>Think of setState() as a request rather than an immediate command to update the component. For better perceived performance, React may delay it, and then update several components in a single pass. In the rare case that you need to force the DOM update to be applied synchronously, you may wrap it in flushSync, but this may hurt performance.</p>
 </blockquote>
+<p>總之 <strong>useState() 是一個請求，而非用來立即更新</strong>，因為採取批次狀態更新，React 會在執行完函式後，調用 state 值並依照上一個段落所提到的更新依據(比對 state 的新舊值、或參考資料的記憶體位置沒有變更)，有變更才會更新畫面。所以不論是直接設定值給 state 或根據上一個狀態計算成新值，都不會在當下拿到最新的值。</p>
+<p><strong>範例1：</strong><br><a target="_blank" rel="noopener" href="https://im.ge/i/98i2GC"><img src="https://i.im.ge/2023/08/01/98i2GC.react-state-06.png" alt="react-state-06"></a></p>
+<p><strong>範例2：</strong><br><a target="_blank" rel="noopener" href="https://im.ge/i/98id7q"><img src="https://i.im.ge/2023/08/01/98id7q.react-state-07.png" alt="react-state-07"></a></p>
+<p>為了解決這個問題，React 本身有提供 setState 的 callback 函式，它可以獲取待處理的值並從中更新下一個值。</p>
+<p><strong>範例3：</strong><br><a target="_blank" rel="noopener" href="https://im.ge/i/98iqAp"><img src="https://i.im.ge/2023/08/01/98iqAp.react-state-08.png" alt="react-state-08"></a></p>
+<h2 id="五、學習心得"><a href="#五、學習心得" class="headerlink" title="五、學習心得"></a>五、學習心得</h2><p>一開始學寫 React 時，第一個學的 hook 就是 useState，我會用它來做為樣式變更的依據值(像是切換主題或語言時的變化)、或者畫面上值的渲染等，確實會常常遇到非即時更新而造成的問題。今天深讀官方文件後整理了思緒，了解觸發更新的條件後，後續開發上也會知道如何避開原有的問題點，也希望這篇文章可以幫其他有困惑的夥伴們解惑～</p>
 
         </div>
 
@@ -269,7 +291,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/web-works/"># web works</a>
+                        <a href="/tags/React/"># React</a>
                     
                         
                 </span>
@@ -282,10 +304,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2023/05/23/Hooks%20%E6%88%90%E5%93%A1%E4%B8%AD%E7%9A%84%20useState/">Hooks 成員中的 useState</a>
+                <a class="prev" rel="prev" href="/2023/07/24/React%20%E5%85%A8%E6%94%BB%E7%95%A5-%E5%85%A5%E9%96%80%E5%88%B0%E9%80%B2%E9%9A%8E%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">React 全攻略-入門到進階學習心得</a>
             
             
-            <a class="next" rel="next" href="/2022/10/15/Day30%EF%BC%9A%E9%90%B5%E4%BA%BA%E7%B7%B4%E6%88%90%E4%B9%8B%E7%94%A8%20Ant%20Design%20%E5%81%9A%E4%B8%80%E5%80%8B%E7%99%BB%E5%85%A5%E8%A1%A8%E5%96%AE%E5%90%A7%EF%BC%81/">Day30：鐵人練成之用 Ant Design 做一個登入表單吧！</a>
+            <a class="next" rel="next" href="/2023/02/23/%E7%B6%B2%E8%B7%AF%E6%98%AF%E5%A6%82%E4%BD%95%E9%81%8B%E4%BD%9C%E7%9A%84/">網路是如何運作的</a>
             
         </section>
 
