@@ -202,12 +202,12 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                        Author: Annie
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">五月 23, 2023&nbsp;&nbsp;21:25:00</a>
+                        Date: 五月 23, 2023&nbsp;&nbsp;21:25:00
                         </span>
                     
                     
@@ -245,8 +245,8 @@
 <h2 id="二、基本運作原理"><a href="#二、基本運作原理" class="headerlink" title="二、基本運作原理"></a>二、基本運作原理</h2><h3 id="1-基本宣告："><a href="#1-基本宣告：" class="headerlink" title="1. 基本宣告："></a>1. 基本宣告：</h3><p>第一個值是初始內容，第二個值是方法，用來直接更新對應的初始內容後並觸發局部的重新渲染。<br><a target="_blank" rel="noopener" href="https://im.ge/i/98ilwh"><img src="https://i.im.ge/2023/08/01/98ilwh.react-state-01.png" alt="react-state-01"></a></p>
 <h3 id="2-撰寫需要使用該-state-的元件："><a href="#2-撰寫需要使用該-state-的元件：" class="headerlink" title="2. 撰寫需要使用該 state 的元件："></a>2. 撰寫需要使用該 state 的元件：</h3><p>以 function 應用為例。如果是在某些動作觸發等條件下才呼叫，可以直接調用 useState 的方法。<br>如果你想轉大人，可以有兩種做法：<br><a target="_blank" rel="noopener" href="https://im.ge/i/98iOiD"><img src="https://i.im.ge/2023/08/01/98iOiD.react-state-02.png" alt="react-state-02"></a></p>
 <p>以 jsx 應用為例。如果要在畫面上即時拿到更新後的state值，就是像拿變數一樣即可取得。</p>
-<pre><code class="javascript=">&lt;div&gt;目前年齡為：&#123;age&#125;&lt;/div&gt;
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;目前年齡為：&#123;age&#125;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="三、state-的更新依據"><a href="#三、state-的更新依據" class="headerlink" title="三、state 的更新依據"></a>三、state 的更新依據</h2><p>原則上 state 值可以放入 number, string, boolean 等型別的資料，但因為 useState 的設計是透過 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is">Object.is</a> 的方法比較，所以當該 state 的新舊值相同，或者參考資料的記憶體位置沒有變更，React 就會基於效能考量，跳過重新渲染的動作。</p>
 <p>所以當我們使用 state 來處理 array 和 object 型別的資料時就要特別留意。這樣說可能很模糊，可以看下方舉例：</p>
 <p><strong>範例1：</strong>原本我只有兩個朋友，想新增第三個時，第一個想法就是用<code>array.push</code>，但這樣並不會更新，因為是在原本的記憶體中改變資料，所以不會觸發 state 的變更。</p>
