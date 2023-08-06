@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>5 分鐘將 hexo blog 完成個人網域綁定 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">5 分鐘將 hexo blog 完成個人網域綁定</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Annie</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">八月 5, 2023&nbsp;&nbsp;22:20:20</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E9%83%A8%E8%90%BD%E6%A0%BC2-0/">部落格2.0</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p><img src="https://i.im.ge/2023/08/06/jD9k6J.02-3.png" alt="personal domain binding"></p>
+<p>其實我用 Hexo 有兩年了吧，原本覺得使用 GitHub 預設的域名(<code>username.github.io</code>)就可以了，但發現記憶點較低，而且想到 GitHub Pages 本來就有提供 custom domain 的綁定功能，所以最近動手換成自己的網域名稱，整個流程快又簡單，很推薦有在經營自己部落格的跟著我做一次唷！</p>
+<p>因為我的網域是先前就在 godaddy 購買好的，所以就以它為舉例對象。</p>
+<h2 id="一、到-godaddy-設定-DNS"><a href="#一、到-godaddy-設定-DNS" class="headerlink" title="一、到 godaddy 設定 DNS"></a>一、到 godaddy 設定 DNS</h2><p><strong>路徑：我的產品 &#x2F; DNS 管理</strong></p>
+<p>一開始進去設定頁面，會看到一些已經存在的紀錄，像是 NS, SOA 等，那些是 godaddy 預設自動產生的，這些今天都不會用到～<br><img src="https://i.im.ge/2023/08/06/jD9fSa.02-1.png" alt="設定DNS"></p>
+<h3 id="1-新增指向-GitHub-的主機-IP-紀錄"><a href="#1-新增指向-GitHub-的主機-IP-紀錄" class="headerlink" title="1. 新增指向 GitHub 的主機 IP 紀錄"></a>1. 新增指向 GitHub 的主機 IP 紀錄</h3><p>點選新增紀錄按鈕，把 GitHub 的主機 IP 加入設定。主機 IP 是 <code>185.199.108.153</code>, <code>185.199.109.153</code>, <code>185.199.110.153</code>, <code>185.199.111.153</code> 。</p>
+<blockquote>
+<ol>
+<li>A 紀錄：將一个域名解析到一個 IP 地址。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site?ref=larrynote.com">github 主機 IP 相關文件</a></li>
+</ol>
+</blockquote>
+<h3 id="2-設定-CNAME-到原先的-username-github-io"><a href="#2-設定-CNAME-到原先的-username-github-io" class="headerlink" title="2. 設定 CNAME 到原先的 username.github.io"></a>2. 設定 CNAME 到原先的 <code>username.github.io</code></h3><p>CNAME 主要是用來為網域新增別名，設定完成後，就算是使用原本的網址 <code>https://username.github.io</code> 也能順利導到你買的這個網域。<br>然而這個類型應該是本來就有的，所以只要點選表格右側的編輯按鈕，將名稱改成 www、資料內容改成 <code>username.github.io</code> (以我為例就是 <a target="_blank" rel="noopener" href="https://annielin28815.github.io/)%EF%BC%8C%E9%80%99%E6%A8%A3%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%84%B2%E5%AD%98%E4%BA%86%E3%80%82">https://annielin28815.github.io/)，這樣就可以儲存了。</a></p>
+<blockquote>
+<ol>
+<li>CNAME 紀錄：將一个域名解析到另外一个域名。</li>
+<li>其實將名稱改成 www 的方式，作用是會先解析成 <code>username.github.io</code>，然後再根據 CNAME 設定轉至你的網域，等於它中間是經過一次轉換的，這樣的作法就可以讓其他人，不論有沒有輸入 www 都能順利連結到你的網站。</li>
+</ol>
+</blockquote>
+<h2 id="二、在專案程式碼中設定新網域"><a href="#二、在專案程式碼中設定新網域" class="headerlink" title="二、在專案程式碼中設定新網域"></a>二、在專案程式碼中設定新網域</h2><h3 id="1-新增-CANME-檔案"><a href="#1-新增-CANME-檔案" class="headerlink" title="1. 新增 CANME 檔案"></a>1. 新增 CANME 檔案</h3><p>在 Hexo 架構的 source 資料夾裡，新增 CNAME 檔案，裡面寫上你購買的網域，這樣就能避免在執行 Hexo generate 指令 產生新動態檔案的時候，覆蓋掉原先在 Github Pages setting 內的域名。</p>
+<p><img src="https://i.im.ge/2023/08/06/jD9ZCG.02-4.png" alt="新增 CNAME 檔案"></p>
+<blockquote>
+<p>引用自<a target="_blank" rel="noopener" href="https://juejin.cn/post/6969074922270228511">此文章</a></p>
+</blockquote>
+<h3 id="2-修改網站配置文件"><a href="#2-修改網站配置文件" class="headerlink" title="2. 修改網站配置文件"></a>2. 修改網站配置文件</h3><p>找到 <code>_config.yml</code> 檔案，搜尋一下關鍵字 <code>url:</code>，後面的網址改成你購買的網域。(以我為例就是 <code>url: http://annielin.cc/</code> )。</p>
+<h2 id="三、調整-Repo-的-GitHub-Pages-設定"><a href="#三、調整-Repo-的-GitHub-Pages-設定" class="headerlink" title="三、調整 Repo 的 GitHub Pages 設定"></a>三、調整 Repo 的 GitHub Pages 設定</h2><p><strong>路徑：<code>https://github.com/username/username.github.io/settings/pages</code></strong></p>
+<p>最後一個環節，就是到 blog 的 GitHub Pages 頁面，在 custom domain 欄位中輸入你的域名，點擊 save 即可。它會有 3 個流程驗證 TLS 的部分，通常需要一些時間，有些前輩們分享15分鐘後就完成，但我個人是等了2天多(?)總之，驗證完成後，建議勾選下方的 <code>Enforce HTTPS</code>，強制啟用 HTTPS 來增強安全性。</p>
+<p><img src="https://i.im.ge/2023/08/06/jD9Kvx.02-2.png" alt="GitHub Pages Settings"></p>
+<p>完成啦～是不是很輕鬆快速地就完成個人網域的設定了呢？其實過程也是參考很多前輩們分享的文章整理而出，只是最近嘗試寫文章時，將內容搭配圖文方式呈現，希望可以更便於來看文章的人理解，如果文章內容有誤、或有其他建議，歡迎再留言跟我說，謝謝大家～</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/blog/"># blog</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/07/24/React%20%E5%85%A8%E6%94%BB%E7%95%A5-%E5%85%A5%E9%96%80%E5%88%B0%E9%80%B2%E9%9A%8E%E5%AD%B8%E7%BF%92%E5%BF%83%E5%BE%97/">React 全攻略-入門到進階學習心得</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
