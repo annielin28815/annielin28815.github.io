@@ -224,20 +224,8 @@
 
         <div class="post-content">
             <p>因為不論前後台都幾乎會使用到表單，所以我想從最簡單與好入門的勾選框來開始介紹，後續也會分享像是 input, textarea, select 和 datePicker 等等的 tag，如何在 ANTD 裡靈活運用與變化。</p>
-<h2 id="一、單選與多選框-checkbox"><a href="#一、單選與多選框-checkbox" class="headerlink" title="一、單選與多選框(checkbox)"></a>一、單選與多選框(checkbox)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Checkbox  &#125; from &#39;antd&#39;;
+<h2 id="一、單選與多選框-checkbox"><a href="#一、單選與多選框-checkbox" class="headerlink" title="一、單選與多選框(checkbox)"></a>一、單選與多選框(checkbox)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Checkbox</span>  &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Checkbox</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">onChange</span>=<span class="string">&#123;onChange&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      只有一個選項</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Checkbox</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Checkbox 
-      onChange=&#123;onChange&#125;
-    &gt;
-      只有一個選項
-    &lt;/Checkbox&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-勾選框可添加的屬性"><a href="#2-勾選框可添加的屬性" class="headerlink" title="2. 勾選框可添加的屬性"></a>2. 勾選框可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/checkbox/#API">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -279,21 +267,8 @@ export default App;
 <td align="center"><b>先前專案元件示意圖</b></td>
 </tr>
 </tbody></table>
-<h2 id="二、單選框-radio"><a href="#二、單選框-radio" class="headerlink" title="二、單選框(radio)"></a>二、單選框(radio)</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Radio  &#125; from &#39;antd&#39;;
+<h2 id="二、單選框-radio"><a href="#二、單選框-radio" class="headerlink" title="二、單選框(radio)"></a>二、單選框(radio)</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Radio</span>  &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">     <span class="language-xml"><span class="tag">&lt;<span class="name">Radio.Group</span> <span class="attr">onChange</span>=<span class="string">&#123;onChange&#125;</span> <span class="attr">defaultChecked</span>=<span class="string">&#123;1&#125;</span> <span class="attr">optionType</span>=<span class="string">&#123;button&#125;</span> &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Radio</span> <span class="attr">value</span>=<span class="string">&#123;1&#125;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">Radio</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Radio</span> <span class="attr">value</span>=<span class="string">&#123;2&#125;</span>&gt;</span>orange<span class="tag">&lt;/<span class="name">Radio</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Radio</span> <span class="attr">value</span>=<span class="string">&#123;3&#125;</span>&gt;</span>banana<span class="tag">&lt;/<span class="name">Radio</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Radio</span> <span class="attr">value</span>=<span class="string">&#123;4&#125;</span>&gt;</span>lemon<span class="tag">&lt;/<span class="name">Radio</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Radio.Group</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-     &lt;Radio.Group onChange=&#123;onChange&#125; defaultChecked=&#123;1&#125; optionType=&#123;button&#125; &gt;
-      &lt;Radio value=&#123;1&#125;&gt;apple&lt;/Radio&gt;
-      &lt;Radio value=&#123;2&#125;&gt;orange&lt;/Radio&gt;
-      &lt;Radio value=&#123;3&#125;&gt;banana&lt;/Radio&gt;
-      &lt;Radio value=&#123;4&#125;&gt;lemon&lt;/Radio&gt;
-    &lt;/Radio.Group&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-勾選框可添加的屬性-1"><a href="#2-勾選框可添加的屬性-1" class="headerlink" title="2. 勾選框可添加的屬性"></a>2. 勾選框可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/radio/#API">官方 api 文件</a>。比較特別的是 optionType 這個屬性，我覺得它在畫面上看起來會有點像是 tab 標籤那種感覺，但其實在實務上運用它算是一種表單的某個欄位值，通常你有用到這個屬性，就會搭配 defaultChecked 這個屬性一起使用了，大家可以參考上方第1點的基本使用方式，做完會類似我下方先前專案元件示意圖的最後一個範例圖那樣。</p>
 <table>
 <thead>

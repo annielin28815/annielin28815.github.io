@@ -235,27 +235,8 @@
 </tr>
 </tbody></table>
 <h2 id="一、-最基本的使用方式：引用與呼叫它"><a href="#一、-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、 最基本的使用方式：引用與呼叫它"></a>一、 最基本的使用方式：引用與呼叫它</h2><p>  Collapse 是最外層，裡面包覆數個點選後可觸發折疊效果的 Panel 區塊 ，Panel 有面板的意思，其屬性中的 header 是標題，內部則用來顯示附屬內容的子層。使用上可以搭配迴圈 map 出每一個 panel 的 header 和內容，算是非常容易理解。</p>
-<pre><code>import &#123; Collapse &#125; from &#39;antd&#39;;
-const &#123; Panel &#125; = Collapse;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Collapse &#125; from &#x27;antd&#x27;;</span><br><span class="line">const &#123; Panel &#125; = Collapse;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Collapse onChange=&#123;onChange&#125;&gt;</span><br><span class="line">      &lt;Panel header=&quot;折合標題 1&quot; key=&quot;1&quot;&gt;</span><br><span class="line">        &lt;p&gt;折合區塊裡的內容&lt;/p&gt;</span><br><span class="line">      &lt;/Panel&gt;</span><br><span class="line">      &lt;Panel header=&quot;折合標題 2&quot; key=&quot;2&quot;&gt;</span><br><span class="line">        &lt;p&gt;折合區塊裡的內容&lt;/p&gt;</span><br><span class="line">      &lt;/Panel&gt;</span><br><span class="line">      &lt;Panel header=&quot;折合標題 3&quot; key=&quot;3&quot;&gt;</span><br><span class="line">        &lt;p&gt;折合區塊裡的內容&lt;/p&gt;</span><br><span class="line">      &lt;/Panel&gt;</span><br><span class="line">    &lt;/Collapse&gt;</span><br><span class="line">  &lt;div/&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default App;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Collapse onChange=&#123;onChange&#125;&gt;
-      &lt;Panel header=&quot;折合標題 1&quot; key=&quot;1&quot;&gt;
-        &lt;p&gt;折合區塊裡的內容&lt;/p&gt;
-      &lt;/Panel&gt;
-      &lt;Panel header=&quot;折合標題 2&quot; key=&quot;2&quot;&gt;
-        &lt;p&gt;折合區塊裡的內容&lt;/p&gt;
-      &lt;/Panel&gt;
-      &lt;Panel header=&quot;折合標題 3&quot; key=&quot;3&quot;&gt;
-        &lt;p&gt;折合區塊裡的內容&lt;/p&gt;
-      &lt;/Panel&gt;
-    &lt;/Collapse&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、ANTD-的-Collapse-可添加的屬性"><a href="#二、ANTD-的-Collapse-可添加的屬性" class="headerlink" title="二、ANTD 的 Collapse 可添加的屬性"></a>二、ANTD 的 Collapse 可添加的屬性</h2><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/collapse/#Collapse">官方 api 文件</a>。</p>
 <table>
 <thead>

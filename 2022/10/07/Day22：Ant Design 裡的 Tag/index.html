@@ -224,20 +224,8 @@
 
         <div class="post-content">
             <p>  今天要分享的是現在網頁和聊天軟體都很常見的 Tag，現在像是 Facebook, Instagram, Line 或是網路文章與問答，還有現在我們使用的 IT 邦幫忙都是有提供 Tag 的標籤功能，讓使用者可以更快速的看到一些關鍵字或方便快速查找確定內容。既然這麼常看見，就來跟大家介紹一下 ANTD 的 Tag 是怎麼使用的吧～</p>
-<h2 id="一、ANTD-Tag-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Tag-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Tag 最基本的使用方式：引用與呼叫它"></a>一、ANTD Tag 最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; Tag &#125; from &#39;antd&#39;;
-import &#123; FacebookOutlined,&#125; from &#39;@ant-design/icons&#39;;
+<h2 id="一、ANTD-Tag-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Tag-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Tag 最基本的使用方式：引用與呼叫它"></a>一、ANTD Tag 最基本的使用方式：引用與呼叫它</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Tag</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">FacebookOutlined</span>,&#125; <span class="keyword">from</span> <span class="string">&#x27;@ant-design/icons&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Tag</span> <span class="attr">color</span>=<span class="string">&quot;#f00&quot;</span>&gt;</span>紅色的標籤<span class="tag">&lt;/<span class="name">Tag</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Tag</span> <span class="attr">icon</span>=<span class="string">&#123;</span>&lt;<span class="attr">FacebookOutlined</span> /&gt;</span>&#125; color=&quot;#3b5999&quot;&gt;</span></span><br><span class="line"><span class="language-xml">      Facebook</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Tag</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Tag color=&quot;#f00&quot;&gt;紅色的標籤&lt;/Tag&gt;
-    &lt;Tag icon=&#123;&lt;FacebookOutlined /&gt;&#125; color=&quot;#3b5999&quot;&gt;
-      Facebook
-    &lt;/Tag&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、Tag-可添加的參數"><a href="#二、Tag-可添加的參數" class="headerlink" title="二、Tag 可添加的參數"></a>二、Tag 可添加的參數</h2><p>  因為Tag其實就是一個簡單的div組成的，參數並不多，這邊介紹的也幾乎是全部了，如果有想直接看到範例的話，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/tag/#Tag">官方 api 文件</a>。</p>
 <table>
 <thead>

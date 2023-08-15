@@ -236,31 +236,25 @@
 <li>按鈕、連結需要使用「title屬性」額外說明內容。<a target="_blank" rel="noopener" href="https://accessibility.ncc.gov.tw/Download/Detail/1304?Category=48">(參考連結:針對脈絡中的鏈結，用標題屬性來補充鏈結文字)</a></li>
 </ul>
 <p>&amp;#9745;正確示範:</p>
-<pre><code>✅️連結正確示範：️
-&lt;a href=&quot;#&quot; title=&quot;郵輪式列車 鐵道特色旅遊-了解詳情&quot;&gt;了解詳情&lt;/a&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">✅️連結正確示範：️</span><br><span class="line">&lt;a href=&quot;#&quot; title=&quot;郵輪式列車 鐵道特色旅遊-了解詳情&quot;&gt;了解詳情&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <p>&amp;#9746;錯誤示範：</p>
-<pre><code>&lt;a href=&quot;#&quot;&gt;了解詳情&lt;/a&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;#&quot;&gt;了解詳情&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>圖片也為了讓視障朋友了解內容，需額外使用「alt屬性」說明圖片的內容。<a target="_blank" rel="noopener" href="https://accessibility.ncc.gov.tw/Download/Detail/1146?Category=47">(參考連結:圖片組件需有替代文字屬性)</a></li>
 </ul>
 <p>&amp;#9745;正確示範:</p>
-<pre><code>&lt;img src=&quot;img.png&quot; alt=&quot;2020 EMU500屏東線圓形便當空盒組 新品上市&quot;&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;img.png&quot; alt=&quot;2020 EMU500屏東線圓形便當空盒組 新品上市&quot;&gt;</span><br></pre></td></tr></table></figure>
+
 <p>&amp;#9746;錯誤示範：</p>
-<pre><code>&lt;img src=&quot;img.png&quot;&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;img.png&quot;&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="3-字級大小"><a href="#3-字級大小" class="headerlink" title="3. 字級大小"></a>3. 字級大小</h3><p>在 CSS 定義字級時，都要使用相對字級尺寸（如：% 或 em、rem ）；或具名字級尺寸（如： small、large），簡單來說就是不能用 px 定義字級。<br>原因是有些人不是完全看不見，他可能會把系統的字級調大，如果用 px 定義的話，會把字大小的像素(px)給固定了，但如果是用相對字級就能夠讓字跟著縮放。<br>另外，寫網頁常常會用到套件，在使用上要特別注意套件內的 CSS 字級大小定義。</p>
 <p>&amp;#9745;正確示範:</p>
-<pre><code>.txt_large &#123;font-size: 120%&#125;
-.txt_large &#123;font-size: 2em&#125;
-.txt_large &#123;font-size: 2rem&#125;
-.txt_large &#123;font-size: larger&#125;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.txt_large &#123;font-size: 120%&#125;</span><br><span class="line">.txt_large &#123;font-size: 2em&#125;</span><br><span class="line">.txt_large &#123;font-size: 2rem&#125;</span><br><span class="line">.txt_large &#123;font-size: larger&#125;</span><br></pre></td></tr></table></figure>
 <p>&amp;#9746;錯誤示範：</p>
-<pre><code>.txt_large &#123;font-size: 18px&#125;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.txt_large &#123;font-size: 18px&#125;</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><ul>
 <li>引用文章：<a target="_blank" rel="noopener" href="https://reurl.cc/Q7AMR0">前端切版前要注意什麼細節呢？</a></li>
 <li>引用文章：<a target="_blank" rel="noopener" href="https://ru-hsu916.medium.com/%E7%84%A1%E9%9A%9C%E7%A4%99%E7%B6%B2%E9%A0%81%E7%A5%95%E6%8A%80-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9%E8%88%87%E5%88%86%E7%B4%9A-e4c0c7344a50">認識無障礙網頁與分級</a></li>

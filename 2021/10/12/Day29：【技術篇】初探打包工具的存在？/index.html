@@ -226,13 +226,7 @@
             <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>先前有寫過兩篇關於 Webpack 的文章(<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10279877">文章1</a>、<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10280269">文章2</a>)，回顧起自己學習到 Webpack 是在培訓營課程尾聲時期，那時候還懞懞懂懂的，只知道很基本的用法，但不清楚實際深入運作原理，所以寫了前述兩篇。</p>
 <p>但大家有想過為何會有像是 Webpack 之類的打包工具誕生嗎？他的存在有什麼必要性呢？</p>
 <h2 id="二、打包工具的緣起"><a href="#二、打包工具的緣起" class="headerlink" title="二、打包工具的緣起"></a>二、打包工具的緣起</h2><h3 id="1-前端工程化"><a href="#1-前端工程化" class="headerlink" title="1. 前端工程化"></a>1. 前端工程化</h3><p>自從 Node.js 發行後，套件管理工具 npm 誕生，即是工程化的起點。npm 提供了 script 的功能，可以將 shell script 封裝起來供其他開發者使用。</p>
-<pre><code class="javascript=">&#123;
-    &quot;script&quot;:&#123;
-        &quot;dev&quot;: &quot;node app.js&quot;,
-        &quot;mock&quot;: &quot;node index.js&quot;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;script&quot;</span>:&#123;</span><br><span class="line">        <span class="string">&quot;dev&quot;</span>: <span class="string">&quot;node app.js&quot;</span>,</span><br><span class="line">        <span class="string">&quot;mock&quot;</span>: <span class="string">&quot;node index.js&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上面這段程式碼來解說，當開發者輸入<code>npm run dev</code>，就會執行<code>node app.js</code>這行指令；相對地當開發者輸入<code>npm run mock</code>，就會執行<code>node index.js</code>這行指令。這樣簡短的 script 設定，可以解決一些基本需求。</p>
 <p>但後續開發過程，大部分重複繁雜的步驟，就需要工具為我們帶來工程化的方式，加速開發的流程。</p>
 <h3 id="2-打包工具的選擇"><a href="#2-打包工具的選擇" class="headerlink" title="2. 打包工具的選擇"></a>2. 打包工具的選擇</h3><p>除了較常聽見的 Webpack，其實還有以下幾種打包工具可供選擇： </p>

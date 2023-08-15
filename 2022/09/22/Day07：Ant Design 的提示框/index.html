@@ -226,59 +226,14 @@
             <p>說到提示框，大家一定會想到鼎鼎有名的 <a target="_blank" rel="noopener" href="https://sweetalert2.github.io/">SweetAlert2</a> ，但如果你正在使用 ANTD 的話，不妨給它們原生的 component 一個機會。這篇會介紹幾種我用過適合拿來做提示框的 component ，也會分享如何使用與使用的時機。</p>
 <h5 id="要注意的是只有-Popover-是大寫開頭，其他都小寫"><a href="#要注意的是只有-Popover-是大寫開頭，其他都小寫" class="headerlink" title="要注意的是只有 Popover 是大寫開頭，其他都小寫!"></a>要注意的是只有 Popover 是大寫開頭，其他都小寫!</h5><p>| 提示框種類 |  範例圖解 |<br>| :—| :— | :— |<br>| message     |  <img src="https://ithelp.ithome.com.tw/upload/images/20220922/20140920iRgCCTcFiP.png" alt="https://ithelp.ithome.com.tw/upload/images/20220922/20140920iRgCCTcFiP.png">  |<br>| notification     | <img src="https://ithelp.ithome.com.tw/upload/images/20220922/20140920VrhUHAZebK.png" alt="https://ithelp.ithome.com.tw/upload/images/20220922/20140920VrhUHAZebK.png">     |<br>| Popover  |  <img src="https://ithelp.ithome.com.tw/upload/images/20220922/20140920DBZzW5KGne.png" alt="https://ithelp.ithome.com.tw/upload/images/20220922/20140920DBZzW5KGne.png">    |</p>
 <h2 id="一、Ant-Design-的-Message"><a href="#一、Ant-Design-的-Message" class="headerlink" title="一、Ant Design 的 Message"></a>一、Ant Design 的 Message</h2><p>就如同字面上意義一樣，它比較適合用在提示訊息上，通常會是在某些點擊事件後出現。<br>那因為它是固定在頁面最上方，以 UI 來說，我個人認為頁面上的資訊量如果已經非常大，例如你的網頁承載很多文字或圖表，那就不太適合使用；另外也要注意如果你的頁面背景色和這個提示框的背景色太相近，那也會提高使用者沒注意到它出現的可能性，所以使用上大家可以再斟酌一下。</p>
-<h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; message, Button &#125; from &#39;antd&#39;;
+<h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; message, <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> message.success(&#x27;完賽啦!!!&#x27;);&#125;</span></span><br><span class="line"><span class="language-xml">    &gt;</span></span><br><span class="line"><span class="language-xml">        成功完賽</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> message.error(&#x27;不要再加班了!&#x27;);&#125;</span></span><br><span class="line"><span class="language-xml">    &gt;</span></span><br><span class="line"><span class="language-xml">        一百個不願意</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> message.warning(&#x27;注意一下時間好嗎!&#x27;);&#125;</span></span><br><span class="line"><span class="language-xml">    &gt;</span></span><br><span class="line"><span class="language-xml">        我也不想壓底線</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Button 
-        onClick=&#123;() =&gt; message.success(&#39;完賽啦!!!&#39;);&#125;
-    &gt;
-        成功完賽
-    &lt;/Button&gt;
-    &lt;Button 
-        onClick=&#123;() =&gt; message.error(&#39;不要再加班了!&#39;);&#125;
-    &gt;
-        一百個不願意
-    &lt;/Button&gt;
-    &lt;Button 
-        onClick=&#123;() =&gt; message.warning(&#39;注意一下時間好嗎!&#39;);&#125;
-    &gt;
-        我也不想壓底線
-    &lt;/Button&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h3 id="2-Message可添加的參數"><a href="#2-Message可添加的參數" class="headerlink" title="2. Message可添加的參數"></a>2. Message可添加的參數</h3><p>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/message/#API">官方 api 文件</a>。</p>
-<pre><code class="javascript=">/*
-*method：可以放success(成功), error(錯誤), info(說明), warn或warning(警示), loading
-*content：你的訊息內容
-*duration：訊息要停留的時間，預設是3秒(可不填寫)
-*onClose：提示框消失後，你希望做的事(可不填寫)
-*/
-message.method(content, [duration], onClose)
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*method：可以放success(成功), error(錯誤), info(說明), warn或warning(警示), loading</span></span><br><span class="line"><span class="comment">*content：你的訊息內容</span></span><br><span class="line"><span class="comment">*duration：訊息要停留的時間，預設是3秒(可不填寫)</span></span><br><span class="line"><span class="comment">*onClose：提示框消失後，你希望做的事(可不填寫)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">message.<span class="title function_">method</span>(content, [duration], onClose)</span><br></pre></td></tr></table></figure>
+
 <h2 id="二、Ant-Design-的-notification"><a href="#二、Ant-Design-的-notification" class="headerlink" title="二、Ant Design 的 notification"></a>二、Ant Design 的 notification</h2><p>這個提示框比較適合用來「通知」，因為它可以裝載的內容比較多，也有提供很多參數供靈活運用，算是今天介紹的三種裡面最為多變的。</p>
-<h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; notification , Button &#125; from &#39;antd&#39;;
+<h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; notification , <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Button</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">            notification.open(&#123;</span></span><br><span class="line"><span class="language-xml">                message: &#x27;恭喜！&#x27;,</span></span><br><span class="line"><span class="language-xml">                description: &#x27;終於完成了今年的鐵人賽，好好犒賞自己吧&#x27;</span></span><br><span class="line"><span class="language-xml">              &#125;);</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;</span></span><br><span class="line"><span class="language-xml">    &gt;</span></span><br><span class="line"><span class="language-xml">        成功完賽</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Button 
-        onClick=&#123;() =&gt; &#123;
-            notification.open(&#123;
-                message: &#39;恭喜！&#39;,
-                description: &#39;終於完成了今年的鐵人賽，好好犒賞自己吧&#39;
-              &#125;);
-        &#125;&#125;
-    &gt;
-        成功完賽
-    &lt;/Button&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h3 id="2-Notification-可添加的屬性"><a href="#2-Notification-可添加的屬性" class="headerlink" title="2. Notification 可添加的屬性"></a>2. Notification 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/notification/#API">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -310,18 +265,8 @@ export default App;
 </tr>
 </tbody></table>
 <h2 id="三、Ant-Design-的-Popover"><a href="#三、Ant-Design-的-Popover" class="headerlink" title="三、Ant Design 的 Popover"></a>三、Ant Design 的 Popover</h2><p>這個提示框我覺得適合用的範圍稍微小一點，大概是說明文字那種類型。</p>
-<h3 id="1-最基本的使用方式：引用與呼叫它-2"><a href="#1-最基本的使用方式：引用與呼叫它-2" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Popover , Button &#125; from &#39;antd&#39;;
+<h3 id="1-最基本的使用方式：引用與呼叫它-2"><a href="#1-最基本的使用方式：引用與呼叫它-2" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Popover</span> , <span class="title class_">Button</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Popover</span> <span class="attr">content</span>=<span class="string">&#123;一些內容&#125;</span> <span class="attr">title</span>=<span class="string">&quot;提示的標題&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>按一下吧<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Popover</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Popover content=&#123;一些內容&#125; title=&quot;提示的標題&quot;&gt;
-        &lt;Button type=&quot;primary&quot;&gt;按一下吧&lt;/Button&gt;
-      &lt;/Popover&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h3 id="2-Popover-可添加的屬性"><a href="#2-Popover-可添加的屬性" class="headerlink" title="2. Popover 可添加的屬性"></a>2. Popover 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/popover/#API">官方 api 文件</a>。</p>
 <table>
 <thead>

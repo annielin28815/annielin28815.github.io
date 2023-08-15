@@ -225,21 +225,7 @@
         <div class="post-content">
             <p>是的，當你發現可以在表格裡想呈現越來越多的資料後，你一定會想知道，咦可不可以有些介面上的優化呢？以下就介紹幾種方式讓大家參考使用。</p>
 <h2 id="一、將-Table-的表頭固定不隨視窗捲動"><a href="#一、將-Table-的表頭固定不隨視窗捲動" class="headerlink" title="一、將 Table 的表頭固定不隨視窗捲動"></a>一、將 Table 的表頭固定不隨視窗捲動</h2><p>  這就像是excel裡面的表頭固定，適合用在資料筆數較多的情形。使用的理念就是在 Table 了加一個 scroll 的參數，並給予 y 軸固定高度，這樣當資料筆數的數量與每行佔據的高度超過你寫的高度，就自動會有卷軸呈現，並讓表頭固定在同一個位置啦～</p>
-<h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Table &#125; from &#39;antd&#39;;
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Table 
-        columns=&#123;columns&#125; 
-        dataSource=&#123;data&#125; 
-        scroll=&#123;&#123;
-          y: 300,
-        &#125;&#125;
-     /&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
+<h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Table</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Table</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">dataSource</span>=<span class="string">&#123;data&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">scroll</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">y:</span> <span class="attr">300</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 <h3 id="2-Table-的-表頭固定-實際使用範例"><a href="#2-Table-的-表頭固定-實際使用範例" class="headerlink" title="2.Table 的 表頭固定 實際使用範例"></a>2.Table 的 表頭固定 實際使用範例</h3><p>看完上面簡單的介紹後，下面提供我的簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
 <p>我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/ExLErvO">codepen連結</a></p>
 <table>
@@ -259,21 +245,9 @@ export default App;
 <li>fixed 只有 left 和 right</li>
 <li>固定欄位不適用於IE瀏覽器</li>
 </ul>
-<h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Table &#125; from &#39;antd&#39;;
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Table 
-        columns=&#123;columns&#125; 
-        dataSource=&#123;data&#125; 
-        scroll=&#123;&#123;
-          x: 300,
-        &#125;&#125;
-     /&gt;
-  &lt;div/&gt;
-);
+<h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Table</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Table</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">dataSource</span>=<span class="string">&#123;data&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">scroll</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">x:</span> <span class="attr">300</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-export default App;  
-</code></pre>
+
 <h3 id="2-Table-的-表頭固定-實際使用範例-1"><a href="#2-Table-的-表頭固定-實際使用範例-1" class="headerlink" title="2.Table 的 表頭固定 實際使用範例"></a>2.Table 的 表頭固定 實際使用範例</h3><p>看完上面簡單的介紹後，下面提供我的簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
 <p>我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/ExLErvO">codepen連結</a></p>
 <table>

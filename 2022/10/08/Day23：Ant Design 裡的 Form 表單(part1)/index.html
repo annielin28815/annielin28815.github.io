@@ -225,41 +225,8 @@
         <div class="post-content">
             <p>  Form 表單這系列的文章在 Day04<del>08 時(註1</del>4)有分享了比較常見的表單元件，為了將ANTD表單完整功能做個統整，從今天開始大約會花2~3篇文章篇幅將使用方法再做細說。和其他元件一樣，ANTD 的表單整體而言功能可說是一應俱全，像是初始值、驗證、提交動作、客製化樣式與動態新增欄位等，也有針對 React Hook 和 class component 做不同的案例解說，今天就讓我們開始認識它吧！</p>
 <h2 id="一、ANTD-Table-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Table-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Table 最基本的使用方式：引用與呼叫它"></a>一、ANTD Table 最基本的使用方式：引用與呼叫它</h2><p>  基本上 Form 是主體標籤，裡面的每一個輸入框(或稱填寫欄位)都須使用 <code>&lt;Form.Item&gt;</code> tag包起來，這樣可以方便讓 Form 的表單監聽事件中抓取該表單每個欄位的變化，另外要記得搭配一個 <code>htmlType=&quot;submit&quot;</code> 的 button，實際送出的事件則是綁在 Form 表單的 onFinish function 裡。</p>
-<pre><code>import &#123; Form, Button &#125; from &#39;antd&#39;;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Form, Button &#125; from &#x27;antd&#x27;;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Form</span><br><span class="line">      name=&quot;basic&quot;</span><br><span class="line">      labelCol=&#123;&#123;span: 8&#125;&#125;</span><br><span class="line">      wrapperCol=&#123;&#123;span: 16&#125;&#125;</span><br><span class="line">      initialValues=&#123;&#123;&#125;&#125;</span><br><span class="line">      onFinish=&#123;handleFinish&#125;</span><br><span class="line">      onValuesChange=&#123;handleValuesChange&#125;</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;Form.Item</span><br><span class="line">        label=&quot;姓名&quot;</span><br><span class="line">        name=&quot;name&quot;</span><br><span class="line">        rules=&#123;[</span><br><span class="line">          &#123;</span><br><span class="line">            required: true,</span><br><span class="line">            message: &#x27;請輸入姓名&#x27;,</span><br><span class="line">          &#125;,</span><br><span class="line">        ]&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Input /&gt;</span><br><span class="line">      &lt;/Form.Item&gt;</span><br><span class="line">      &lt;Form.Item&gt;</span><br><span class="line">        &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;</span><br><span class="line">          送出</span><br><span class="line">        &lt;/Button&gt;</span><br><span class="line">      &lt;/Form.Item&gt;</span><br><span class="line">    &lt;/Form&gt;</span><br><span class="line">  &lt;div/&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default App;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Form
-      name=&quot;basic&quot;
-      labelCol=&#123;&#123;span: 8&#125;&#125;
-      wrapperCol=&#123;&#123;span: 16&#125;&#125;
-      initialValues=&#123;&#123;&#125;&#125;
-      onFinish=&#123;handleFinish&#125;
-      onValuesChange=&#123;handleValuesChange&#125;
-    &gt;
-      &lt;Form.Item
-        label=&quot;姓名&quot;
-        name=&quot;name&quot;
-        rules=&#123;[
-          &#123;
-            required: true,
-            message: &#39;請輸入姓名&#39;,
-          &#125;,
-        ]&#125;
-      &gt;
-        &lt;Input /&gt;
-      &lt;/Form.Item&gt;
-      &lt;Form.Item&gt;
-        &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;
-          送出
-        &lt;/Button&gt;
-      &lt;/Form.Item&gt;
-    &lt;/Form&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、Form-可添加的參數"><a href="#二、Form-可添加的參數" class="headerlink" title="二、Form 可添加的參數"></a>二、Form 可添加的參數</h2><p>  以下列出我個人比較常用的，參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/form/#API">官方 api 文件</a>。比較方便的是labelCol與wrapperCol兩個參數，它們是拿來設定label和input的比例，如果你的表單項目是inline-style，希望label佔1&#x2F;3、input佔2&#x2F;3，那可以使用<code>labelCol=&#123;&#123;span: 8&#125;&#125; wrapperCol=&#123;&#123;span: 16&#125;&#125;</code>來達成，因為在表單裡也遵循ANTD的Grid rules，總計為24等份的規則。</p>
 <table>
 <thead>

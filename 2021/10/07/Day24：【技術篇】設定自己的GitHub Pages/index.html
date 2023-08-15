@@ -229,39 +229,31 @@
 <li><font color="#9F353A">以 ‘$’ 開頭，皆為 bash 指令</font></li>
 </ul>
 <p>網路查到的安裝指令是</p>
-<pre><code>$ npm install hexo-cli -g
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>但我使用時看到這個提示，照著走就好囉，因為有新版</p>
-<pre><code>$ npm install -g npm
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g npm</span><br></pre></td></tr></table></figure>
 <p>安裝Hexo Git</p>
-<pre><code>$ npm install hexo-deployer-git --save
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>安裝完成後，可以用這個指令來確認版本號</p>
-<pre><code>$ hexo version
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.imgur.com/CThypwr.png"></p>
 <h3 id="2-初始化blog"><a href="#2-初始化blog" class="headerlink" title="2. 初始化blog"></a>2. 初始化blog</h3><p>初始化並建立一個blog資料夾</p>
-<pre><code>$ hexo init blog
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
 <p>進到創建好的blog資料夾裡</p>
-<pre><code>$ cd blog
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd blog</span><br></pre></td></tr></table></figure>
 <p>安裝相關套件</p>
-<pre><code>$ npm install
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
 <h3 id="3-連結GitHub-Page"><a href="#3-連結GitHub-Page" class="headerlink" title="3. 連結GitHub Page"></a>3. 連結GitHub Page</h3><p>進到blog資料夾</p>
-<pre><code>$ open . // 在mac系統打開當前資料夾的指令
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ open . // 在mac系統打開當前資料夾的指令</span><br></pre></td></tr></table></figure>
+
 <p>打開名叫_config.yml檔案，在最下面的Deployment部分，填上以下資訊。<br><font color="#9F353A">GitHub-ID就是你的GitHub帳號，記得網址裡有兩處要改！！！</font></p>
-<pre><code class="yaml=">deploy:
-  type: git
-  repository: http://github.com/GitHub-ID/GitHub-ID.github.io.git
-  branch: master
-</code></pre>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">http://github.com/GitHub-ID/GitHub-ID.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
 <p>接著就是部署囉！</p>
-<pre><code>$ hexo d -g
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
+
+
 <table>
 <thead>
 <tr>

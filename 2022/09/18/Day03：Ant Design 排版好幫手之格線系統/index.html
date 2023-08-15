@@ -271,49 +271,16 @@
 </tr>
 </tbody></table>
 <p><strong>螢幕寬度對應尺寸</strong></p>
-<pre><code>&#123;
-  xs: &#39;480px&#39;,
-  sm: &#39;576px&#39;,
-  md: &#39;768px&#39;,
-  lg: &#39;992px&#39;,
-  xl: &#39;1200px&#39;,
-  xxl: &#39;1600px&#39;,
-&#125;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  xs: &#x27;480px&#x27;,</span><br><span class="line">  sm: &#x27;576px&#x27;,</span><br><span class="line">  md: &#x27;768px&#x27;,</span><br><span class="line">  lg: &#x27;992px&#x27;,</span><br><span class="line">  xl: &#x27;1200px&#x27;,</span><br><span class="line">  xxl: &#x27;1600px&#x27;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <p>範例1：以一排4個為例，那就是在 span 給6啦~</p>
-<pre><code class="javascript">
-class App extends React.Component &#123;
-  render() &#123;
-    return (
-      &lt;div className=&quot;render-area&quot;&gt;
-        &lt;Row&gt;
-          &lt;Col span=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-          &lt;Col span=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-          &lt;Col span=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-          &lt;Col span=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-        &lt;/Row&gt;
-       &lt;/div&gt;
-    )
-  &#125;
-&#125;
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;render-area&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">span</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">span</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">span</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">span</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>範例2：桌機尺寸時一排想要呈現4個，但平板想要變成2個、手機只要1個的狀況</p>
-<pre><code class="javascript">
-class App extends React.Component &#123;
-  render() &#123;
-    return (
-      &lt;div className=&quot;render-area&quot;&gt;
-        &lt;Row&gt;
-          &lt;Col xs=&#123;24&#125; sm=&#123;24&#125; md=&#123;12&#125; lg=&#123;6&#125; xl=&#123;6&#125; xxl=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-          &lt;Col xs=&#123;24&#125; sm=&#123;24&#125; md=&#123;12&#125; lg=&#123;6&#125; xl=&#123;6&#125; xxl=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-          &lt;Col xs=&#123;24&#125; sm=&#123;24&#125; md=&#123;12&#125; lg=&#123;6&#125; xl=&#123;6&#125; xxl=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-          &lt;Col xs=&#123;24&#125; sm=&#123;24&#125; md=&#123;12&#125; lg=&#123;6&#125; xl=&#123;6&#125; xxl=&#123;6&#125;&gt;col-6&lt;/Col&gt;
-        &lt;/Row&gt;
-       &lt;/div&gt;
-    )
-  &#125;
-&#125;
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">App</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;render-area&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">xs</span>=<span class="string">&#123;24&#125;</span> <span class="attr">sm</span>=<span class="string">&#123;24&#125;</span> <span class="attr">md</span>=<span class="string">&#123;12&#125;</span> <span class="attr">lg</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xl</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xxl</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">xs</span>=<span class="string">&#123;24&#125;</span> <span class="attr">sm</span>=<span class="string">&#123;24&#125;</span> <span class="attr">md</span>=<span class="string">&#123;12&#125;</span> <span class="attr">lg</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xl</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xxl</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">xs</span>=<span class="string">&#123;24&#125;</span> <span class="attr">sm</span>=<span class="string">&#123;24&#125;</span> <span class="attr">md</span>=<span class="string">&#123;12&#125;</span> <span class="attr">lg</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xl</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xxl</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Col</span> <span class="attr">xs</span>=<span class="string">&#123;24&#125;</span> <span class="attr">sm</span>=<span class="string">&#123;24&#125;</span> <span class="attr">md</span>=<span class="string">&#123;12&#125;</span> <span class="attr">lg</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xl</span>=<span class="string">&#123;6&#125;</span> <span class="attr">xxl</span>=<span class="string">&#123;6&#125;</span>&gt;</span>col-6<span class="tag">&lt;/<span class="name">Col</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Row</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="三、延伸應用"><a href="#三、延伸應用" class="headerlink" title="三、延伸應用"></a>三、延伸應用</h2><p>與其它框架一樣，你可以在 <code>&lt;Row&gt;</code> tag 裡加上一些需要的參數，呈現對應的效果，因為都很重要所以都列在下方，需要看各種展示或效果可以再到<a target="_blank" rel="noopener" href="https://ant.design/components/grid/#Row">官方 API 文件</a>研究。</p>
 <p><strong>使用規則：</strong></p>
 <table>

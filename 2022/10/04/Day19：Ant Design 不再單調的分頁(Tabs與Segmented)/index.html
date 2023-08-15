@@ -224,24 +224,8 @@
 
         <div class="post-content">
             <p>  網頁上你常看到一些開關或切換分頁的方式，ANTD 裡也提供了兩種實用的 component 給我們選擇，分別是 Tabs 與 Segmented。Tabs 理所當然就是大家第一個印象中的那個分頁，就像在 <a target="_blank" rel="noopener" href="https://getbootstrap.com/docs/5.0/components/navs-tabs/#base-nav">Bootstrap 的 Navs and tabs</a> 和 <a target="_blank" rel="noopener" href="https://flowbite.com/docs/components/tabs/#default-tabs">Tailwind 的 Default tabs</a> 裡也有提供的那種 navbar 切換頁籤的效果。另外一個是大家可能比較少聽過的 Segmented，它在英文裡有部分、片段的意思，在 ANTD 官方文件中他們則稱它為分段控制器，我個人認為 Tabs 較適合用在頁面主要內容的切換上，而 Segmented 則在較小部分區塊的轉換會比較適當。</p>
-<h2 id="一、ANTD-的-Tabs"><a href="#一、ANTD-的-Tabs" class="headerlink" title="一、ANTD 的 Tabs"></a>一、ANTD 的 Tabs</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code>import &#123; Tabs &#125; from &#39;antd&#39;;
+<h2 id="一、ANTD-的-Tabs"><a href="#一、ANTD-的-Tabs" class="headerlink" title="一、ANTD 的 Tabs"></a>一、ANTD 的 Tabs</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Tabs &#125; from &#x27;antd&#x27;;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;Tabs defaultActiveKey=&quot;1&quot;&gt;</span><br><span class="line">    &lt;Tabs.TabPane tab=&quot;分頁 1&quot; key=&quot;1&quot;&gt;</span><br><span class="line">      分頁 1 的內容...</span><br><span class="line">    &lt;/Tabs.TabPane&gt;</span><br><span class="line">    &lt;Tabs.TabPane tab=&quot;分頁 2&quot; key=&quot;2&quot;&gt;</span><br><span class="line">      分頁 2 的內容...</span><br><span class="line">    &lt;/Tabs.TabPane&gt;</span><br><span class="line">    &lt;Tabs.TabPane tab=&quot;分頁 3&quot; key=&quot;3&quot;&gt;</span><br><span class="line">      分頁 3 的內容...</span><br><span class="line">    &lt;/Tabs.TabPane&gt;</span><br><span class="line">  &lt;/Tabs&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default App;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;Tabs defaultActiveKey=&quot;1&quot;&gt;
-    &lt;Tabs.TabPane tab=&quot;分頁 1&quot; key=&quot;1&quot;&gt;
-      分頁 1 的內容...
-    &lt;/Tabs.TabPane&gt;
-    &lt;Tabs.TabPane tab=&quot;分頁 2&quot; key=&quot;2&quot;&gt;
-      分頁 2 的內容...
-    &lt;/Tabs.TabPane&gt;
-    &lt;Tabs.TabPane tab=&quot;分頁 3&quot; key=&quot;3&quot;&gt;
-      分頁 3 的內容...
-    &lt;/Tabs.TabPane&gt;
-  &lt;/Tabs&gt;
-);
-
-export default App;  
-</code></pre>
 <h3 id="2-Tabs-可添加的屬性"><a href="#2-Tabs-可添加的屬性" class="headerlink" title="2. Tabs 可添加的屬性"></a>2. Tabs 可添加的屬性</h3><p>  在這個元件中，你可以把 Tab 這個 tag 理解為最外層的容器，裡面包數個 Tabs.TabPane 的 tag。下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/tabs/#Tabs">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -318,30 +302,8 @@ export default App;
 <td align="center"><b>先前專案元件應用示意圖</b></td>
 </tr>
 </tbody></table>
-<h2 id="二、ANTD-的-Segmented"><a href="#二、ANTD-的-Segmented" class="headerlink" title="二、ANTD 的 Segmented"></a>二、ANTD 的 Segmented</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code>import &#123; Tabs &#125; from &#39;antd&#39;;
+<h2 id="二、ANTD-的-Segmented"><a href="#二、ANTD-的-Segmented" class="headerlink" title="二、ANTD 的 Segmented"></a>二、ANTD 的 Segmented</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Tabs &#125; from &#x27;antd&#x27;;</span><br><span class="line"></span><br><span class="line">const data = [</span><br><span class="line">  &#123;</span><br><span class="line">    label: &#x27;分頁一&#x27;,</span><br><span class="line">    value: &#x27;分頁一&#x27;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    label: &#x27;分頁二&#x27;,</span><br><span class="line">    value: &#x27;分頁二&#x27;,</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Segmented </span><br><span class="line">        options=&#123;data&#125; </span><br><span class="line">        onChange</span><br><span class="line">      /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default App;  </span><br></pre></td></tr></table></figure>
 
-const data = [
-  &#123;
-    label: &#39;分頁一&#39;,
-    value: &#39;分頁一&#39;,
-  &#125;,
-  &#123;
-    label: &#39;分頁二&#39;,
-    value: &#39;分頁二&#39;,
-  &#125;,
-]
-
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Segmented 
-        options=&#123;data&#125; 
-        onChange
-      /&gt;
-  &lt;/div&gt;
-);
-
-export default App;  
-</code></pre>
 <h3 id="2-Segmented-可添加的屬性"><a href="#2-Segmented-可添加的屬性" class="headerlink" title="2. Segmented 可添加的屬性"></a>2. Segmented 可添加的屬性</h3><p>  其實這個元件我也是最近開發時第一次使用?，它比較有switch的樣式感，拿來做模式切換我覺得超級適合。這個元件提供的屬性本身就不多，下面列出幾項我有使用過的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/segmented/#API">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -368,55 +330,14 @@ export default App;
 </tr>
 </tbody></table>
 <h3 id="3-Segmented-的-options-可以活用到什麼程度？"><a href="#3-Segmented-的-options-可以活用到什麼程度？" class="headerlink" title="3. Segmented 的 options 可以活用到什麼程度？"></a>3. Segmented 的 options 可以活用到什麼程度？</h3><p>  因為在 Segmented 裡，選項的陣列可以使用多種方法讓呈現效果有所不同，甚至加上icon圖標讓頁面更豐富，所以這邊就特別拉出一小節並附帶範例跟大家介紹。</p>
-<h4 id="1-陣列裡直接放字串"><a href="#1-陣列裡直接放字串" class="headerlink" title="(1) 陣列裡直接放字串"></a>(1) 陣列裡直接放字串</h4><pre><code>const options = [&#39;週一&#39;, &#39;週二&#39;, &#39;週三&#39;, &#39;週四&#39;, &#39;週五&#39;];
-</code></pre>
-<h4 id="2-陣列裡直接放數字"><a href="#2-陣列裡直接放數字" class="headerlink" title="(2) 陣列裡直接放數字"></a>(2) 陣列裡直接放數字</h4><pre><code>const options = [1, 2, 3, 4, 5];
-</code></pre>
+<h4 id="1-陣列裡直接放字串"><a href="#1-陣列裡直接放字串" class="headerlink" title="(1) 陣列裡直接放字串"></a>(1) 陣列裡直接放字串</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const options = [&#x27;週一&#x27;, &#x27;週二&#x27;, &#x27;週三&#x27;, &#x27;週四&#x27;, &#x27;週五&#x27;];</span><br></pre></td></tr></table></figure>
+<h4 id="2-陣列裡直接放數字"><a href="#2-陣列裡直接放數字" class="headerlink" title="(2) 陣列裡直接放數字"></a>(2) 陣列裡直接放數字</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const options = [1, 2, 3, 4, 5];</span><br></pre></td></tr></table></figure>
 <h4 id="3-陣列裡放object，並在內容前面加icon"><a href="#3-陣列裡放object，並在內容前面加icon" class="headerlink" title="(3) 陣列裡放object，並在內容前面加icon"></a>(3) 陣列裡放object，並在內容前面加icon</h4><p><img src="https://ithelp.ithome.com.tw/upload/images/20221005/20140920GGLYSDsu59.png" alt="https://ithelp.ithome.com.tw/upload/images/20221005/20140920GGLYSDsu59.png"></p>
-<pre><code>const options = [
-    &#123;
-        label: &#39;字母由前往後排序&#39;,
-        value: &#39;front&#39;,
-        icon: &lt;SortAscendingOutlined /&gt;,
-    &#125;,
-    &#123;
-        label: &#39;字母由後往前排序&#39;,
-        value: &#39;end&#39;,
-        icon: &lt;SortDescendingOutlined /&gt;,
-    &#125;,
-];
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const options = [</span><br><span class="line">    &#123;</span><br><span class="line">        label: &#x27;字母由前往後排序&#x27;,</span><br><span class="line">        value: &#x27;front&#x27;,</span><br><span class="line">        icon: &lt;SortAscendingOutlined /&gt;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        label: &#x27;字母由後往前排序&#x27;,</span><br><span class="line">        value: &#x27;end&#x27;,</span><br><span class="line">        icon: &lt;SortDescendingOutlined /&gt;,</span><br><span class="line">    &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
 <h4 id="4-陣列裡放object，客製化想顯示的內容"><a href="#4-陣列裡放object，客製化想顯示的內容" class="headerlink" title="(4) 陣列裡放object，客製化想顯示的內容"></a>(4) 陣列裡放object，客製化想顯示的內容</h4><p><img src="https://ithelp.ithome.com.tw/upload/images/20221005/20140920MXCJiYt9df.png" alt="https://ithelp.ithome.com.tw/upload/images/20221005/20140920MXCJiYt9df.png"></p>
-<pre><code>const options = [
-    &#123;
-        label: (
-            &lt;div style=&#123;&#123; padding: 4 &#125;&#125;&gt;
-                &lt;LikeOutlined /&gt;
-                &lt;div&gt;按讚清單&lt;/div&gt;
-            &lt;/div&gt;
-        ),
-        value: &#39;like&#39;,
-    &#125;,
-    &#123;
-        label: (
-            &lt;div style=&#123;&#123; padding: 4 &#125;&#125;&gt;
-                &lt;ShareAltOutlined /&gt;
-                &lt;div&gt;分享清單&lt;/div&gt;
-            &lt;/div&gt;
-        ),
-        value: &#39;share&#39;,
-    &#125;,
-    &#123;
-        label: (
-            &lt;div style=&#123;&#123; padding: 4 &#125;&#125;&gt;
-                &lt;HeartOutlined /&gt;
-                &lt;div&gt;收藏清單&lt;/div&gt;
-            &lt;/div&gt;
-        ),
-        value: &#39;save&#39;,
-    &#125;,
-];
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const options = [</span><br><span class="line">    &#123;</span><br><span class="line">        label: (</span><br><span class="line">            &lt;div style=&#123;&#123; padding: 4 &#125;&#125;&gt;</span><br><span class="line">                &lt;LikeOutlined /&gt;</span><br><span class="line">                &lt;div&gt;按讚清單&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        ),</span><br><span class="line">        value: &#x27;like&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        label: (</span><br><span class="line">            &lt;div style=&#123;&#123; padding: 4 &#125;&#125;&gt;</span><br><span class="line">                &lt;ShareAltOutlined /&gt;</span><br><span class="line">                &lt;div&gt;分享清單&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        ),</span><br><span class="line">        value: &#x27;share&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        label: (</span><br><span class="line">            &lt;div style=&#123;&#123; padding: 4 &#125;&#125;&gt;</span><br><span class="line">                &lt;HeartOutlined /&gt;</span><br><span class="line">                &lt;div&gt;收藏清單&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        ),</span><br><span class="line">        value: &#x27;save&#x27;,</span><br><span class="line">    &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
 <h3 id="4-ANTD-的-Segmented-實際使用範例"><a href="#4-ANTD-的-Segmented-實際使用範例" class="headerlink" title="4. ANTD 的 Segmented 實際使用範例"></a>4. ANTD 的 Segmented 實際使用範例</h3><p>看完上面簡單的介紹後，下面提供我的一些簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
 <table>
 <thead>

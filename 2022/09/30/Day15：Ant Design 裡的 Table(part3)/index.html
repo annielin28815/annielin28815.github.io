@@ -225,18 +225,8 @@
         <div class="post-content">
             <p>  今天要介紹的是兩層以上的數據在表格完整呈現的方式，其實之前我也沒想過原來樹型結構的資料，也可以使用折合按鈕在表格內展示，直到翻文件學習到就覺得也太實用了吧！因為有時候其實資料內容並不是很多，如果因為層級較多就要進到詳細頁或彈窗才能顯示，其實也不見得是好的呈現方式，對吧？<br>  其實我這次鐵人賽的主題 Ant Design ，雖然有簡體中文的官方文件，但是在開發時難免也會有卡關不理解的時候，我有發現真的很少人仔細分享一些進階功能(包含在stackoverflow上也是)，所以才有這系列的文章，由淺入深的介紹元件使用方式，想幫助初步使用 Ant Design 的人也可以有一些方向。</p>
 <h2 id="一、Table-的-tree-data"><a href="#一、Table-的-tree-data" class="headerlink" title="一、Table 的 tree data"></a>一、Table 的 tree data</h2><p>跟之前使用表格方式一樣，比較特別的是在資料的整理。</p>
-<h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Table &#125; from &#39;antd&#39;;
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Table 
-        columns=&#123;columns&#125; 
-        dataSource=&#123;data&#125; 
-     /&gt;
-  &lt;div/&gt;
-);
+<h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Table</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Table</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">dataSource</span>=<span class="string">&#123;data&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-export default App;  
-</code></pre>
 <h3 id="2-dataSource-裡包-children"><a href="#2-dataSource-裡包-children" class="headerlink" title="2. dataSource 裡包 children"></a>2. dataSource 裡包 children</h3><p>  dataSource 就是放你要呈現在表格那一行一行的資料，如果要呈現樹狀結構，最重要的重點就是要<strong>把子層資料包進去父層的「children」裡</strong>，因為 ANTD 是以這個關鍵字去做識別，你的每行資料裡只要有 children 這個參數，那它會視為你有子層結構需要做折合顯示，不需要在 table 本身做什麼設定。dataSource 的 children 則要注意要把資料的 key 值跟父層資料整理一致，這邊用文字可能難以理解，可以看下方圖文說明。</p>
 <table>
 <thead>

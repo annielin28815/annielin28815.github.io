@@ -225,34 +225,14 @@
         <div class="post-content">
             <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>在 JavaScript 的世界裡有變數，那初學者們也知道 CSS (階層式樣式表，Cascading Style Sheets)也有嗎？以下內容以我工作上常用的做介紹與舉例～</p>
 <h2 id="二、CSS-的變數運用技巧"><a href="#二、CSS-的變數運用技巧" class="headerlink" title="二、CSS 的變數運用技巧"></a>二、CSS 的變數運用技巧</h2><h3 id="1-宣告css變數"><a href="#1-宣告css變數" class="headerlink" title="1. 宣告css變數"></a>1. 宣告css變數</h3><p>將會運用到的變數都放在 :root 選取器內，並且使用 –自訂名稱作為屬性的方式來宣告變數。</p>
-<pre><code class="css=">:root &#123;
-  --primary: Aquamarine;
-  --background-color: Teal;
-&#125;
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--primary</span>: Aquamarine;</span><br><span class="line">  <span class="attr">--background-color</span>: Teal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-使用css變數"><a href="#2-使用css變數" class="headerlink" title="2. 使用css變數"></a>2. 使用css變數</h3><p>取值的階段，取值時前方依然是撰寫我們需要套用的樣式屬性，後方再接著使用 var (–變數名稱) 來套用。</p>
-<pre><code class="css=">body &#123;
-  background: var(--background-color);
-&#125;
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--background-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="3-在RWD使用css變數"><a href="#3-在RWD使用css變數" class="headerlink" title="3. 在RWD使用css變數"></a>3. 在RWD使用css變數</h3><p>製作響應式時，因為螢幕大小的不同通常會需要調整文字大小來符合需求，最常見的方式就是透過選取器一一覆蓋字體大小，如果透過變數的方式就可以統一切換整體文字大小，不需要一一的調整每個選取器。</p>
-<pre><code class="css=">:root &#123;
-  --font-size: 14px;
-&#125;
-/* 使用變數定義文字大小 */
-p &#123;
-  font-size: var(--font-size);
-&#125;
-/* 除此之外，還可以透過 calc 用相同變數做運算，讓特定的文字更大獲更小 */
-h1 &#123;
-  font-size: calc(var(--font-size) * 1.5);
-&#125;
-@media (min-width: 480px) &#123;
-  :root &#123;
-    --font-size: 18px;
-  &#125;
-&#125;
-</code></pre>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 使用變數定義文字大小 */</span></span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="built_in">var</span>(--font-size);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 除此之外，還可以透過 calc 用相同變數做運算，讓特定的文字更大獲更小 */</span></span><br><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="built_in">calc</span>(<span class="built_in">var</span>(--font-size) * <span class="number">1.5</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">  <span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">    <span class="attr">--font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><p>我在初學網頁設計時，最先接觸到的是 HTML 和 CSS，但因為只是買初階的線上課程，並未學得很深入，後來才知道還有選取器、變數和 SCSS 等這麼多實用技巧，可以不用寫冗長的程式碼，也能達到想要的樣式編排效果，每學一點新的，真的就讓我對做網頁更有興趣了！</p>
 
         </div>

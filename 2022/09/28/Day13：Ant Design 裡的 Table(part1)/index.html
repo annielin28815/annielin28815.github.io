@@ -225,19 +225,8 @@
         <div class="post-content">
             <p>  今天要來介紹 ANTD 裡個人覺得使用上數一數二複雜與廣泛運用的「表格」了！在 html 裡寫表格要不斷重複寫<code>tr</code>, <code>td</code>、在純 JavaScript 裡頂多使用 map 去跑值和表頭名稱，但是使用 ANTD 的時候，你可以直接在 datasource 和 columns 的屬性給值(不論是從後端 call 回來的資料或你靜態寫的 array 都可以)，真的超方便！</p>
 <p>  ANTD 裡的表格還有自帶超多多樣化的功能，像是表頭勾選、展開收和細節內容、計算共幾列數量並提供換頁效果、表頭是否固定不隨視窗滾動(就像 excel 表那樣，大家應該懂我說什麼吧!!!)，還有超多其它客製化樣式與功能，那以下就開始分享 ANTD 表格的各種好用屬性囉～</p>
-<h2 id="一、ANTD-Table-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Table-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Table 最基本的使用方式：引用與呼叫它"></a>一、ANTD Table 最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; Table &#125; from &#39;antd&#39;;
+<h2 id="一、ANTD-Table-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Table-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Table 最基本的使用方式：引用與呼叫它"></a>一、ANTD Table 最基本的使用方式：引用與呼叫它</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Table</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Table</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">dataSource</span>=<span class="string">&#123;data&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Table 
-        columns=&#123;columns&#125; 
-        dataSource=&#123;data&#125; 
-     /&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、Table-可添加的參數"><a href="#二、Table-可添加的參數" class="headerlink" title="二、Table 可添加的參數"></a>二、Table 可添加的參數</h2><p>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/table/#Table">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -275,39 +264,8 @@ export default App;
 </tbody></table>
 <h2 id="三、Table-columns-可添加的參數"><a href="#三、Table-columns-可添加的參數" class="headerlink" title="三、Table columns 可添加的參數"></a>三、Table columns 可添加的參數</h2><p>  columns ，可以理解是 html 的 <code>&lt;thead&gt;</code> ，基本使用可以把他理解成一個陣列，每個陣列裡至少會需要 dataIndex, key 和 title 屬性，讓表格在渲染時方便與下方的內容 (dataSource 屬性)做對應。</p>
 <p>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/table/#Column">官方 api 文件</a>。</p>
-<h3 id="假設你有一些好友清單，想整理成一個表格，那你的-columns-可以這樣設定"><a href="#假設你有一些好友清單，想整理成一個表格，那你的-columns-可以這樣設定" class="headerlink" title="假設你有一些好友清單，想整理成一個表格，那你的 columns 可以這樣設定"></a>假設你有一些好友清單，想整理成一個表格，那你的 columns 可以這樣設定</h3><pre><code class="json=">const columns = [
-  &#123;
-    title: &#39;姓名&#39;,
-    dataIndex: &#39;name&#39;,
-    key: &#39;name&#39;
-  &#125;,
-  &#123;
-    title: &#39;生日&#39;,
-    dataIndex: &#39;birth&#39;,
-    key: &#39;birth&#39;,
-  &#125;,
-  &#123;
-    title: &#39;電話&#39;,
-    dataIndex: &#39;phone&#39;,
-    key: &#39;phone&#39;,
-  &#125;,
-  &#123;
-    title: &#39;信箱&#39;,
-    dataIndex: &#39;mail&#39;,
-    key: &#39;mail&#39;,
-  &#125;,
-  &#123;
-    title: &#39;操作&#39;,
-    key: &#39;action&#39;,
-    render: (_, record) =&gt; (
-      &lt;div&gt;
-        &lt;a&gt;編輯&lt;/a&gt;
-        &lt;a&gt;刪除&lt;/a&gt;
-      &lt;/div&gt;
-    ),
-  &#125;,
-];
-</code></pre>
+<h3 id="假設你有一些好友清單，想整理成一個表格，那你的-columns-可以這樣設定"><a href="#假設你有一些好友清單，想整理成一個表格，那你的-columns-可以這樣設定" class="headerlink" title="假設你有一些好友清單，想整理成一個表格，那你的 columns 可以這樣設定"></a>假設你有一些好友清單，想整理成一個表格，那你的 columns 可以這樣設定</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const columns = <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    title<span class="punctuation">:</span> &#x27;姓名&#x27;<span class="punctuation">,</span></span><br><span class="line">    dataIndex<span class="punctuation">:</span> &#x27;name&#x27;<span class="punctuation">,</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;name&#x27;</span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    title<span class="punctuation">:</span> &#x27;生日&#x27;<span class="punctuation">,</span></span><br><span class="line">    dataIndex<span class="punctuation">:</span> &#x27;birth&#x27;<span class="punctuation">,</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;birth&#x27;<span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    title<span class="punctuation">:</span> &#x27;電話&#x27;<span class="punctuation">,</span></span><br><span class="line">    dataIndex<span class="punctuation">:</span> &#x27;phone&#x27;<span class="punctuation">,</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;phone&#x27;<span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    title<span class="punctuation">:</span> &#x27;信箱&#x27;<span class="punctuation">,</span></span><br><span class="line">    dataIndex<span class="punctuation">:</span> &#x27;mail&#x27;<span class="punctuation">,</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;mail&#x27;<span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    title<span class="punctuation">:</span> &#x27;操作&#x27;<span class="punctuation">,</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;action&#x27;<span class="punctuation">,</span></span><br><span class="line">    render<span class="punctuation">:</span> (_<span class="punctuation">,</span> record) =&gt; (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;a&gt;編輯&lt;/a&gt;</span><br><span class="line">        &lt;a&gt;刪除&lt;/a&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )<span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span>;</span><br></pre></td></tr></table></figure>
+
 <table>
 <thead>
 <tr>
@@ -343,30 +301,8 @@ export default App;
 </tr>
 </tbody></table>
 <h2 id="三、Table-dataSource-的使用方式"><a href="#三、Table-dataSource-的使用方式" class="headerlink" title="三、Table dataSource 的使用方式"></a>三、Table dataSource 的使用方式</h2><p>  前面有提到 dataSource 可以理解是 html 的 <code>&lt;tbody&gt;</code>，因為要搭配 columns 一起使用，所以他當然也要是個陣列啦~那陣列裡面就是一包一包 object，紀錄你每筆資料的值。這邊要特別注意，每筆資料一定都要有key值！</p>
-<h3 id="假設你有一些好友清單，想整理成一個表格，那你的-dataSource-可以這樣設定"><a href="#假設你有一些好友清單，想整理成一個表格，那你的-dataSource-可以這樣設定" class="headerlink" title="假設你有一些好友清單，想整理成一個表格，那你的 dataSource 可以這樣設定"></a>假設你有一些好友清單，想整理成一個表格，那你的 dataSource 可以這樣設定</h3><pre><code class="json=">const data = [
-  &#123;
-    key: &#39;1&#39;,
-    name: &#39;John&#39;,
-    birth: &#39;2000/08/01&#39;,
-    phone: &#39;0988-123456&#39;,
-    mail: &#39;john@test.com&#39;
-  &#125;,
-  &#123;
-    key: &#39;2&#39;,
-    name: &#39;Mary&#39;,
-    birth: &#39;1990/02/01&#39;,
-    phone: &#39;0988-234567&#39;,
-    mail: &#39;mary@test.com&#39;
-  &#125;,
-  &#123;
-    key: &#39;3&#39;,
-    name: &#39;Andy&#39;,
-    birth: &#39;1995/05/01&#39;,
-    phone: &#39;0988-345678&#39;,
-    mail: &#39;andy@test.com&#39;
-  &#125;,
-];
-</code></pre>
+<h3 id="假設你有一些好友清單，想整理成一個表格，那你的-dataSource-可以這樣設定"><a href="#假設你有一些好友清單，想整理成一個表格，那你的-dataSource-可以這樣設定" class="headerlink" title="假設你有一些好友清單，想整理成一個表格，那你的 dataSource 可以這樣設定"></a>假設你有一些好友清單，想整理成一個表格，那你的 dataSource 可以這樣設定</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">const data = <span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;<span class="number">1</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    name<span class="punctuation">:</span> &#x27;John&#x27;<span class="punctuation">,</span></span><br><span class="line">    birth<span class="punctuation">:</span> &#x27;<span class="number">2000</span>/<span class="number">08</span>/<span class="number">01</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    phone<span class="punctuation">:</span> &#x27;<span class="number">0988</span><span class="number">-123456</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    mail<span class="punctuation">:</span> &#x27;john@test.com&#x27;</span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;<span class="number">2</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    name<span class="punctuation">:</span> &#x27;Mary&#x27;<span class="punctuation">,</span></span><br><span class="line">    birth<span class="punctuation">:</span> &#x27;<span class="number">1990</span>/<span class="number">02</span>/<span class="number">01</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    phone<span class="punctuation">:</span> &#x27;<span class="number">0988</span><span class="number">-234567</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    mail<span class="punctuation">:</span> &#x27;mary@test.com&#x27;</span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    key<span class="punctuation">:</span> &#x27;<span class="number">3</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    name<span class="punctuation">:</span> &#x27;Andy&#x27;<span class="punctuation">,</span></span><br><span class="line">    birth<span class="punctuation">:</span> &#x27;<span class="number">1995</span>/<span class="number">05</span>/<span class="number">01</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    phone<span class="punctuation">:</span> &#x27;<span class="number">0988</span><span class="number">-345678</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">    mail<span class="punctuation">:</span> &#x27;andy@test.com&#x27;</span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">]</span>;</span><br></pre></td></tr></table></figure>
+
 <p>因為表格的所有功能擠在同一篇裡介紹我覺得太過冗長，所以我們就下一篇繼續唷~</p>
 
         </div>

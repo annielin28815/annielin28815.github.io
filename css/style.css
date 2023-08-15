@@ -239,6 +239,15 @@ a:hover {
   flex-basis: auto;
   display: flex;
   flex-direction: column;
+  background: url("/image/programming.svg") no-repeat fixed bottom 50px left 40px;
+}
+.main ::-moz-selection {
+  color: #db5f5f;
+  background: #fff8c0;
+}
+.main ::selection {
+  color: #db5f5f;
+  background: #fff8c0;
 }
 .main .container {
   padding-left: 1em;
@@ -740,7 +749,6 @@ header label {
 }
 .post-content {
   padding-top: 2rem;
-  text-align: justify;
 }
 .post-content h2,
 .post-content h3,
@@ -1121,6 +1129,7 @@ header label {
 @media screen and (max-width: 479px) {
   .main {
     padding-top: 40pt;
+    background: transparent;
   }
   .navbar {
     display: none;

@@ -224,78 +224,24 @@
 
         <div class="post-content">
             <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>因為 CSS 的變數能運用的地方真的很多，所以就分幾篇來穿插介紹囉～</p>
-<h2 id="二、CSS-的變數運用技巧"><a href="#二、CSS-的變數運用技巧" class="headerlink" title="二、CSS 的變數運用技巧"></a>二、CSS 的變數運用技巧</h2><h3 id="1-在JavaScript使用css變數"><a href="#1-在JavaScript使用css變數" class="headerlink" title="1. 在JavaScript使用css變數"></a>1. 在JavaScript使用css變數</h3><pre><code class="html=">// html
-&lt;input type=&quot;range&quot; min=60 max=400 id=&quot;range&quot;&gt;
-&lt;div class=&quot;circle&quot;&gt;&lt;/div&gt;
-</code></pre>
-<pre><code class="css=">// css
-:root &#123;
-  --primary: Aquamarine;
-  --secondary: Teal;
-  --size: 200px;
-&#125;
-</code></pre>
-<pre><code class="javascript=">// javascript
-const root = document.documentElement;
+<h2 id="二、CSS-的變數運用技巧"><a href="#二、CSS-的變數運用技巧" class="headerlink" title="二、CSS 的變數運用技巧"></a>二、CSS 的變數運用技巧</h2><h3 id="1-在JavaScript使用css變數"><a href="#1-在JavaScript使用css變數" class="headerlink" title="1. 在JavaScript使用css變數"></a>1. 在JavaScript使用css變數</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// html</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span> <span class="attr">min</span>=<span class="string">60</span> <span class="attr">max</span>=<span class="string">400</span> <span class="attr">id</span>=<span class="string">&quot;range&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;circle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// css</span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--primary</span>: Aquamarine;</span><br><span class="line">  <span class="attr">--secondary</span>: Teal;</span><br><span class="line">  <span class="attr">--size</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// javascript</span></span><br><span class="line"><span class="keyword">const</span> root = <span class="variable language_">document</span>.<span class="property">documentElement</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> range = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;range&#x27;</span>);</span><br><span class="line"></span><br><span class="line">range.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  root.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&#x27;--size&#x27;</span>, <span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.value&#125;</span>px`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-const range = document.getElementById(&#39;range&#39;);
-
-range.addEventListener(&#39;change&#39;, function() &#123;
-  root.style.setProperty(&#39;--size&#39;, `$&#123;this.value&#125;px`)
-&#125;)
-</code></pre>
 <h3 id="2-用Calc計算-css變數"><a href="#2-用Calc計算-css變數" class="headerlink" title="2. 用Calc計算 css變數"></a>2. 用Calc計算 css變數</h3><ul>
 <li><p>CSS 中更有一個神奇的運算方法 calc，此函式可以無視讓不同單位的數值直接做運算，如百分比與絕對單位運算（ex: 100% - 30px）。CSS Variables 也同樣能夠搭配此方法產生新的值。</p>
 </li>
 <li><p>calc 是作為函式使用，因此可將預期運算的方法置入 calc() 的括號內即可。</p>
 </li>
 </ul>
-<pre><code class="css=">// css
-.box-1 &#123;
-  width: calc(100% - var(--size));
-&#125;
-</code></pre>
-<pre><code class="javascript=">// javascript
-const root = document.documentElement;
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// css</span><br><span class="line"><span class="selector-class">.box-1</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="built_in">var</span>(--size));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// javascript</span></span><br><span class="line"><span class="keyword">const</span> root = <span class="variable language_">document</span>.<span class="property">documentElement</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> range = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;range&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(range)</span><br><span class="line">range.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  root.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&#x27;--size&#x27;</span>, <span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.value&#125;</span>px`</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-const range = document.getElementById(&#39;range&#39;);
+<h3 id="3-使用css變數計算漸層色彩"><a href="#3-使用css變數計算漸層色彩" class="headerlink" title="3. 使用css變數計算漸層色彩"></a>3. 使用css變數計算漸層色彩</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// css</span><br><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--c</span>: <span class="number">255</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(</span><br><span class="line">    <span class="built_in">rgb</span>(</span><br><span class="line">      <span class="built_in">calc</span>(<span class="built_in">var</span>(--c) - <span class="number">60</span>), <span class="built_in">calc</span>(<span class="built_in">var</span>(--c) - <span class="number">40</span>), <span class="built_in">calc</span>(<span class="built_in">var</span>(--c))</span><br><span class="line">    ),</span><br><span class="line">    <span class="built_in">rgb</span>(</span><br><span class="line">      <span class="built_in">calc</span>(<span class="built_in">var</span>(--c) - <span class="number">20</span>), <span class="built_in">calc</span>(<span class="built_in">var</span>(--c) - <span class="number">10</span>), <span class="built_in">calc</span>(<span class="built_in">var</span>(--c))</span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// javascript</span></span><br><span class="line"><span class="keyword">const</span> root = <span class="variable language_">document</span>.<span class="property">documentElement</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> range = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;range&#x27;</span>);</span><br><span class="line"></span><br><span class="line">range.<span class="title function_">addEventListener</span>(<span class="string">&#x27;change&#x27;</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  root.<span class="property">style</span>.<span class="title function_">setProperty</span>(<span class="string">&#x27;--c&#x27;</span>, <span class="variable language_">this</span>.<span class="property">value</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-console.log(range)
-range.addEventListener(&#39;change&#39;, function() &#123;
-  root.style.setProperty(&#39;--size&#39;, `$&#123;this.value&#125;px`);
-&#125;)
-</code></pre>
-<h3 id="3-使用css變數計算漸層色彩"><a href="#3-使用css變數計算漸層色彩" class="headerlink" title="3. 使用css變數計算漸層色彩"></a>3. 使用css變數計算漸層色彩</h3><pre><code class="css=">// css
-:root &#123;
-  --c: 255;
-&#125;
 
-html, body &#123;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-&#125;
 
-body &#123;
-  background-image: linear-gradient(
-    rgb(
-      calc(var(--c) - 60), calc(var(--c) - 40), calc(var(--c))
-    ),
-    rgb(
-      calc(var(--c) - 20), calc(var(--c) - 10), calc(var(--c))
-    )
-  );
-&#125;
-</code></pre>
-<pre><code class="javascript=">// javascript
-const root = document.documentElement;
-
-const range = document.getElementById(&#39;range&#39;);
-
-range.addEventListener(&#39;change&#39;, function() &#123;
-  root.style.setProperty(&#39;--c&#39;, this.value)
-&#125;)
-</code></pre>
 <h2 id="三、結論與自我鼓勵"><a href="#三、結論與自我鼓勵" class="headerlink" title="三、結論與自我鼓勵"></a>三、結論與自我鼓勵</h2><p>從這裡就可以感覺得到，CSS 變數能運用的範圍真的很廣，而且活用成功的話，程式碼也能跟著精簡許多。</p>
 
         </div>

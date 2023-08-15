@@ -264,16 +264,8 @@
 <td align="left">單選的圓框</td>
 </tr>
 </tbody></table>
-<h2 id="一、最基本的使用方式：引用與呼叫它"><a href="#一、最基本的使用方式：引用與呼叫它" class="headerlink" title="一、最基本的使用方式：引用與呼叫它"></a>一、最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; DatePicker &#125; from &#39;antd&#39;;
+<h2 id="一、最基本的使用方式：引用與呼叫它"><a href="#一、最基本的使用方式：引用與呼叫它" class="headerlink" title="一、最基本的使用方式：引用與呼叫它"></a>一、最基本的使用方式：引用與呼叫它</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DatePicker</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">DatePicker</span> <span class="attr">onChange</span> /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;DatePicker onChange /&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、DatePicker-可添加的參數"><a href="#二、DatePicker-可添加的參數" class="headerlink" title="二、DatePicker 可添加的參數"></a>二、DatePicker 可添加的參數</h2><p>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/date-picker/#API">官方 api 文件</a>。<br>  最常使用的就是 disabledDate 這個參數，對於日期提供有所限制的話可以搭配使用，對於使用者體驗上也會有加分效果，因為你總不能在他都點選送出後，才跳訊息說嗯…這個日期我們不可以接受吧XDD</p>
 <table>
 <thead>
@@ -330,23 +322,10 @@ export default App;
 </tr>
 </tbody></table>
 <h2 id="三、DatePicker-實際使用範例"><a href="#三、DatePicker-實際使用範例" class="headerlink" title="三、DatePicker 實際使用範例"></a>三、DatePicker 實際使用範例</h2><p>以下就假設幾種情境，分享一下使用方法。</p>
-<h3 id="1-如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9-x2F-16後的日期"><a href="#1-如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9-x2F-16後的日期" class="headerlink" title="1.如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9&#x2F;16後的日期"></a>1.如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9&#x2F;16後的日期</h3><pre><code class="javascript=">
-const disabledDate = (current) =&gt; &#123;
-  return current &amp;&amp; current &gt;= moment().max(&quot;2022-09-17&quot;);
-&#125;;
+<h3 id="1-如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9-x2F-16後的日期"><a href="#1-如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9-x2F-16後的日期" class="headerlink" title="1.如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9&#x2F;16後的日期"></a>1.如果希望本屆鐵人賽的挑戰者，填寫預計開賽日期，那就要排除掉9&#x2F;16後的日期</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">disabledDate</span> = (<span class="params">current</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> current &amp;&amp; current &gt;= <span class="title function_">moment</span>().<span class="title function_">max</span>(<span class="string">&quot;2022-09-17&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">DatePicker</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">disabledDate</span>=<span class="string">&#123;disabledDate&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">onChange</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">/&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-&lt;DatePicker 
-    disabledDate=&#123;disabledDate&#125;
-    onChange 
-/&gt;
-</code></pre>
-<h3 id="2-如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開"><a href="#2-如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開" class="headerlink" title="2.如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開"></a>2.如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開</h3><pre><code class="javascript=">&lt;DatePicker 
-  showNow
-  showTime
-  showToday
-  onChange 
-/&gt;
-</code></pre>
+<h3 id="2-如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開"><a href="#2-如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開" class="headerlink" title="2.如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開"></a>2.如果希望方便使用者填寫當下時間，可以把上述常用設定都設定打開</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">DatePicker</span> </span><br><span class="line">  showNow</span><br><span class="line">  showTime</span><br><span class="line">  showToday</span><br><span class="line">  onChange </span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="3-DatePicker-的元件練習"><a href="#3-DatePicker-的元件練習" class="headerlink" title="3. DatePicker 的元件練習"></a>3. DatePicker 的元件練習</h3><p>看完上面簡單的介紹後，下面提供我的一些簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
 <table>
 <thead>

@@ -229,28 +229,17 @@
 <p>MVC 會根據傳入的 URL，叫用控制器類別以及它們內的動作方法。 MVC 使用的預設 URL 路由邏輯 ，會使用如下的格式來判斷要叫用的程式碼：</p>
 <p><code>/[Controller]/[ActionName]/[Parameters]</code></p>
 <p>可以在 Startup.cs 檔案的 Configure 方法中設定路由格式。</p>
-<pre><code class="c=">app.UseEndpoints(endpoints =&gt;
-&#123;
-    endpoints.MapControllerRoute(
-        name: &quot;default&quot;,
-        pattern: &quot;&#123;controller=Home&#125;/&#123;action=Index&#125;/&#123;id?&#125;&quot;);
-&#125;);
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.UseEndpoints(endpoints =&gt;</span><br><span class="line">&#123;</span><br><span class="line">    endpoints.MapControllerRoute(</span><br><span class="line">        name: <span class="string">&quot;default&quot;</span>,</span><br><span class="line">        pattern: <span class="string">&quot;&#123;controller=Home&#125;/&#123;action=Index&#125;/&#123;id?&#125;&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
 <h2 id="三、view"><a href="#三、view" class="headerlink" title="三、view"></a>三、view</h2><ul>
 <li><p>視圖範本 Razor 是以架構為基礎的視圖範本：<br>&amp;emsp;1. 具有 cshtml 副檔名。<br>&amp;emsp;2. 提供使用 c # 建立 HTML 輸出的簡潔方式。</p>
 </li>
 <li><p>控制器方法：<br>&amp;emsp;1. 稱為 動作方法。<br>&amp;emsp;2. 通常會傳回 IActionResult 或衍生自的類別 ActionResult。</p>
 </li>
 </ul>
-<pre><code class="c=">/// &lt;summary&gt;
-/// 申請須知
-/// &lt;/summary&gt;
-[Route(&quot;~/rental/site/&#123;alias&#125;/note&quot;)]
-public IActionResult Note(string alias)
-&#123;
-    return View($&quot;~/Views/Rental/&#123;alias.ToLower()&#125;/Note.cshtml&quot;);
-&#125;
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// &lt;summary&gt;</span></span><br><span class="line"><span class="comment">/// 申請須知</span></span><br><span class="line"><span class="comment">/// &lt;/summary&gt;</span></span><br><span class="line">[Route(<span class="string">&quot;~/rental/site/&#123;alias&#125;/note&quot;</span>)]</span><br><span class="line">public IActionResult <span class="title function_">Note</span><span class="params">(<span class="built_in">string</span> alias)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> View($<span class="string">&quot;~/Views/Rental/&#123;alias.ToLower()&#125;/Note.cshtml&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 <ul>
 <li><p>新增對應的action view<br>在該controller 以滑鼠右鍵按一下 <strong>新增檢視</strong> 。<br><img src="https://i.imgur.com/4WyYoyD.png" alt="新增對應的action view"></p>
 </li>
@@ -258,136 +247,42 @@ public IActionResult Note(string alias)
 </li>
 </ul>
 <ol>
-<li>變更瀏覽器標題、主要標題、次要標題。</li>
+<li><p>變更瀏覽器標題、主要標題、次要標題。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    ViewData[<span class="string">&quot;Title&quot;</span>] = <span class="string">&quot;Movie List&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;h2&gt;My Movie List&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;p&gt;Hello <span class="keyword">from</span> our View Template!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>變更配置檔案中的標題、頁尾及功能表連結</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">...</span><br><span class="line">    <span class="comment">// 標題</span></span><br><span class="line">    &lt;title&gt;@ViewData[<span class="string">&quot;Title&quot;</span>] - Movie App&lt;/title&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">        &lt;div <span class="keyword">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">        <span class="comment">// 功能表連結</span></span><br><span class="line">            &lt;a <span class="keyword">class</span>=<span class="string">&quot;navbar-brand&quot;</span> asp-controller=<span class="string">&quot;Movies&quot;</span> asp-action=<span class="string">&quot;Index&quot;</span>&gt;Movie App&lt;/a&gt;</span><br><span class="line">            ...</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/header&gt;</span><br><span class="line"></span><br><span class="line">    &lt;footer <span class="keyword">class</span>=<span class="string">&quot;border-top footer text-muted&quot;</span>&gt;</span><br><span class="line">        &lt;div <span class="keyword">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span><br><span class="line">        <span class="comment">// 頁尾</span></span><br><span class="line">            &amp;copy; <span class="number">2020</span> - Movie App - &lt;a asp-area=<span class="string">&quot;&quot;</span> asp-controller=<span class="string">&quot;Home&quot;</span> asp-action=<span class="string">&quot;Privacy&quot;</span>&gt;Privacy&lt;/a&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/footer&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<pre><code class="csharp=">@&#123;
-    ViewData[&quot;Title&quot;] = &quot;Movie List&quot;;
-&#125;
-
-&lt;h2&gt;My Movie List&lt;/h2&gt;
-
-&lt;p&gt;Hello from our View Template!&lt;/p&gt;
-</code></pre>
-<ol start="2">
-<li>變更配置檔案中的標題、頁尾及功能表連結</li>
-</ol>
-<pre><code class="csharp=">&lt;head&gt;
-...
-    // 標題
-    &lt;title&gt;@ViewData[&quot;Title&quot;] - Movie App&lt;/title&gt;
-...
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;header&gt;
-        &lt;div class=&quot;container&quot;&gt;
-        // 功能表連結
-            &lt;a class=&quot;navbar-brand&quot; asp-controller=&quot;Movies&quot; asp-action=&quot;Index&quot;&gt;Movie App&lt;/a&gt;
-            ...
-        &lt;/div&gt;
-    &lt;/header&gt;
-
-    &lt;footer class=&quot;border-top footer text-muted&quot;&gt;
-        &lt;div class=&quot;container&quot;&gt;
-        // 頁尾
-            &amp;copy; 2020 - Movie App - &lt;a asp-area=&quot;&quot; asp-controller=&quot;Home&quot; asp-action=&quot;Privacy&quot;&gt;Privacy&lt;/a&gt;
-        &lt;/div&gt;
-    &lt;/footer&gt;
-&lt;/body&gt;
-</code></pre>
 <ul>
 <li>使用controller將變數傳遞至view</li>
 </ul>
 <ol>
-<li>在controller定義方法</li>
+<li><p>在controller定義方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> IActionResult <span class="title">Welcome</span>(<span class="params"><span class="built_in">string</span> name, <span class="built_in">int</span> numTimes = <span class="number">1</span></span>)    <span class="comment">// 在括弧裡宣告預設變數</span></span></span><br><span class="line">        &#123;</span><br><span class="line">            ViewData[<span class="string">&quot;Message&quot;</span>] = <span class="string">&quot;Hello &quot;</span> + name;</span><br><span class="line">            ViewData[<span class="string">&quot;NumTimes&quot;</span>] = numTimes;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> View();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在view裡用迴圈渲染出定義好的變數</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">    ViewData[<span class="string">&quot;Title&quot;</span>] = <span class="string">&quot;Welcome&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;h2&gt;Welcome&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">&lt;ul&gt;</span><br><span class="line">    @for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; (<span class="built_in">int</span>)ViewData[<span class="string">&quot;NumTimes&quot;</span>]; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        &lt;li&gt;@ViewData[<span class="string">&quot;Message&quot;</span>]&lt;/li&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<pre><code class="csharp=">public IActionResult Welcome(string name, int numTimes = 1)    // 在括弧裡宣告預設變數
-        &#123;
-            ViewData[&quot;Message&quot;] = &quot;Hello &quot; + name;
-            ViewData[&quot;NumTimes&quot;] = numTimes;
-
-            return View();
-        &#125;
-</code></pre>
-<ol start="2">
-<li>在view裡用迴圈渲染出定義好的變數</li>
-</ol>
-<pre><code class="csharp=">@&#123;
-    ViewData[&quot;Title&quot;] = &quot;Welcome&quot;;
-&#125;
-
-&lt;h2&gt;Welcome&lt;/h2&gt;
-
-&lt;ul&gt;
-    @for (int i = 0; i &lt; (int)ViewData[&quot;NumTimes&quot;]; i++)
-    &#123;
-        &lt;li&gt;@ViewData[&quot;Message&quot;]&lt;/li&gt;
-    &#125;
-&lt;/ul&gt;
-</code></pre>
 <ul>
 <li>在view裡帶入動作對應之路徑</li>
 </ul>
 <ol>
-<li>新增Edit、Details 和 Delete 的連結</li>
-</ol>
-<pre><code class="csharp=">&lt;a asp-action=&quot;Edit&quot; asp-route-id=&quot;@item.ID&quot;&gt;編輯&lt;/a&gt; |
-&lt;a asp-action=&quot;Details&quot; asp-route-id=&quot;@item.ID&quot;&gt;詳細&lt;/a&gt; |
-&lt;a asp-action=&quot;Delete&quot; asp-route-id=&quot;@item.ID&quot;&gt;刪除&lt;/a&gt;
-</code></pre>
+<li><p>新增Edit、Details 和 Delete 的連結</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;a asp-action=<span class="string">&quot;Edit&quot;</span> asp-route-id=<span class="string">&quot;@item.ID&quot;</span>&gt;編輯&lt;/a&gt; |</span><br><span class="line">&lt;a asp-action=<span class="string">&quot;Details&quot;</span> asp-route-id=<span class="string">&quot;@item.ID&quot;</span>&gt;詳細&lt;/a&gt; |</span><br><span class="line">&lt;a asp-action=<span class="string">&quot;Delete&quot;</span> asp-route-id=<span class="string">&quot;@item.ID&quot;</span>&gt;刪除&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>p.s.等同於ruby裡的</p>
 </blockquote>
-<pre><code class="ruby=">&lt;%= link_to &#39;編輯&#39;, edit_activity_path(activity) %&gt;
-&lt;%= link_to activity_path(activity.id) %&gt;
-&lt;%= link_to &#39;刪除&#39;, activity_path(activity), method: &quot;delete&quot;, data: &#123; confirm: &quot;確認刪除&quot; &#125; %&gt;
-</code></pre>
-<ol start="2">
-<li>「編輯」的controller 和 view</li>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= link_to <span class="string">&#x27;編輯&#x27;</span>, edit_activity_path(activity) %&gt;</span><br><span class="line">&lt;%= link_to activity_path(activity.id) %&gt;</span><br><span class="line">&lt;%= link_to <span class="string">&#x27;刪除&#x27;</span>, activity_path(activity), <span class="symbol">method:</span> <span class="string">&quot;delete&quot;</span>, <span class="symbol">data:</span> &#123; <span class="symbol">confirm:</span> <span class="string">&quot;確認刪除&quot;</span> &#125; %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>「編輯」的controller 和 view</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -&gt;controller</span></span><br><span class="line"><span class="comment">// GET: Movies/Edit/5</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">async</span> Task&lt;IActionResult&gt; <span class="title">Edit</span>(<span class="params"><span class="built_in">int</span>? id</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (id == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> NotFound();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> movie = <span class="keyword">await</span> _context.Movie.FindAsync(id);</span><br><span class="line">    <span class="keyword">if</span> (movie == <span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> NotFound();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> View(movie);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<pre><code class="csharp=">// -&gt;controller
-// GET: Movies/Edit/5
-public async Task&lt;IActionResult&gt; Edit(int? id)
-&#123;
-    if (id == null)
-    &#123;
-        return NotFound();
-    &#125;
-
-    var movie = await _context.Movie.FindAsync(id);
-    if (movie == null)
-    &#123;
-        return NotFound();
-    &#125;
-    return View(movie);
-&#125;
-</code></pre>
 <h2 id="四、model"><a href="#四、model" class="headerlink" title="四、model"></a>四、model</h2><ul>
 <li><p>資料的屬性：<br>&amp;emsp;1. 必要 -表示屬性是必要欄位<br>&amp;emsp;2. DisplayName –定義要用於表單欄位和驗證訊息的文字<br>&amp;emsp;3. StringLength –定義字串欄位的最大長度<br>&amp;emsp;4. 範圍 –提供數值欄位的最大值和最小值<br>&amp;emsp;5. 系結–將參數或格式值系結至模型屬性時要排除或包含的欄位<br>&amp;emsp;6. ScaffoldColumn –允許隱藏來自編輯器表單的欄位</p>
 </li>
 <li><p>一個叫做 MvcMovie 的 Model</p>
-</li>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.ComponentModel.DataAnnotations;</span><br><span class="line"><span class="keyword">using</span> System.ComponentModel.DataAnnotations.Schema;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">MvcMovie.Models</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Movie</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;                <span class="comment">// Id: int</span></span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> Title &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;          <span class="comment">// Title: string</span></span><br><span class="line"></span><br><span class="line">        [<span class="meta">Display(Name = <span class="string">&quot;Release Date&quot;</span>)</span>]           <span class="comment">// 驗證 Release Date 此欄位</span></span><br><span class="line">        [<span class="meta">DataType(DataType.Date)</span>]                   </span><br><span class="line">        <span class="keyword">public</span> DateTime ReleaseDate &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;  </span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">string</span> Genre &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;          <span class="comment">// Genre: string</span></span><br><span class="line"></span><br><span class="line">        [<span class="meta">Column(TypeName = <span class="string">&quot;decimal(18, 2)&quot;</span>)</span>]       </span><br><span class="line">        <span class="keyword">public</span> <span class="built_in">decimal</span> Price &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;         <span class="comment">// Price: decimal</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<pre><code class="csharp=">using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace MvcMovie.Models
-&#123;
-    public class Movie
-    &#123;
-        public int Id &#123; get; set; &#125;                // Id: int
-        public string Title &#123; get; set; &#125;          // Title: string
-
-        [Display(Name = &quot;Release Date&quot;)]           // 驗證 Release Date 此欄位
-        [DataType(DataType.Date)]                   
-        public DateTime ReleaseDate &#123; get; set; &#125;  
-        public string Genre &#123; get; set; &#125;          // Genre: string
-
-        [Column(TypeName = &quot;decimal(18, 2)&quot;)]       
-        public decimal Price &#123; get; set; &#125;         // Price: decimal
-    &#125;
-&#125;
-</code></pre>
 <h2 id="五、結論與自我鼓勵"><a href="#五、結論與自我鼓勵" class="headerlink" title="五、結論與自我鼓勵"></a>五、結論與自我鼓勵</h2><p>其實不難發現，基於 MVC 架構下，學習新的語言，並不會太艱難，主要還是該語言語法的根本運用較為困難、需要加以著墨。我目前就職半年時間，初略學過三種後端程式語言，各位全端工程師學過幾種呢？</p>
 
         </div>

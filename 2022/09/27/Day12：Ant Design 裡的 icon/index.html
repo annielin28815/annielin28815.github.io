@@ -224,16 +224,8 @@
 
         <div class="post-content">
             <p>鐵人賽進行到將近一半了，發現好像都沒有介紹到 ANTD 的 icon 怎麼使用，所以今天馬上補上！<br>如果你開發的專案，有自行製做的圖標，或者大多是不太需要 icon 來做點綴，只是偶而需要幾個而已的狀況，像是上傳鈕你想要一個往上的箭頭，抑或只是 返回鍵你想要一個往左的箭頭等等，那我覺得你不需要額外去 cdn 或整包package的方式去 npm 完整的 icon 套件(像是知名的<a target="_blank" rel="noopener" href="https://fontawesome.com/">Font Awesome</a>)，因為你使用的ANTD 裡其實就包含夠用的 icon 了，款式還提供三種呢！</p>
-<h2 id="一、ANTD-Icon-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Icon-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Icon 最基本的使用方式：引用與呼叫它"></a>一、ANTD Icon 最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; CloseOutlined, &#125; from &#39;@ant-design/icons&#39;;
+<h2 id="一、ANTD-Icon-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Icon-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Icon 最基本的使用方式：引用與呼叫它"></a>一、ANTD Icon 最基本的使用方式：引用與呼叫它</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">CloseOutlined</span>, &#125; <span class="keyword">from</span> <span class="string">&#x27;@ant-design/icons&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">CloseOutlined</span> <span class="attr">style</span>=<span class="string">&#123;&#123;color:</span> &#x27;#<span class="attr">00a0e9</span>&#x27;&#125;&#125; /&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;CloseOutlined style=&#123;&#123;color: '#00a0e9'&#125;&#125; /&gt;&lt;/div&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、ANTD-Icon-可添加的參數"><a href="#二、ANTD-Icon-可添加的參數" class="headerlink" title="二、ANTD Icon 可添加的參數"></a>二、ANTD Icon 可添加的參數</h2><p>因為在ANTD裡的icon都是採用svg的方式去渲染，所以你可以使用style或className去設定它的顏色和大小的value，對於先前就有使用過svg的使用者算是相當方便與好上手。<br>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/icon/#API">官方 api 文件</a>。</p>
 <table>
 <thead>

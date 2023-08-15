@@ -224,21 +224,8 @@
 
         <div class="post-content">
             <p>看到標題可能會覺得很無聊，下拉選單不就是 select 配上 options 而已嗎？錯！你還可以對它有更多期待。<br>不論是在表單或其他頁面呈現上，現在網頁上的需求可說是越來越多元，ANTD 也可以幫助你把下拉選單化做一個變形小金剛。</p>
-<h2 id="一、ANTD-最基本的下拉選單-Select"><a href="#一、ANTD-最基本的下拉選單-Select" class="headerlink" title="一、ANTD 最基本的下拉選單(Select)"></a>一、ANTD 最基本的下拉選單(Select)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Select   &#125; from &#39;antd&#39;;
-const &#123; Option &#125; = Select;
+<h2 id="一、ANTD-最基本的下拉選單-Select"><a href="#一、ANTD-最基本的下拉選單-Select" class="headerlink" title="一、ANTD 最基本的下拉選單(Select)"></a>一、ANTD 最基本的下拉選單(Select)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Select</span>   &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Option</span> &#125; = <span class="title class_">Select</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Select</span> <span class="attr">onChange</span> &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;apple&quot;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;lemon&quot;</span>&gt;</span>lemon<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;orange&quot;</span>&gt;</span>orange<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Select</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Select onChange &gt;
-      &lt;Option value=&quot;apple&quot;&gt;apple&lt;/Option&gt;
-      &lt;Option value=&quot;lemon&quot;&gt;lemon&lt;/Option&gt;
-      &lt;Option value=&quot;orange&quot;&gt;orange&lt;/Option&gt;
-    &lt;/Select&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-Select-可添加的屬性"><a href="#2-Select-可添加的屬性" class="headerlink" title="2. Select 可添加的屬性"></a>2. Select 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/select/#Select-props">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -304,21 +291,8 @@ export default App;
 <td align="left">選單的唯一值，通常給 id，沒給的話 console 面板會提示可以優化的訊息</td>
 </tr>
 </tbody></table>
-<h2 id="二、ANTD-的變形下拉選單-Select"><a href="#二、ANTD-的變形下拉選單-Select" class="headerlink" title="二、ANTD 的變形下拉選單(Select)"></a>二、ANTD 的變形下拉選單(Select)</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Select   &#125; from &#39;antd&#39;;
-const &#123; Option &#125; = Select;
+<h2 id="二、ANTD-的變形下拉選單-Select"><a href="#二、ANTD-的變形下拉選單-Select" class="headerlink" title="二、ANTD 的變形下拉選單(Select)"></a>二、ANTD 的變形下拉選單(Select)</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Select</span>   &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Option</span> &#125; = <span class="title class_">Select</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Select</span> <span class="attr">mode</span>=<span class="string">&quot;tags&quot;</span> <span class="attr">onChange</span> &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;apple&quot;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;lemon&quot;</span>&gt;</span>lemon<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;orange&quot;</span>&gt;</span>orange<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Select</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Select mode=&quot;tags&quot; onChange &gt;
-      &lt;Option value=&quot;apple&quot;&gt;apple&lt;/Option&gt;
-      &lt;Option value=&quot;lemon&quot;&gt;lemon&lt;/Option&gt;
-      &lt;Option value=&quot;orange&quot;&gt;orange&lt;/Option&gt;
-    &lt;/Select&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-Select-可添加的屬性-1"><a href="#2-Select-可添加的屬性-1" class="headerlink" title="2. Select 可添加的屬性"></a>2. Select 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/select/#Select-props">官方 api 文件</a>。</p>
 <table>
 <thead>
@@ -350,27 +324,9 @@ export default App;
 </tr>
 </tbody></table>
 <h3 id="3-Select-裡的-Tag"><a href="#3-Select-裡的-Tag" class="headerlink" title="3. Select 裡的 Tag"></a>3. Select 裡的 Tag</h3><p>延續上一點表格裡的最後一點，如果你選擇使用 tag 型態來呈現選中的值，那你可以簡單的運用下列方法改變他的長相。點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/tag/#Tag">Tag官方 api 文件</a></p>
-<pre><code class="javascript=">import &#123; Select, Tag  &#125; from &#39;antd&#39;;
-const &#123; Option &#125; = Select;
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Select</span>, <span class="title class_">Tag</span>  &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">Option</span> &#125; = <span class="title class_">Select</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">myTagRender</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Tag</span> <span class="attr">color</span>=<span class="string">&quot;#09091a&quot;</span>&gt;</span>&#123;label&#125;<span class="tag">&lt;/<span class="name">Tag</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Select</span> <span class="attr">mode</span>=<span class="string">&quot;tags&quot;</span> <span class="attr">tagRender</span>=<span class="string">&#123;myTagRender&#125;</span> <span class="attr">onChange</span> &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;apple&quot;</span>&gt;</span>apple<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;lemon&quot;</span>&gt;</span>lemon<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Option</span> <span class="attr">value</span>=<span class="string">&quot;orange&quot;</span>&gt;</span>orange<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Select</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const myTagRender = () =&gt; &#123;
-  return (
-    &lt;Tag color=&quot;#09091a&quot;&gt;&#123;label&#125;&lt;/Tag&gt;
-  );
-&#125;;
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Select mode=&quot;tags&quot; tagRender=&#123;myTagRender&#125; onChange &gt;
-      &lt;Option value=&quot;apple&quot;&gt;apple&lt;/Option&gt;
-      &lt;Option value=&quot;lemon&quot;&gt;lemon&lt;/Option&gt;
-      &lt;Option value=&quot;orange&quot;&gt;orange&lt;/Option&gt;
-    &lt;/Select&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h2 id="三、Select-的元件練習"><a href="#三、Select-的元件練習" class="headerlink" title="三、Select 的元件練習"></a>三、Select 的元件練習</h2><p>看完上面簡單的介紹後，下面提供我的一些簡單範例，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
 <table>
 <thead>

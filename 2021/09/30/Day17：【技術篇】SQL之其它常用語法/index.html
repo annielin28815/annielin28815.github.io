@@ -271,26 +271,19 @@
 </ul>
 <p>The IDs in the table look like this:99 100 101 1200 1201…</p>
 <ul>
-<li>解決方法：</li>
+<li>解決方法：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DBCC CHECKIDENT (mytable, RESEED, <span class="number">0</span>)</span><br></pre></td></tr></table></figure></li>
 </ul>
-<pre><code class="sql=">DBCC CHECKIDENT (mytable, RESEED, 0)
-</code></pre>
 <h3 id="3-查詢並去除重複值"><a href="#3-查詢並去除重複值" class="headerlink" title="3. 查詢並去除重複值"></a>3. 查詢並去除重複值</h3><ul>
 <li><p>可能的狀況<br>假設我們想從下面的 customers 資料表中查詢顧客分佈在哪幾個縣市：<br><img src="https://i.imgur.com/uRGVj6E.png"></p>
 </li>
 <li><p>解決方法：<br>原本資料表的 City 欄位中有兩個重複值台北市，可是我們只想知道有哪幾個縣市有顧客而已，故我們使用 DISTINCT 關鍵字來限制僅取出欄位中 “不相同” 的值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> City <span class="keyword">FROM</span> customers;</span><br></pre></td></tr></table></figure></li>
+<li><p>解決結果會撈出：<br>台北市<br>新竹縣<br>高雄縣</p>
 </li>
 </ul>
-<pre><code class="sql=">SELECT DISTINCT City FROM customers;
-</code></pre>
-<ul>
-<li>解決結果會撈出：<br>台北市<br>新竹縣<br>高雄縣</li>
-</ul>
 <h3 id="4-清空某張資料表的所有資料值，但原架構保留"><a href="#4-清空某張資料表的所有資料值，但原架構保留" class="headerlink" title="4. 清空某張資料表的所有資料值，但原架構保留"></a>4. 清空某張資料表的所有資料值，但原架構保留</h3><ul>
-<li>解決方法：</li>
+<li>解決方法：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> &quot;表格名&quot;;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<pre><code class="sql=">TRUNCATE TABLE &quot;表格名&quot;;
-</code></pre>
 <h2 id="四、結論與自我鼓勵"><a href="#四、結論與自我鼓勵" class="headerlink" title="四、結論與自我鼓勵"></a>四、結論與自我鼓勵</h2><p>不知道大家學習SQL的感受是什麼，我個人覺得很吃邏輯力！主要真的是至少要會去查關聯與運用語法，就可以完成大部分工作上的需求。下一篇則預計會介紹一點點MSSQL的介面，或其它技術主題～</p>
 
         </div>

@@ -235,51 +235,8 @@
 </tr>
 </tbody></table>
 <h2 id="一、ANTD-裡的下拉選單-Dropdown"><a href="#一、ANTD-裡的下拉選單-Dropdown" class="headerlink" title="一、ANTD 裡的下拉選單(Dropdown)"></a>一、ANTD 裡的下拉選單(Dropdown)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><p>因為它在畫面的效果與作用就跟 select, option 很像，所以呼叫的方式也很雷同。</p>
-<pre><code class="javascript=">import &#123; Dropdown, Menu   &#125; from &#39;antd&#39;;
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Dropdown</span>, <span class="title class_">Menu</span>   &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myMenu = (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Menu</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">items</span>=<span class="string">&#123;[</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &#123;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">key:</span> &#x27;<span class="attr">1</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">label:</span> (</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &lt;<span class="attr">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;noopener noreferrer&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://ant.design/components/dropdown/&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            第一個連結</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ),</span></span><br><span class="line"><span class="language-xml">      &#125;,</span></span><br><span class="line"><span class="language-xml">      &#123;</span></span><br><span class="line"><span class="language-xml">        key: &#x27;2&#x27;,</span></span><br><span class="line"><span class="language-xml">        label: (</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;noopener noreferrer&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://ant.design/components/dropdown/&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            第二個連結</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ),</span></span><br><span class="line"><span class="language-xml">      &#125;,</span></span><br><span class="line"><span class="language-xml">      &#123;</span></span><br><span class="line"><span class="language-xml">        key: &#x27;3&#x27;,</span></span><br><span class="line"><span class="language-xml">        label: (</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;noopener noreferrer&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://ant.design/components/dropdown/&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            第三個連結</span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        ),</span></span><br><span class="line"><span class="language-xml">      &#125;</span></span><br><span class="line"><span class="language-xml">    ]&#125;</span></span><br><span class="line"><span class="language-xml">  /&gt;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">Dropdown</span> <span class="attr">overlay</span>=<span class="string">&#123;myMenu&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">onClick</span>=<span class="string">&#123;(e)</span> =&gt;</span> e.preventDefault()&#125;&gt;</span></span><br><span class="line"><span class="language-xml">           Hover me!</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">Dropdown</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const myMenu = (
-  &lt;Menu
-    items=&#123;[
-      &#123;
-        key: &#39;1&#39;,
-        label: (
-          &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; href=&quot;https://ant.design/components/dropdown/&quot;&gt;
-            第一個連結
-          &lt;/a&gt;
-        ),
-      &#125;,
-      &#123;
-        key: &#39;2&#39;,
-        label: (
-          &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; href=&quot;https://ant.design/components/dropdown/&quot;&gt;
-            第二個連結
-          &lt;/a&gt;
-        ),
-      &#125;,
-      &#123;
-        key: &#39;3&#39;,
-        label: (
-          &lt;a target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; href=&quot;https://ant.design/components/dropdown/&quot;&gt;
-            第三個連結
-          &lt;/a&gt;
-        ),
-      &#125;
-    ]&#125;
-  /&gt;
-);
-
-const App = () =&gt; (
-  &lt;div&gt;
-      &lt;Dropdown overlay=&#123;myMenu&#125;&gt;
-        &lt;a onClick=&#123;(e) =&gt; e.preventDefault()&#125;&gt;
-           Hover me!
-        &lt;/a&gt;
-      &lt;/Dropdown&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-Dropdown-可添加的屬性"><a href="#2-Dropdown-可添加的屬性" class="headerlink" title="2. Dropdown 可添加的屬性"></a>2. Dropdown 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/select/#Select-props">官方 api 文件</a>。</p>
 <table>
 <thead>

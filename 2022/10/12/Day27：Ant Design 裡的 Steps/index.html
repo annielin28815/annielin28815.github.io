@@ -245,18 +245,8 @@
 <td align="center"><b>ANTD 的 Steps 範例圖(註2)</b></td>
 </tr>
 </tbody></table>
-<pre><code>import &#123; Steps &#125; from &#39;antd&#39;;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Steps &#125; from &#x27;antd&#x27;;</span><br><span class="line"></span><br><span class="line">const App = () =&gt; (</span><br><span class="line">  &lt;Steps progressDot current=&#123;1&#125;&gt;</span><br><span class="line">     &lt;Step title=&quot;Finished&quot; description=&quot;This is a description.&quot; /&gt;</span><br><span class="line">     &lt;Step title=&quot;In Progress&quot; description=&quot;This is a description.&quot; /&gt;</span><br><span class="line">     &lt;Step title=&quot;Waiting&quot; description=&quot;This is a description.&quot; /&gt;</span><br><span class="line">  &lt;/Steps&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">export default App;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;Steps progressDot current=&#123;1&#125;&gt;
-     &lt;Step title=&quot;Finished&quot; description=&quot;This is a description.&quot; /&gt;
-     &lt;Step title=&quot;In Progress&quot; description=&quot;This is a description.&quot; /&gt;
-     &lt;Step title=&quot;Waiting&quot; description=&quot;This is a description.&quot; /&gt;
-  &lt;/Steps&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、ANTD-的-Steps-外層-x2F-父層-可添加的屬性"><a href="#二、ANTD-的-Steps-外層-x2F-父層-可添加的屬性" class="headerlink" title="二、ANTD 的 Steps (外層&#x2F;父層)可添加的屬性"></a>二、ANTD 的 Steps (外層&#x2F;父層)可添加的屬性</h2><p>  下面列出幾項我目前開發時用過的屬性，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/steps/#Steps">官方 api 文件</a>。</p>
 <ul>
 <li>responsive 這個屬性我個人沒有使用，因為官方定義的 532px 不太符合我專案需求，所以我是在direction屬性中加判斷，例如要在ipad air以下呈現直式可以這樣寫：<code>direction=&#123;screenWidth &lt; 768 ? &#39;vertical&#39; : &#39;horizontal&#39;&#125;</code>，供大家參考。</li>

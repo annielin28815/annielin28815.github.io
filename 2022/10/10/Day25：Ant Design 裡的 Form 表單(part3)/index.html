@@ -264,81 +264,30 @@
 <td align="left">當輸入框格視為文字時，定義是否可以僅輸入空格</td>
 </tr>
 </tbody></table>
-<h4 id="範例1：必填姓名欄位"><a href="#範例1：必填姓名欄位" class="headerlink" title="範例1：必填姓名欄位"></a>範例1：必填姓名欄位</h4><pre><code>&lt;Form.Item
-    label=&quot;name&quot;
-    name=&quot;name&quot;
-    rules=&#123;[&#123; required: true, message: &#39;請輸入您的名字&#39; &#125;]&#125;
-&gt;
-    &lt;Input /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
-<h4 id="範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼"><a href="#範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼" class="headerlink" title="範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼"></a>範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼</h4><pre><code>&lt;Form.Item
-    label=&quot;name&quot;
-    name=&quot;name&quot;
-    rules=&#123;[
-        &#123; whitespace: false, message: &#39;不可輸入空格字元&#39; &#125;,
-        &#123; min: 6, message: &#39;請設定至少6碼英文與數字&#39; &#125;,
-        &#123; max: 12, message: &#39;請設定最多12碼英文與數字&#39; &#125;,
-    ]&#125;
-&gt;
-    &lt;Input /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
-<h4 id="範例3：驗證信箱格式"><a href="#範例3：驗證信箱格式" class="headerlink" title="範例3：驗證信箱格式"></a>範例3：驗證信箱格式</h4><pre><code>&lt;Form.Item
-    label=&quot;name&quot;
-    name=&quot;name&quot;
-    rules=&#123;[&#123; type: &#39;mail&#39;, message: &#39;請輸入正確的電子信箱格式&#39; &#125;]&#125;
-&gt;
-    &lt;Input /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
+<h4 id="範例1：必填姓名欄位"><a href="#範例1：必填姓名欄位" class="headerlink" title="範例1：必填姓名欄位"></a>範例1：必填姓名欄位</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item</span><br><span class="line">    label=&quot;name&quot;</span><br><span class="line">    name=&quot;name&quot;</span><br><span class="line">    rules=&#123;[&#123; required: true, message: &#x27;請輸入您的名字&#x27; &#125;]&#125;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼"><a href="#範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼" class="headerlink" title="範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼"></a>範例2：密碼驗證不可有空格、且最短為6碼、最長為12碼</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item</span><br><span class="line">    label=&quot;name&quot;</span><br><span class="line">    name=&quot;name&quot;</span><br><span class="line">    rules=&#123;[</span><br><span class="line">        &#123; whitespace: false, message: &#x27;不可輸入空格字元&#x27; &#125;,</span><br><span class="line">        &#123; min: 6, message: &#x27;請設定至少6碼英文與數字&#x27; &#125;,</span><br><span class="line">        &#123; max: 12, message: &#x27;請設定最多12碼英文與數字&#x27; &#125;,</span><br><span class="line">    ]&#125;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="範例3：驗證信箱格式"><a href="#範例3：驗證信箱格式" class="headerlink" title="範例3：驗證信箱格式"></a>範例3：驗證信箱格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item</span><br><span class="line">    label=&quot;name&quot;</span><br><span class="line">    name=&quot;name&quot;</span><br><span class="line">    rules=&#123;[&#123; type: &#x27;mail&#x27;, message: &#x27;請輸入正確的電子信箱格式&#x27; &#125;]&#125;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-可以在-label-後方添加提示訊息"><a href="#2-可以在-label-後方添加提示訊息" class="headerlink" title="2. 可以在 label 後方添加提示訊息"></a>2. 可以在 label 後方添加提示訊息</h3><p>  有的時候可能會需要說明為何需要使用者填寫某些欄位，或是對輸入內容有其他建議等，就滿適合使用 ANTD 的 tooltip 參數來做設定，效果是會在 label 後面添加一個 ? 的 icon，當鼠標 hover 時會有提示訊息。</p>
 <h4 id="範例1：圖形驗證碼有區分大小寫的狀況"><a href="#範例1：圖形驗證碼有區分大小寫的狀況" class="headerlink" title="範例1：圖形驗證碼有區分大小寫的狀況"></a>範例1：圖形驗證碼有區分大小寫的狀況</h4><p><img src="https://ithelp.ithome.com.tw/upload/images/20221010/201409202owqd5QOiA.png" alt="https://ithelp.ithome.com.tw/upload/images/20221010/201409202owqd5QOiA.png"></p>
-<pre><code>&lt;Form.Item 
-    label=&quot;驗證碼&quot; 
-    tooltip=&quot;請留意大小寫&quot;
-&gt;
-    &lt;Input /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item </span><br><span class="line">    label=&quot;驗證碼&quot; </span><br><span class="line">    tooltip=&quot;請留意大小寫&quot;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+
 <h3 id="3-可以在-input-下方添加重點提示訊息"><a href="#3-可以在-input-下方添加重點提示訊息" class="headerlink" title="3. 可以在 input 下方添加重點提示訊息"></a>3. 可以在 input 下方添加重點提示訊息</h3><p>  如果是針對輸入值有些建議的話，使用 help 參數則相較於 tooltip 會更為明顯被使用者看到。</p>
 <h4 id="範例1：提示使用免費信箱的訊息"><a href="#範例1：提示使用免費信箱的訊息" class="headerlink" title="範例1：提示使用免費信箱的訊息"></a>範例1：提示使用免費信箱的訊息</h4><p><img src="https://ithelp.ithome.com.tw/upload/images/20221010/20140920jXxjadE5Nb.png" alt="https://ithelp.ithome.com.tw/upload/images/20221010/20140920jXxjadE5Nb.png"></p>
-<pre><code>&lt;Form.Item
-    name=&quot;email&quot;
-    label=&quot;Email&quot;
-    help=&quot;若為免費信箱，請留意驗證信件是否被自動歸類為垃圾郵件&quot;
-&gt;
-    &lt;Input /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item</span><br><span class="line">    name=&quot;email&quot;</span><br><span class="line">    label=&quot;Email&quot;</span><br><span class="line">    help=&quot;若為免費信箱，請留意驗證信件是否被自動歸類為垃圾郵件&quot;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="狀況二：可以在-input-裡面放-icon-嗎？"><a href="#狀況二：可以在-input-裡面放-icon-嗎？" class="headerlink" title="狀況二：可以在 input 裡面放 icon 嗎？"></a>狀況二：可以在 input 裡面放 icon 嗎？</h2><p>  如果表單欄位不多時且有需求，添加這樣的功能其實可以為畫面帶來一點層次感的，在 ANTD 裡對 Form.Item 有一個名為 prefix 的屬性可達成此效果。它也支援 ReactNode 語法，可以直接引用ANTD的icon、靜態svg或純文字，非常容易上手。相關官方文件內容與範例則可以<a target="_blank" rel="noopener" href="https://ant.design/components/input/#Input">點此連結</a>查看。<br><img src="https://ithelp.ithome.com.tw/upload/images/20221010/20140920CbrBOqDQiy.png" alt="https://ithelp.ithome.com.tw/upload/images/20221010/20140920CbrBOqDQiy.png"></p>
-<h4 id="範例1：在密碼輸入框放入鎖頭圖案的-icon"><a href="#範例1：在密碼輸入框放入鎖頭圖案的-icon" class="headerlink" title="範例1：在密碼輸入框放入鎖頭圖案的 icon"></a>範例1：在密碼輸入框放入鎖頭圖案的 icon</h4><pre><code>&lt;Form.Item
-    name=&quot;密碼&quot;
-    rules=&#123;[&#123; required: true, message: &#39;請輸入密碼&#39; &#125;]&#125;
-&gt;
-    &lt;Input
-      prefix=&#123;&lt;LockOutlined /&gt;&#125;
-      type=&quot;password&quot;
-      placeholder=&quot;請輸入密碼&quot;
-    /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
-<h4 id="範例2：在搜尋框放入放大鏡圖案的-icon"><a href="#範例2：在搜尋框放入放大鏡圖案的-icon" class="headerlink" title="範例2：在搜尋框放入放大鏡圖案的 icon"></a>範例2：在搜尋框放入放大鏡圖案的 icon</h4><pre><code>&lt;Form.Item
-    name=&quot;關鍵字搜尋&quot;
-&gt;
-    &lt;Input
-      prefix=&#123;&lt;SearchOutlined /&gt;&#125;
-      placeholder=&quot;請輸入關鍵字&quot;
-    /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
-<h4 id="範例3：在金額填寫輸入框-放入對應幣值圖案的-icon"><a href="#範例3：在金額填寫輸入框-放入對應幣值圖案的-icon" class="headerlink" title="範例3：在金額填寫輸入框 放入對應幣值圖案的 icon"></a>範例3：在金額填寫輸入框 放入對應幣值圖案的 icon</h4><pre><code>&lt;Form.Item&gt;
-   &lt;Input prefix=&quot;￥&quot; suffix=&quot;YEN&quot; type=&quot;number&quot; /&gt;
-&lt;/Form.Item&gt;
-&lt;Form.Item&gt;
-   &lt;Input prefix=&quot;$&quot; suffix=&quot;USD&quot; type=&quot;number&quot; /&gt;
-&lt;/Form.Item&gt;
-</code></pre>
+<h4 id="範例1：在密碼輸入框放入鎖頭圖案的-icon"><a href="#範例1：在密碼輸入框放入鎖頭圖案的-icon" class="headerlink" title="範例1：在密碼輸入框放入鎖頭圖案的 icon"></a>範例1：在密碼輸入框放入鎖頭圖案的 icon</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item</span><br><span class="line">    name=&quot;密碼&quot;</span><br><span class="line">    rules=&#123;[&#123; required: true, message: &#x27;請輸入密碼&#x27; &#125;]&#125;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input</span><br><span class="line">      prefix=&#123;&lt;LockOutlined /&gt;&#125;</span><br><span class="line">      type=&quot;password&quot;</span><br><span class="line">      placeholder=&quot;請輸入密碼&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="範例2：在搜尋框放入放大鏡圖案的-icon"><a href="#範例2：在搜尋框放入放大鏡圖案的-icon" class="headerlink" title="範例2：在搜尋框放入放大鏡圖案的 icon"></a>範例2：在搜尋框放入放大鏡圖案的 icon</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item</span><br><span class="line">    name=&quot;關鍵字搜尋&quot;</span><br><span class="line">&gt;</span><br><span class="line">    &lt;Input</span><br><span class="line">      prefix=&#123;&lt;SearchOutlined /&gt;&#125;</span><br><span class="line">      placeholder=&quot;請輸入關鍵字&quot;</span><br><span class="line">    /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="範例3：在金額填寫輸入框-放入對應幣值圖案的-icon"><a href="#範例3：在金額填寫輸入框-放入對應幣值圖案的-icon" class="headerlink" title="範例3：在金額填寫輸入框 放入對應幣值圖案的 icon"></a>範例3：在金額填寫輸入框 放入對應幣值圖案的 icon</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form.Item&gt;</span><br><span class="line">   &lt;Input prefix=&quot;￥&quot; suffix=&quot;YEN&quot; type=&quot;number&quot; /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br><span class="line">&lt;Form.Item&gt;</span><br><span class="line">   &lt;Input prefix=&quot;$&quot; suffix=&quot;USD&quot; type=&quot;number&quot; /&gt;</span><br><span class="line">&lt;/Form.Item&gt;</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="今天的元件練習"><a href="#今天的元件練習" class="headerlink" title="今天的元件練習"></a>今天的元件練習</h2><p>看完上面簡單的介紹、也提供我的一些簡單範例後，若大家有興趣也可以到線上編輯器裡玩玩看唷！</p>
 <p>我的 <a target="_blank" rel="noopener" href="https://codepen.io/annielin28815/pen/BaxGQEM">codepen 連結</a></p>
 

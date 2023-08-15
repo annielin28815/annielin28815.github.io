@@ -233,27 +233,8 @@
 <li>每一階層的文字要簡潔簡短，不宜過長，且連結都一定要是有效連結</li>
 <li>包含首頁的階層總數量 不要超過 3 層(有些專家說是 5 層)</li>
 </ul>
-<h2 id="一、ANTD-Breadcrumb-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Breadcrumb-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Breadcrumb 最基本的使用方式：引用與呼叫它"></a>一、ANTD Breadcrumb 最基本的使用方式：引用與呼叫它</h2><pre><code class="javascript=">import &#123; Breadcrumb &#125; from &#39;antd&#39;;
+<h2 id="一、ANTD-Breadcrumb-最基本的使用方式：引用與呼叫它"><a href="#一、ANTD-Breadcrumb-最基本的使用方式：引用與呼叫它" class="headerlink" title="一、ANTD Breadcrumb 最基本的使用方式：引用與呼叫它"></a>一、ANTD Breadcrumb 最基本的使用方式：引用與呼叫它</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Breadcrumb</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Breadcrumb</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>首頁<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>階層一<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>&gt;</span>階層二<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Breadcrumb.Item</span>&gt;</span>當前頁<span class="tag">&lt;/<span class="name">Breadcrumb.Item</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">     <span class="tag">&lt;/<span class="name">Breadcrumb</span>&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Breadcrumb&gt;
-        &lt;Breadcrumb.Item&gt;
-          &lt;a href=&quot;&quot;&gt;首頁&lt;/a&gt;
-        &lt;/Breadcrumb.Item&gt;
-        &lt;Breadcrumb.Item&gt;
-          &lt;a href=&quot;&quot;&gt;階層一&lt;/a&gt;
-        &lt;/Breadcrumb.Item&gt;
-        &lt;Breadcrumb.Item&gt;
-          &lt;a href=&quot;&quot;&gt;階層二&lt;/a&gt;
-        &lt;/Breadcrumb.Item&gt;
-        &lt;Breadcrumb.Item&gt;當前頁&lt;/Breadcrumb.Item&gt;
-     &lt;/Breadcrumb&gt;
-  &lt;div/&gt;
-);
-
-export default App;  
-</code></pre>
 <h2 id="二、Breadcrumb-可添加的參數"><a href="#二、Breadcrumb-可添加的參數" class="headerlink" title="二、Breadcrumb 可添加的參數"></a>二、Breadcrumb 可添加的參數</h2><p>  參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/breadcrumb/#API">官方 api 文件</a>。</p>
 <h3 id="1-Breadcrumb"><a href="#1-Breadcrumb" class="headerlink" title="1. Breadcrumb"></a>1. Breadcrumb</h3><p>  separator 是我比較常用的參數，因為預設的「&#x2F;」我認為有點不明顯，通常會改成「&gt;」這類的符號，比較值得一提的是，這個參數不只可以輸入一般字串，它也支援特別拉出去寫成一個自定義的區塊，用來客製化很方便~</p>
 <table>

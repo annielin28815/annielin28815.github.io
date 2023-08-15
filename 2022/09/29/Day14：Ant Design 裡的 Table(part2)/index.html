@@ -224,22 +224,8 @@
 
         <div class="post-content">
             <p>  看完上一篇初步簡單的 Table 應用原裡還有參數後，從這篇開始想分享 Table 的一些酷功能，我覺得在後台開發上超級無敵實用！</p>
-<h2 id="一、Table-的-selection"><a href="#一、Table-的-selection" class="headerlink" title="一、Table 的 selection"></a>一、Table 的 selection</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Table &#125; from &#39;antd&#39;;
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Table 
-        rowSelection=&#123;&#123;
-          type: selectionType,
-          ...rowSelection,
-        &#125;&#125;
-        columns=&#123;columns&#125; 
-        dataSource=&#123;data&#125; 
-     /&gt;
-  &lt;div/&gt;
-);
+<h2 id="一、Table-的-selection"><a href="#一、Table-的-selection" class="headerlink" title="一、Table 的 selection"></a>一、Table 的 selection</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Table</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Table</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">rowSelection</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">type:</span> <span class="attr">selectionType</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">...rowSelection</span>,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">columns</span>=<span class="string">&#123;columns&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">dataSource</span>=<span class="string">&#123;data&#125;</span> </span></span></span><br><span class="line"><span class="tag"><span class="language-xml">     /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;  </span><br></pre></td></tr></table></figure>
 
-export default App;  
-</code></pre>
 <h3 id="2-rowSelection-是什麼？"><a href="#2-rowSelection-是什麼？" class="headerlink" title="2. rowSelection 是什麼？"></a>2. rowSelection 是什麼？</h3><p>  在開發後台時，你可能需要用表格來呈現多筆資料，並且對資料做像是匯出、回覆等處理動作，那這時候可以使用ANTD的rowSelection讓你的開發更加順利迅速。他有提供多個參數供開發者設定，下面就舉我比較常用的來大家分享。最重要的重點就是你<strong>每列的資料(也就是datasource)一定要有key值！</strong>因為這樣在勾選時，才能知道你勾選的表格裡的第幾項嘛~參數就如同下方程式碼說明，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/table/#rowSelection">官方 api 文件</a>。</p>
 <table>
 <thead>

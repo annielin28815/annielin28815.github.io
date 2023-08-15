@@ -224,16 +224,8 @@
 
         <div class="post-content">
             <p>表單裡最重要的靈活人物，當然非 input 莫屬啦！關於「輸入框」我預計會使用兩篇左右的篇幅來介紹，常見的輸入框種類都會列出來說明。</p>
-<h2 id="一、輸入框-Input"><a href="#一、輸入框-Input" class="headerlink" title="一、輸入框(Input)"></a>一、輸入框(Input)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Input  &#125; from &#39;antd&#39;;
+<h2 id="一、輸入框-Input"><a href="#一、輸入框-Input" class="headerlink" title="一、輸入框(Input)"></a>一、輸入框(Input)</h2><h3 id="1-最基本的使用方式：引用與呼叫它"><a href="#1-最基本的使用方式：引用與呼叫它" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Input</span>  &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Input</span> <span class="attr">placeholder</span>=<span class="string">&quot;請輸入文字&quot;</span> /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;Input placeholder=&quot;請輸入文字&quot; /&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-Input-可添加的屬性"><a href="#2-Input-可添加的屬性" class="headerlink" title="2. Input 可添加的屬性"></a>2. Input 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/input/#Input">官方 api 文件</a>。</p>
 <ul>
 <li>我覺得 maxLength 和 showCount 一定要搭配在一起使用，方便又直覺，用在留言輸入框或者帳號設定欄都滿適合的。</li>
@@ -290,17 +282,8 @@ export default App;
 <td align="center"><b>codepen 練習成果</b></td>
 </tr>
 </tbody></table>
-<h2 id="二、輸入框-Input-TextArea"><a href="#二、輸入框-Input-TextArea" class="headerlink" title="二、輸入框(Input.TextArea)"></a>二、輸入框(Input.TextArea)</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><pre><code class="javascript=">import &#123; Input  &#125; from &#39;antd&#39;;
-const &#123; TextArea &#125; = Input;
+<h2 id="二、輸入框-Input-TextArea"><a href="#二、輸入框-Input-TextArea" class="headerlink" title="二、輸入框(Input.TextArea)"></a>二、輸入框(Input.TextArea)</h2><h3 id="1-最基本的使用方式：引用與呼叫它-1"><a href="#1-最基本的使用方式：引用與呼叫它-1" class="headerlink" title="1. 最基本的使用方式：引用與呼叫它"></a>1. 最基本的使用方式：引用與呼叫它</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Input</span>  &#125; <span class="keyword">from</span> <span class="string">&#x27;antd&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> &#123; <span class="title class_">TextArea</span> &#125; = <span class="title class_">Input</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">App</span> = (<span class="params"></span>) =&gt; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">TextArea</span> <span class="attr">rows</span>=<span class="string">&#123;4&#125;</span> /&gt;</span></span></span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>/&gt;</span></span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span>;</span><br></pre></td></tr></table></figure>
 
-const App = () =&gt; (
-  &lt;div&gt;
-    &lt;TextArea rows=&#123;4&#125; /&gt;
-  &lt;div/&gt;
-);
-
-export default App;
-</code></pre>
 <h3 id="2-Input-TextArea-可添加的屬性"><a href="#2-Input-TextArea-可添加的屬性" class="headerlink" title="2. Input.TextArea 可添加的屬性"></a>2. Input.TextArea 可添加的屬性</h3><p>  下面列出幾項我開發最常用的，也可以點此連結去看更多<a target="_blank" rel="noopener" href="https://ant.design/components/input/#Input.TextArea">官方 api 文件</a>。</p>
 <table>
 <thead>
