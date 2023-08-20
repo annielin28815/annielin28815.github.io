@@ -26,7 +26,7 @@
   flex-basis: auto;
   display: flex;
   flex-direction: column;
-  background: url("/image/programming.png") no-repeat fixed bottom 50px left 40px;
+  background: url("/image/programming.svg") no-repeat fixed bottom 50px left 40px;
   background-size: 20%;
 }
 .main ::-moz-selection {
