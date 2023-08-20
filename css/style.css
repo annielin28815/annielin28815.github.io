@@ -225,7 +225,7 @@ a:hover {
 }
 .navbar .container {
   width: auto;
-  max-width: 1200px;
+  max-width: 780px;
   text-align: center;
   padding-left: 1em;
   padding-right: 1em;
@@ -239,7 +239,8 @@ a:hover {
   flex-basis: auto;
   display: flex;
   flex-direction: column;
-  background: url("/image/programming.svg") no-repeat fixed bottom 50px left 40px;
+  background: url("/image/programming.png") no-repeat fixed bottom 50px left 40px;
+  background-size: 20%;
 }
 .main ::-moz-selection {
   color: #db5f5f;
