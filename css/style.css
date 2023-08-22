@@ -468,6 +468,15 @@ input[type="radio"]:not(:checked) + label:after {
 .navbar .menu a:hover {
   background-color: transparent;
 }
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: #fff;
+}
+.header.dark-theme {
+  background-color: #292a2d;
+}
 header label {
   margin-left: 15px;
   position: relative;
