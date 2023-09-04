@@ -474,8 +474,8 @@ input[type="radio"]:not(:checked) + label:after {
   z-index: 99;
   background: #fff;
 }
-.header.dark-theme {
-  background-color: #292a2d;
+.dark-theme .header {
+  background: #292a2d;
 }
 header label {
   margin-left: 15px;
@@ -1053,6 +1053,10 @@ header label {
 .post-nav a.next {
   font-weight: 600;
   font-size: 16px;
+  padding: 20px 10px;
+  border: 1px solid #d0d0d0;
+  box-shadow: 5px 5px #eee;
+  width: 45%;
   transition-property: transform;
   transition-timing-function: ease-out;
   transition-duration: 0.3s;
