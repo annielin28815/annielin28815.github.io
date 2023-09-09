@@ -1057,6 +1057,7 @@ header label {
   border: 1px solid #d0d0d0;
   box-shadow: 5px 5px #eee;
   width: 45%;
+  border-radius: 10px;
   transition-property: transform;
   transition-timing-function: ease-out;
   transition-duration: 0.3s;
