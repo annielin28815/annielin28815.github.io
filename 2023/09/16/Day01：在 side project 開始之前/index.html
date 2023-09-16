@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day01：在 side project 開始之前 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/image/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day01：在 side project 開始之前</h1>
+            
+                <div class="post-meta">
+                    <!-- 
+                        Author: Annie
+                     -->
+
+                    
+                        <span class="post-time">
+                        Date: 2023-09-16&nbsp;&nbsp;23:36:41
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%94%A8-React-%E5%92%8C-Firebase-%E6%89%93%E9%80%A0%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4-side-project-%E5%90%A7%EF%BC%81/">用 React 和 Firebase 打造一個完整 side project 吧！</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="30天可以做什麼？"><a href="#30天可以做什麼？" class="headerlink" title="30天可以做什麼？"></a>30天可以做什麼？</h2><p>身為一位工程師，最需要的就是以 side project 來展示自己的技能，在一年一度的鐵人賽中看見 sideProject30 這個新主題，當然就興奮的報名啦！</p>
+<p>以往開發都有同學、同事一起，要說靠自己完成一個完整專案的經驗，可說是沒有？工作上，總是有專案經理、UI&#x2F;UX 設計師、前端與後端工程師等多位專業夥伴，一起規劃網站架構並分工開發。常常因為工作分配，無法理解網站實作上的其他完整流程，所以這次就決定試試看從網站的構思到開發，都由自己一手全包吧！</p>
+<p>因為自己很常有訂位的需求，所以想做一個自己都覺得好用的訂位網站，雖然開發時間較短，也許有些功能和細節沒辦法在第一時間處理的很好，但希望透過30天的過程，我可以將有興趣的作品初步實作完成並與大家分享。</p>
+<h2 id="主題發想"><a href="#主題發想" class="headerlink" title="主題發想"></a>主題發想</h2><p>現今生活中，有很多髮廊、美業、手作體驗或甜點課程等，皆有提供預約訂位的服務，常見都是使用 Line 或其他社群平台的私訊功能。然而無論是電話預約或文字訊息，皆是建立在雙方信任間進行。在於店家(業主)角色一定會擔心為顧客保留時間或預留材料、顧客卻臨時因為一些特定狀況沒有出席，那提前準備的一切將會直接轉為損失；換做顧客的角度，一定也會不想單純為了久久一次的訂位需求，使用完全不同的網站或 app、申請個人帳號等繁瑣動作。</p>
+<p>基於上述情境，雙方皆有擔憂的狀況下，我發想了這個 side project 的主題，希望可以做到以下主打功能：</p>
+<ul>
+<li>顧客：針對有興趣的項目，不需再私訊等待品牌業者回覆，可直接於網站上直接找到還可以預約的日期時段。</li>
+<li>店家：可維持原有的自媒體經營模式、官方帳號與呈現作品集的方式，僅將「預約」功能獨立出來。</li>
+<li>預約流程：店家可定義預約服務的訂金，顧客預約後須於3日內回填匯款資訊，並經店家查核確認，才算完成預約，用以降低爽約機率。</li>
+<li>身分驗證：為預約流程添加電話號碼驗證功能，盡可能降低爽約可能。</li>
+</ul>
+<h2 id="競品分析"><a href="#競品分析" class="headerlink" title="競品分析"></a>競品分析</h2><p>完整的作品須經過市場上現有的競爭品功能差異比較、分析，但是因為時間有限，本次專案不會著墨篇幅於這部分。就以預約平台來說，個人超喜歡現在很多餐廳在 google map 或官網上所提供的 <a target="_blank" rel="noopener" href="https://inline.app/zh/why-inline">inline app</a> 連結，該網站功能很豐富完整、使用者介面卻很簡單明瞭，它可以解決有些店家忙碌無法接聽預約電話的問題；另外也方便顧客在不方便通話時多一個預約的方式選擇(像是會議結束前，想先預訂餐廳的情形等)。</p>
+<p>因為本次專案比較想主打一些有簡易工作室、或使用租借會議空間提供服務的店家與業者這種客群，這些店家普遍都有經營自己的自媒體、官方網站，他們所提供的服務項目可能原本是使用簡易的 google 表單，或者是目前臺灣較常見的 line 官方帳號，但就如同開頭提到的總總問題，我希望這個即將開始進行的網站，可以讓店家們多一個更有系統的預約平台選擇。</p>
+<h2 id="開賽期許"><a href="#開賽期許" class="headerlink" title="開賽期許"></a>開賽期許</h2><p>值得一提的是，我並不會以致敬哪個現有網站為目標、作出和他們一樣強大又全面的功能，而是單純將預約系統獨立出來，希望站在使用者的角度，讓店家和顧客都可以透過這個網站輕鬆快速的預約。</p>
+<ol>
+<li>順利完賽</li>
+<li>學習新技術 firebase</li>
+<li>完成挑戰後，將文章回整至此篇作為目錄</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2023ironman/"># 2023ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <!-- <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div> -->
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/08/05/5%20%E5%88%86%E9%90%98%E5%B0%87%20hexo%20blog%20%E5%AE%8C%E6%88%90%E5%80%8B%E4%BA%BA%E7%B6%B2%E5%9F%9F%E7%B6%81%E5%AE%9A/">5 分鐘將 hexo blog 完成個人網域綁定</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
