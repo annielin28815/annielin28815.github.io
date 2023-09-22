@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day04：side project 必備的 Flow Chart(二) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/image/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day04：side project 必備的 Flow Chart(二)</h1>
+            
+                <div class="post-meta">
+                    <!-- 
+                        Author: Annie
+                     -->
+
+                    
+                        <span class="post-time">
+                        Date: 2023-09-23&nbsp;&nbsp;01:05:31
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%94%A8-React-%E5%92%8C-Firebase-%E6%89%93%E9%80%A0%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4-side-project-%E5%90%A7%EF%BC%81/">用 React 和 Firebase 打造一個完整 side project 吧！</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="針對網站角色將-Flow-Chart-再延伸"><a href="#針對網站角色將-Flow-Chart-再延伸" class="headerlink" title="針對網站角色將 Flow Chart 再延伸"></a>針對網站角色將 Flow Chart 再延伸</h2><p>上一篇文章中有提到，此次專案主要區分兩個角色，本篇將針對「顧客」角色進行 Flow Chart 之分析。</p>
+<h3 id="1-顧客之註冊："><a href="#1-顧客之註冊：" class="headerlink" title="1. 顧客之註冊："></a>1. 顧客之註冊：</h3><p>目前初步規劃是和店家一樣的填寫欄位，只是在角色選擇上當然有所不同。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230919/20140920Rlaey8Eqyl.png" alt="https://ithelp.ithome.com.tw/upload/images/20230919/20140920Rlaey8Eqyl.png"></p>
+<h3 id="2-顧客之登入："><a href="#2-顧客之登入：" class="headerlink" title="2. 顧客之登入："></a>2. 顧客之登入：</h3><p>基本上和註冊所填寫之資料相同。另外也會提供第三方登入功能。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230919/20140920Dtkd5lVmu9.png" alt="https://ithelp.ithome.com.tw/upload/images/20230919/20140920Dtkd5lVmu9.png"></p>
+<h3 id="3-顧客之資料維護："><a href="#3-顧客之資料維護：" class="headerlink" title="3. 顧客之資料維護："></a>3. 顧客之資料維護：</h3><p>我希望顧客在預約時，能夠很方便快速，所以註冊或登入後，並不需要填寫任何資料，因為關於任何聯絡資訊，都是在有預約行程的前提下才顯得重要，所以自然就沒有顧客的資料維護功能了。</p>
+<p>當然，有的人會覺得名字總要填吧？</p>
+<blockquote>
+<p>不，我想在這部分保有個人私心，可以有「代預約」的延伸功能。預約時才需填寫名字與電話驗證，在這樣的設計下，你可以用同一個帳號，代替你的妹妹預約美甲服務；改天，你也可以替自己安排一個護膚行程。只要你預約時，留下當天會去的人的名字和聯絡電話即可。</p>
+</blockquote>
+<h3 id="4-顧客之預約流程："><a href="#4-顧客之預約流程：" class="headerlink" title="4. 顧客之預約流程："></a>4. 顧客之預約流程：</h3><p>接下來是此專案的重頭戲—預約服務的流程，在專案發想時，我就是將店家角色定位在沒有真實或說固定店面的客群，而可供預約的則是時程短、不定價位之小型服務或體驗項目。<br>整個預約流程是建立在顧客有驗證電話號碼的狀況下，才可送出預約表單。試想過後，目前規劃出有以下幾點需要達到的事：</p>
+<ul>
+<li>服務項目的頁面會顯示當月月曆，依據店家提供之資訊，顯示每日是否有可預約之時段。</li>
+<li>顧客按下開始預約時，需先判斷是否已登入。</li>
+<li>已登入的顧客，可以開始進行預約流程。依序進行電話與簡訊驗證，通過時僅視為完成預約的第一階段。</li>
+<li>延續上點，預約第一階段完成的當下，畫面會顯示店家之帳戶資訊，顧客可馬上填寫自己即將匯款之帳戶號碼，以利店家後續審核。</li>
+<li>如果沒有或不方便馬上匯款，也可後續於個人預約紀錄頁面補上回填動作。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230919/20140920toV9orrpwg.png" alt="https://ithelp.ithome.com.tw/upload/images/20230919/20140920toV9orrpwg.png"></li>
+</ul>
+<h3 id="5-顧客之預約紀錄："><a href="#5-顧客之預約紀錄：" class="headerlink" title="5. 顧客之預約紀錄："></a>5. 顧客之預約紀錄：</h3><p>首先，沒有預約紀錄的顧客，是不會看到這頁的連結的。但是因為路由一定會被各位工程師猜想到(咦)，所以當然要在頁面加上判斷處理。<br>那如果是有預約紀錄的顧客，進到這個頁面後，我希望呈現的是簡單的列表，畫面中可看到所有預約行程，包含預約的內容、店家資訊與預約狀態等。如果有尚未付訂金的預約紀錄，也可清楚看到並提供補回填的後續處理。</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20230919/20140920B3rZrmtlKK.png" alt="https://ithelp.ithome.com.tw/upload/images/20230919/20140920B3rZrmtlKK.png"></p>
+<h2 id="以網站功能回推-Flow-Chart-之完整度"><a href="#以網站功能回推-Flow-Chart-之完整度" class="headerlink" title="以網站功能回推 Flow Chart 之完整度"></a>以網站功能回推 Flow Chart 之完整度</h2><p>介紹完預約流程後，回頭想想上一篇中是否沒有介紹到店家怎麼查看現有的預約紀錄呢？因為預約流程要先有啊，今天就補上啦！<br>開頭就如同顧客視角，沒有被預約的紀錄或根本還沒開始提供預約項目，就無法進到這個頁面，如果有(還來啊！)，身為開發者當然還是…請你去別頁。<br>開始有預約紀錄後，預期會可以看到每筆預約的詳細資訊，最重要的當然還是預約狀態，狀態種類後續篇幅會再細說，這邊初步規劃可針對「已付訂金」的預約紀錄做查核動作，由店家查後確認後，手動更改預約狀態。</p>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20230919/20140920sIIzVjleaX.png" alt="https://ithelp.ithome.com.tw/upload/images/20230919/20140920sIIzVjleaX.png"></p>
+<h2 id="結語與延伸閱讀"><a href="#結語與延伸閱讀" class="headerlink" title="結語與延伸閱讀"></a>結語與延伸閱讀</h2><p>以上內容，就是目前這個小小的 project 大致的 Flow Chart 啦，後續開發若有問題或盲點，就可以回頭看這兩篇了。緊接著下一篇就會開始資料欄位與架構的規劃唷，敬請期待！</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2023ironman/"># 2023ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <!-- <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div> -->
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/09/20/Day06%EF%BC%9A%E4%BE%9D%E7%85%A7%20Firebase%20%E6%95%B8%E6%93%9A%E5%BA%AB%E8%A6%8F%E5%8A%83%E5%B0%88%E6%A1%88%E8%B3%87%E6%96%99%E6%AC%84%E4%BD%8D/">Day05：Firebase 服務中的資料架構</a>
+            
+            
+            <a class="next" rel="next" href="/2023/09/18/Day03%EF%BC%9Aside%20project%20%E5%BF%85%E5%82%99%E7%9A%84%20Flow%20Chart(%E4%B8%80)/">Day03：side project 必備的 Flow Chart(一)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

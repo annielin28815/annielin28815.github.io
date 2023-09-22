@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day05：Firebase 服務中的資料架構 | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/image/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day05：Firebase 服務中的資料架構</h1>
+            
+                <div class="post-meta">
+                    <!-- 
+                        Author: Annie
+                     -->
+
+                    
+                        <span class="post-time">
+                        Date: 2023-09-23&nbsp;&nbsp;01:05:31
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%94%A8-React-%E5%92%8C-Firebase-%E6%89%93%E9%80%A0%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4-side-project-%E5%90%A7%EF%BC%81/">用 React 和 Firebase 打造一個完整 side project 吧！</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="NoSQL-在-Firebase-數據庫中是如何應用的？"><a href="#NoSQL-在-Firebase-數據庫中是如何應用的？" class="headerlink" title="NoSQL 在 Firebase 數據庫中是如何應用的？"></a>NoSQL 在 Firebase 數據庫中是如何應用的？</h2><p>在前一篇章節中，我們稍微認識了 NoSQL 這個新朋友，所以現在讓我們回到主軸，探討一下 Firebase 裡是怎麼儲存與管理應用程式的資料吧！</p>
+<p>首先先看看官方拍攝的影片— What is a NoSQL Database?</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=v_hR4K4auoQ"><img src="https://img.youtube.com/vi/v_hR4K4auoQ/0.jpg" alt="Yes"></a></p>
+<h3 id="兩種雲端數據庫的應用選擇"><a href="#兩種雲端數據庫的應用選擇" class="headerlink" title="兩種雲端數據庫的應用選擇"></a>兩種雲端數據庫的應用選擇</h3><p>Firebase 這個 Baas (Backend as a Service) 後端服務平台目前提供兩種基於雲端、用戶端可存取的資料庫解決方案，分別是 Cloud Firestore 和 Realtime Database 供開發者使用。Realtime Database 在中文裡可以理解為即時資料庫(或實時資料庫)，對於需要跨客戶端即時同步狀態的移動應用程序來說，是一種高效能、低延遲的選擇，早期有非常多的 App 開發者就是使用它。</p>
+<p>後來推出的 Cloud Firestore 則是用於移動應用開發的較新型資料庫。它以 Realtime Database 的成功為基礎，採用了新的、更直觀的數據模型，並且比 Realtime Database 擁有更豐富、更快的查詢和可擴展性。</p>
+<p>現在網路資源中已有不少前輩分享過兩者的特性，因為做了不少功課，這邊我也分享簡單的比較表格，供大家認識兩種資料庫的特性。</p>
+<table>
+<thead>
+<tr>
+<th>比較值</th>
+<th>Realtime Database</th>
+<th>Cloud Firestore</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>中文名稱</td>
+<td>即(實)時資料庫</td>
+<td>雲儲藏庫</td>
+</tr>
+<tr>
+<td>數據模型</td>
+<td>一顆很大的 JSON 樹</td>
+<td>相似於 JSON 的文檔集合</td>
+</tr>
+<tr>
+<td>查詢時</td>
+<td>同步數據、基本的查詢</td>
+<td>複雜的排序和過濾功能</td>
+</tr>
+<tr>
+<td>CRUD 時</td>
+<td>基本的寫入和事務操作</td>
+<td>高級(可以運算的意思)寫入和事務操作</td>
+</tr>
+<tr>
+<td>配置區域</td>
+<td>僅限一個區域</td>
+<td>可自動擴展多區域</td>
+</tr>
+<tr>
+<td>安全性</td>
+<td>授權跟驗證分開設定</td>
+<td>結合授權和驗證的規則</td>
+</tr>
+<tr>
+<td>離線支持性能</td>
+<td>Apple and Android clients</td>
+<td>Apple, Android, and web clients</td>
+</tr>
+</tbody></table>
+<p>有趣的是一個專案中可同時使用這兩種雲端資料庫，但它們本身整體資料的架構(數據模型)不一樣，所以資料也不互通，如果有使用 Firebase 開發的需求，可以參考並評估。</p>
+<blockquote>
+<p>其實 Firebase 官方也有一篇文章，特別為不知道如何選擇的開發者做詳細的介紹—<a target="_blank" rel="noopener" href="https://firebase.google.com/docs/database/rtdb-vs-firestore">Choose a Database: Cloud Firestore or Realtime Database</a></p>
+</blockquote>
+<h3 id="就決定是-Cloud-Firestore-了"><a href="#就決定是-Cloud-Firestore-了" class="headerlink" title="就決定是 Cloud Firestore 了"></a>就決定是 Cloud Firestore 了</h3><p>其實乍看之下，很難看出差異點，此專案目前決定選擇使用 Cloud Firestore 來進行規劃與開發，主要是因為以下幾點：</p>
+<ul>
+<li>支援更多資料格式，比如：object, array, geopoint, reference。</li>
+<li>不確定但未來會想使用到稍微複雜的查詢功能</li>
+<li>離線支持性能部分，文件中有提到 Cloud Firestore 較 Realtime Database 多了一個 web 端</li>
+</ul>
+<blockquote>
+<p>之後改變主意也沒關係，這就是 side project 規劃過程中偶而會發生的事情之一。</p>
+</blockquote>
+<h3 id="Cloud-Firestore-運作原理"><a href="#Cloud-Firestore-運作原理" class="headerlink" title="Cloud Firestore 運作原理"></a>Cloud Firestore 運作原理</h3><p>既然決定要使用 Cloud Firestore 數據庫服務，那就來看看它的結構吧！<br>Cloud Firestore 是採用 NoSQL 中的文件資料庫(Document Database)<br>也稱為文件存放區或文件導向資料庫，依據目前官方的介紹，我將整體概念理解後做成下面這張圖：<br><img src="https://ithelp.ithome.com.tw/upload/images/20230921/20140920zTWDBeCl0P.png" alt="https://ithelp.ithome.com.tw/upload/images/20230921/20140920zTWDBeCl0P.png"></p>
+<p>簡單來說 collection (集合)是 document (文件)的容器，在 document (文件)裡，可以存放一組一組成對的 key-value 有序鍵值、陣列或複雜的 object 等 data(資料)，有需要的話，也可以像上圖中第二個 document (文件)塞入 subcollection (子集合)。比較值得注意的是，document (文件)就是 Cloud Firestore 裡的儲存最小單位，如果你把文件刪光，那麼集合就不存在了(會自動刪除的意思)！</p>
+<p>關於它的資料類型，則有 array, boolean, string, map, timestamp, geopoint, reference 等等，再後續開發篇幅會再介紹。</p>
+<blockquote>
+<p>運作原理：<a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/data-model?hl=zh-tw">https://firebase.google.com/docs/firestore/data-model?hl=zh-tw</a><br>資料類型文件：<a target="_blank" rel="noopener" href="https://firebase.google.com/docs/firestore/manage-data/data-types?hl=zh-tw">https://firebase.google.com/docs/firestore/manage-data/data-types?hl=zh-tw</a></p>
+</blockquote>
+<h2 id="side-project-的資料欄位設計"><a href="#side-project-的資料欄位設計" class="headerlink" title="side project 的資料欄位設計"></a>side project 的資料欄位設計</h2><p>大致理解在 Cloud Firestore 的數據庫結構後，合併先前所提到的 side project 功能，可以統整並釋例以下內容：</p>
+<ol>
+<li>會有兩個 collection(集合)，也就是大表格的概念，分別為顧客和店家兩種角色。</li>
+<li>因為 document (文件)的名稱是唯一的，所以可以讓 Cloud Firestore 自動創建隨機 ID 做為唯一識別值。下圖中看到的中間欄位有一串亂碼，就是某一個店家角色的 ID。</li>
+<li>針對店家，會有許多的資料，所以就到了 data (資料)環節，也就是下圖最右側，右下方是基本成對的 key-value 有序鍵值，而店家的服務項目則可以使用 subcollection (子集合)功能去插入額外資料。</li>
+</ol>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20230921/20140920lc9jmwUufE.png" alt="https://ithelp.ithome.com.tw/upload/images/20230921/20140920lc9jmwUufE.png"></p>
+<ol start="4">
+<li>有了 subcollection (子集合)後，就可以再走一次 document (文件)的方式進行資料的新增。以下圖來說明，即是為店家新增一個服務項目，而該服務項目的內容就可以在最右側新增。</li>
+</ol>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20230921/20140920nkRfrISRgp.png" alt="https://ithelp.ithome.com.tw/upload/images/20230921/20140920nkRfrISRgp.png"></p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>整體來說，幾乎可以將 Cloud Firestore 理解為大型的 JSON 文件，所以對於前端工程師來說算是相對好上手的。今天以 Firebase 的 console 面版來講解資料庫規劃，是因為還沒有開始在專案中安裝(對！目前都還在規劃中)，有了這些紀錄，後續在開發使用 Firestore 提供之函式時就會更加清楚了。<br>接下來的章節，則會是實作網頁線稿的部分，預計會以2~3篇之篇幅紀錄此 side project 的線稿如何製作，有興趣的各位可以敬請期待唷！</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2023ironman/"># 2023ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <!-- <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div> -->
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/09/20/Day05%EF%BC%9AFirebase%20%E6%9C%8D%E5%8B%99%E4%B8%AD%E7%9A%84%E8%B3%87%E6%96%99%E6%9E%B6%E6%A7%8B/">Day05：Firebase 服務中的資料架構</a>
+            
+            
+            <a class="next" rel="next" href="/2023/09/19/Day04%EF%BC%9Aside%20project%20%E5%BF%85%E5%82%99%E7%9A%84%20Flow%20Chart(%E4%BA%8C)/">Day04：side project 必備的 Flow Chart(二)</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>

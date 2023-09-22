@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Annie">
+
+
+    <meta name="subtitle" content="Annie coding life">
+
+
+
+
+<title>Day03：side project 必備的 Flow Chart(一) | Annie coding life</title>
+
+
+
+    <link rel="icon" href="/image/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Annie&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Annie&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Day03：side project 必備的 Flow Chart(一)</h1>
+            
+                <div class="post-meta">
+                    <!-- 
+                        Author: Annie
+                     -->
+
+                    
+                        <span class="post-time">
+                        Date: 2023-09-23&nbsp;&nbsp;01:05:31
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%E7%94%A8-React-%E5%92%8C-Firebase-%E6%89%93%E9%80%A0%E4%B8%80%E5%80%8B%E5%AE%8C%E6%95%B4-side-project-%E5%90%A7%EF%BC%81/">用 React 和 Firebase 打造一個完整 side project 吧！</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="一、Flow-Chart-是什麼？"><a href="#一、Flow-Chart-是什麼？" class="headerlink" title="一、Flow Chart 是什麼？"></a>一、Flow Chart 是什麼？</h2><p>流程圖(Flow Chart)是一種圖形化表示流程或過程的工具，通常用來展示一个系统、流程或功能的步驟、決策問題点和過程相關的訊息。在繪製流程圖的過程，通常包含不同的符號、線條和圖框，分別表示各種操作、條件和流程，是一種視覺化之呈現。</p>
+<p>在普遍的習慣中，大部分人會至少遵守以下規則，其他則可以依照團隊或個人習慣稍微微調：</p>
+<p><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*7Ib0MvL-7J5eaLkf737sNw.png" alt="ISO 5807 版之流程常用圖示"></p>
+<blockquote>
+<p>此圖引用自<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-tw/%E6%B5%81%E7%A8%8B%E5%9B%BE">維基百科</a></p>
+</blockquote>
+<h2 id="二、此系列文使用-Draw-io-作為流程圖管理工具"><a href="#二、此系列文使用-Draw-io-作為流程圖管理工具" class="headerlink" title="二、此系列文使用 Draw.io 作為流程圖管理工具"></a>二、此系列文使用 Draw.io 作為流程圖管理工具</h2><p>我使用的是 <a target="_blank" rel="noopener" href="https://drawio-app.com/product/">Draw.io</a> 這套線上工具，它可以協助我將流程圖局部或全頁的輸出，便利與同事和夥伴即時討論，也有線上協作之功能，我覺得無論是個人或團隊開發都相當方便！</p>
+<p>Drawio 有提供很多既定的圖示與顏色或自行設定的樣式，在遵守規範的狀況下，我習慣會將圖框再以顏色去做區分，讓流程圖視覺上更加容易理解，以下是我習慣的示意圖例：</p>
+<ul>
+<li>圓角矩形：代表某項功能的開始、結束符號。</li>
+<li>藍色直角矩形：代表要以頁面呈現。</li>
+<li>綠色菱形：代表決策或條件判斷點。</li>
+<li>箭頭標示：通常與綠色矩形搭配使用，我一定會搭配文字去說明該流程狀態，因為滿常會有條件超出兩種的情形，所以第三種以上皆習慣統一以橘黃色表示。</li>
+<li>平行四邊形：表示輸入或輸出的欄位，我常會把它放在藍色直角矩形(也就是頁面)裡。</li>
+<li>對話框(下圖中左下角)：用來註解必要資訊。</li>
+</ul>
+<p><img src="https://ithelp.ithome.com.tw/upload/images/20230918/20140920okchEOTadz.png" alt="https://ithelp.ithome.com.tw/upload/images/20230918/20140920okchEOTadz.png"></p>
+<h2 id="三、著手規劃-Flow-Chart"><a href="#三、著手規劃-Flow-Chart" class="headerlink" title="三、著手規劃 Flow Chart"></a>三、著手規劃 Flow Chart</h2><p>因為此系列文使用者會有兩個角色，所以我想以角色(或說身份)出發，再以功能細分流程架構。今天就以「店家」這個角色來開始吧！</p>
+<h3 id="1-店家之註冊："><a href="#1-店家之註冊：" class="headerlink" title="1. 店家之註冊："></a>1. 店家之註冊：</h3><p>因為我希望網站使用起來是很便利簡潔的，所以註冊過程無須填寫過多不必要資料，重要資料可在註冊成功後再行填寫。將來也希望是直接以 email 為帳號，免去再記一組帳號密碼的困擾。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230918/20140920H7gZpPej49.png" alt="https://ithelp.ithome.com.tw/upload/images/20230918/20140920H7gZpPej49.png"></p>
+<h3 id="2-店家之登入："><a href="#2-店家之登入：" class="headerlink" title="2. 店家之登入："></a>2. 店家之登入：</h3><p>基本上和註冊所填寫之資料相同。另外也會提供第三方登入功能。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230918/20140920rcNuqGmKdw.png" alt="https://ithelp.ithome.com.tw/upload/images/20230918/20140920rcNuqGmKdw.png"></p>
+<h3 id="3-店家之資料維護："><a href="#3-店家之資料維護：" class="headerlink" title="3. 店家之資料維護："></a>3. 店家之資料維護：</h3><p>既然是主打提供預約服務之系統，店家必定得提供給顧客詳細的店家資訊，像是工作室地址與連絡電話等，所以打上紅色*字符號的就是必填欄位啦！<br>後續要串接的 Firebase 有電話驗證功能，所以在流程上也有考量到，並初步規劃進去，希望店家是在完成電話號碼驗證的狀態，才可新增服務項目供顧客預約。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230918/2014092057mvHBkRjt.png" alt="https://ithelp.ithome.com.tw/upload/images/20230918/2014092057mvHBkRjt.png"></p>
+<h3 id="4-店家之服務項目："><a href="#4-店家之服務項目：" class="headerlink" title="4. 店家之服務項目："></a>4. 店家之服務項目：</h3><p>店家在完成必要資料之填寫後，才可開始提供服務項目，這是保障顧客權益的第一步(至少得讓客人知道要去哪個地方和用什麼方式才能找到你吧)。<br>服務項目是基本的 CRUD，針對服務項目名稱和訂金欄位，目前初估是在新增後即不可再調整變更(總不可能客人前天預約美甲服務，結果因為店家變更就變成護膚療程吧)。有些細節功能，我預計在網站雛型出來後才會慢慢累加上去。<br><img src="https://ithelp.ithome.com.tw/upload/images/20230918/20140920VxybNBqBmO.png" alt="https://ithelp.ithome.com.tw/upload/images/20230918/20140920VxybNBqBmO.png"></p>
+<h2 id="四、結語與延伸閱讀"><a href="#四、結語與延伸閱讀" class="headerlink" title="四、結語與延伸閱讀"></a>四、結語與延伸閱讀</h2><p>其實我認為規劃 Flow Chart 是很不容易的事情，但因為網站架構如果規劃的不完整，後續在開發上會踩到很多坑，所以我想在這次挑戰中也養成這個好習慣，讓每一次的 side project 都可以更加完整，也方便後續在邏輯不清晰時，可以有個回頭檢視的依據。</p>
+<p>如果對如何繪製 Flow Chart 有興趣的話，建議可以從以下資源獲得資訊：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://israynotarray.com/other/20230418/1970361460/">讓我們從頭學習如何畫一個流程圖(Flow Chart)吧！</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yourator.co/articles/242">五步驟拆解 UI 設計流程，詳解 Flow chart 跟 UI flow 的差異</a></li>
+</ul>
+<p>另外對於 Draw.io 這套工具如果想更深入探討，則推薦：</p>
+<ul>
+<li>官方文章(英文)：<a target="_blank" rel="noopener" href="https://drawio-app.com/blog/flowcharts/">How to create flowcharts in draw.io</a></li>
+<li>官方文件(英文)：<a target="_blank" rel="noopener" href="https://www.drawio.com/doc/getting-started-basic-flow-chart">Draw a basic flow chart in draw.io</a></li>
+<li>2022年文章(英文)：<a target="_blank" rel="noopener" href="https://www.mindonmap.com/blog/drawio-flowchart/">Discover the Right Process of the Draw.io in Flowchart Making with Its Best Alternative</a></li>
+<li>系列影片(中文)：<a target="_blank" rel="noopener" href="https://youtu.be/CU0ZhMoXz7k?si=vRWiPWgO-vkUjPak">只會用 Office 畫流程圖？許多人試用過這個後直呼回不去了 👍 | Draw.io 教學</a></li>
+</ul>
+<p>下一篇會分享顧客這個角色的 Flow Chart 唷，敬請期待！</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Annie</span>
+                    </p>
+                
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Programming is learned by writing programs.</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/2023ironman/"># 2023ironman</a>
+                    
+                        
+                </span>
+            </div>
+            <!-- <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div> -->
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2023/09/19/Day04%EF%BC%9Aside%20project%20%E5%BF%85%E5%82%99%E7%9A%84%20Flow%20Chart(%E4%BA%8C)/">Day04：side project 必備的 Flow Chart(二)</a>
+            
+            
+            <a class="next" rel="next" href="/2023/09/17/Day02%EF%BC%9A%E7%94%A8%E6%9C%80%E7%9F%AD%E6%99%82%E9%96%93%E5%AE%8C%E6%88%90%20side%20project%20%E8%A6%8F%E5%8A%83/">Day02：用最短時間完成 side project 規劃</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Annie | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
