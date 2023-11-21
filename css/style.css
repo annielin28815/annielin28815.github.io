@@ -1036,13 +1036,66 @@ header label {
 .post-tags {
   padding: 1rem 0 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
 }
-.post-tags .tag {
-  background: #f5eadc;
-  padding: 2px 12px;
-  border-radius: 8px;
-  border: 1px solid #dc594e;
+.post-tags p.tags-list {
+  margin: 0px 24px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.tags-list span {
+  display: inline-block;
+  position: relative;
+}
+.tags-list span a.tag {
+  display: inline-block;
+  position: relative;
+  height: 16px;
+  padding: 4px 6px;
+  font-size: 16px;
+  font-family: monospace;
+  font-weight: 500;
+  line-height: 16px;
+  color: #fff;
+  background: #b0b0b0;
+  transition: none 0.15s ease-in-out;
+  border-radius: 0px 3px 3px 0px;
+}
+.tags-list span a.tag:hover {
+  text-decoration: none;
+  color: #fff !important;
+  background-color: #f57461 !important;
+}
+.tags-list span a.tag::before {
+  display: inline-block;
+  content: "";
+  border-right: 14px solid #b0b0b0;
+  border-bottom: 12px solid transparent;
+  border-top: 12px solid transparent;
+  top: 0;
+  right: 100%;
+  position: absolute;
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+}
+.tags-list span a.tag::after {
+  z-index: 1;
+  content: "";
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  top: 9px;
+  left: -4px;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  box-sizing: border-box;
+}
+.tags-list span a.tag:hover::before {
+  border-right-color: #f57461;
 }
 .post-nav:before,
 .post-nav:after {
